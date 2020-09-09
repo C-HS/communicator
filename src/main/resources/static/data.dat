@@ -1,0 +1,1 @@
+mosquitto_pub -h localhost -p 1883 -t "test" -m "{\"longitude\":\"26.458225138455003\",\"latitude\":\"80.2483818680048\",\"altitude\":\"24\",\"tagId\":\"9999999999\"}"
