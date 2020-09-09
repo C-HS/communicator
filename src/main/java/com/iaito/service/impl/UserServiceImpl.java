@@ -25,8 +25,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserDTO findUserByUsername(String username) {
-		return modelMapper.map(userRepository.findUserByUsername(username), UserDTO.class);
+	public UserDTO findUserByUserName(String userName) {
+		return modelMapper.map(userRepository.findUserByUserName(userName), UserDTO.class);
 	}
 
 	@Override
@@ -41,12 +41,13 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean userLogin(String username, String password) {
-		User dummyUser = userRepository.findUserByUsername(username);
+		User dummyUser = userRepository.findUserByUserName(username);
 		if(dummyUser.getUserName().equalsIgnoreCase(username) && dummyUser.getPassword().equals(password)) {
 			return true;
 		}else {
 			return false;
 		}
 	}
+
 
 }

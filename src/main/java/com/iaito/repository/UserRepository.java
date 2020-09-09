@@ -7,5 +7,5 @@ import com.iaito.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-	public User findUserByUsername(String username);
+	public User findUserByUserName(String userName);
 }

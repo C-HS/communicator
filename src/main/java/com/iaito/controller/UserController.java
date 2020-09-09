@@ -32,7 +32,7 @@ public class UserController {
 	
 	@GetMapping(value = "/user/{username}", produces = "application/json")
 	public ResponseEntity<UserDTO> getUserByUsername(@PathVariable("username") String username){
-		return ResponseEntity.ok(userService.findUserByUsername(username));
+		return ResponseEntity.ok(userService.findUserByUserName(username));
 	}
 	
 	@GetMapping(value = "/user", consumes = "application/json")

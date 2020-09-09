@@ -4,7 +4,7 @@ function connect() {
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         stompClient.subscribe('/topic/vehicleDeviceInformation', function (vehicleDeviceData) {
-//        	showDeviceInfo(JSON.parse(vehicleDeviceData.body));
+        	showDeviceInfo(JSON.parse(vehicleDeviceData.body));
         	console.log(JSON.parse(vehicleDeviceData.body));
         });
     });
