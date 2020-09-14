@@ -1,0 +1,16 @@
+package com.iaito.service;
+
+import java.util.List;
+
+import com.iaito.dto.MiddlewareMqttConnectionStatusDTO;
+import com.iaito.model.MiddlewareMqttConnectionStatus;
+
+public interface MiddlewareMqttConnectionStatusService {
+
+	public void addMiddlewareMqttConnectionStatus(MiddlewareMqttConnectionStatus middlewareMqttConnectionStatus);
+	public MiddlewareMqttConnectionStatusDTO updateMiddlewareMqttConnectionStatus(MiddlewareMqttConnectionStatus middlewareMqttConnectionStatus);
+	public MiddlewareMqttConnectionStatusDTO getMiddlewareMqttConnectionStatusByID(long middlewareMqttConnectionStatusId);
+	public MiddlewareMqttConnectionStatusDTO getMiddlewareMqttConnectionStatusByMConfigId(long mConfigId);
+	public List<MiddlewareMqttConnectionStatusDTO> getAllMiddlewareMqttConnectionStatus();
+	public void deleteMiddlewareMqttConnectionStatus(MiddlewareMqttConnectionStatus middlewareMqttConnectionStatus);
+}

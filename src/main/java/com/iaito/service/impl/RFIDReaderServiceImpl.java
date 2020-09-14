@@ -5,12 +5,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.iaito.dto.RFIDReaderDTO;
 import com.iaito.model.RFIDReader;
 import com.iaito.repository.RFIDReaderRepository;
 import com.iaito.service.RFIDReaderService;
 
+@Service
 public class RFIDReaderServiceImpl implements RFIDReaderService{
 	
 	@Autowired RFIDReaderRepository rfidReaderRepository;
