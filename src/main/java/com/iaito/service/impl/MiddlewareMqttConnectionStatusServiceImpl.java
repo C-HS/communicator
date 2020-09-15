@@ -1,6 +1,7 @@
 package com.iaito.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,8 @@ public class MiddlewareMqttConnectionStatusServiceImpl implements MiddlewareMqtt
 
 	@Override
 	public void addMiddlewareMqttConnectionStatus(MiddlewareMqttConnectionStatus middlewareMqttConnectionStatus) {
-		// TODO Auto-generated method stub
+
+		repository.save(middlewareMqttConnectionStatus);
 		
 	}
 
@@ -33,25 +35,30 @@ public class MiddlewareMqttConnectionStatusServiceImpl implements MiddlewareMqtt
 	@Override
 	public MiddlewareMqttConnectionStatusDTO getMiddlewareMqttConnectionStatusByID(
 			long middlewareMqttConnectionStatusId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return modelMapper.map(repository.findById(middlewareMqttConnectionStatusId), MiddlewareMqttConnectionStatusDTO.class);
 	}
 
 	@Override
 	public MiddlewareMqttConnectionStatusDTO getMiddlewareMqttConnectionStatusByMConfigId(long mConfigId) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return modelMapper.map(repository.findMiddlewareMqttConnectionStatusByMConfigId(mConfigId), MiddlewareMqttConnectionStatusDTO.class);
 	}
 
 	@Override
 	public List<MiddlewareMqttConnectionStatusDTO> getAllMiddlewareMqttConnectionStatus() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return repository
+				.findAll()
+				.stream()
+				.map(e -> modelMapper.map(e, MiddlewareMqttConnectionStatusDTO.class))
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public void deleteMiddlewareMqttConnectionStatus(MiddlewareMqttConnectionStatus middlewareMqttConnectionStatus) {
-		// TODO Auto-generated method stub
+
+		repository.delete(middlewareMqttConnectionStatus);
 		
 	}
 

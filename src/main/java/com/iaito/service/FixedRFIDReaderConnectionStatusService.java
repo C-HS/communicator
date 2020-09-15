@@ -1,0 +1,16 @@
+package com.iaito.service;
+
+import java.util.List;
+
+import com.iaito.dto.FixedRFIDReaderConnectionStatusDTO;
+import com.iaito.model.FixedRFIDReaderConnectionStatus;
+
+public interface FixedRFIDReaderConnectionStatusService {
+
+	public void addFixedRFIDReaderConnectionStatus(FixedRFIDReaderConnectionStatus fixedRFIDReaderConnectionStatus);
+	public FixedRFIDReaderConnectionStatusDTO updateFixedRFIDReaderConnectionStatus(FixedRFIDReaderConnectionStatus fixedRFIDReaderConnectionStatus);
+	public FixedRFIDReaderConnectionStatusDTO getFixedRFIDReaderConnectionStatusByID(long statusId);
+	public FixedRFIDReaderConnectionStatusDTO getFixedRFIDReaderConnectionStatusByReaderId(long readerId);
+	public List<FixedRFIDReaderConnectionStatusDTO> getAllFixedRFIDReaderConnectionStatus();
+	public void deleteFixedRFIDReaderConnectionStatus(FixedRFIDReaderConnectionStatus fixedRFIDReaderConnectionStatus);
+}

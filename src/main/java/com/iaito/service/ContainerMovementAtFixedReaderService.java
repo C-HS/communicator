@@ -1,0 +1,18 @@
+package com.iaito.service;
+
+import java.util.List;
+
+import com.iaito.dto.ContainerMovementAtFixedReaderDTO;
+import com.iaito.model.ContainerMovementAtFixedReader;
+
+public interface ContainerMovementAtFixedReaderService {
+
+	public void addContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
+	public ContainerMovementAtFixedReaderDTO updateContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
+	public ContainerMovementAtFixedReaderDTO getContainerMovementAtFixedReaderByID(long movementId);
+	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByReaderID(long readerId);
+	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByTID(String tid);
+	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByContainerID(long containerId);
+	public List<ContainerMovementAtFixedReaderDTO> getAllContainerMovementAtFixedReader();
+	public void deleteContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
+}
