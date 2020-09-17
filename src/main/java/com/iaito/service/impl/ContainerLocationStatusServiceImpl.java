@@ -68,21 +68,20 @@ public class ContainerLocationStatusServiceImpl implements ContainerLocationStat
 				.collect(Collectors.toList());
 	}
 
-	@Override
-	public List<ContainerLocationStatusDTO> getContainerLocationStatusByReaderID(long readerId) {
-
-		return repository
-				.findByReaderId(readerId)
-				.stream()
-				.map(e -> modelMapper.map(e, ContainerLocationStatusDTO.class))
-				.collect(Collectors.toList());
-	}
+	/*
+	 * @Override public List<ContainerLocationStatusDTO>
+	 * getContainerLocationStatusByReaderID(long readerId) {
+	 * 
+	 * return repository .findByReaderId(readerId) .stream() .map(e ->
+	 * modelMapper.map(e, ContainerLocationStatusDTO.class))
+	 * .collect(Collectors.toList()); }
+	 */
 
 	@Override
 	public List<ContainerLocationStatusDTO> getContainerLocationStatusByTID(String tid) {
 		
 		return repository
-				.findByTID(tid)
+				.findByTid(tid)
 				.stream()
 				.map(e -> modelMapper.map(e, ContainerLocationStatusDTO.class))
 				.collect(Collectors.toList());
@@ -114,5 +113,7 @@ public class ContainerLocationStatusServiceImpl implements ContainerLocationStat
 		repository.delete(containerLocationStatus);
 		
 	}
+
+
 
 }

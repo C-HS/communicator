@@ -34,7 +34,7 @@ public class ReaderLocation {
 	@Column(name = "reader_location_name")
 	private String readerLocationName;
 	
-	@Column(name = "date/-created")
+	@Column(name = "date_created")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCreated;
 	

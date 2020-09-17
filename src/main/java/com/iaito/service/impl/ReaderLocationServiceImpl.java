@@ -40,7 +40,7 @@ public class ReaderLocationServiceImpl implements ReaderLocationService{
 	@Override
 	public ReaderLocationDTO getReaderLocationByName(String readerLocationName) {
 
-		return modelMapper.map(readerLocationRepository.findReaderLocationByName(readerLocationName), ReaderLocationDTO.class);
+		return modelMapper.map(readerLocationRepository.findReaderLocationByReaderLocationName(readerLocationName), ReaderLocationDTO.class);
 	}
 
 	@Override

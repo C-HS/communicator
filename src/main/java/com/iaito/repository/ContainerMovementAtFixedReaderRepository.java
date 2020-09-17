@@ -12,7 +12,7 @@ public interface ContainerMovementAtFixedReaderRepository extends JpaRepository<
 
 	public List<ContainerMovementAtFixedReader> findByReaderId(long readerId);
 	
-	public List<ContainerMovementAtFixedReader> findByTID(String tid);
+	public List<ContainerMovementAtFixedReader> findByTid(String tid);
 	
 	public List<ContainerMovementAtFixedReader> findByContainerId(long containerId);
 }

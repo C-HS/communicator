@@ -42,7 +42,7 @@ public class MiddlewareMqttConnectionStatusServiceImpl implements MiddlewareMqtt
 	@Override
 	public MiddlewareMqttConnectionStatusDTO getMiddlewareMqttConnectionStatusByMConfigId(long mConfigId) {
 
-		return modelMapper.map(repository.findMiddlewareMqttConnectionStatusByMConfigId(mConfigId), MiddlewareMqttConnectionStatusDTO.class);
+		return modelMapper.map(repository.findBymConfigId(mConfigId), MiddlewareMqttConnectionStatusDTO.class);
 	}
 
 	@Override

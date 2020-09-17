@@ -9,6 +9,6 @@ import com.iaito.model.RFIDTag;
 @Repository
 public interface RFIDTagRepository extends JpaRepository<RFIDTag, String> {
 
-	public RFIDTag findRFIDTagByEPC(String epc);
+	public RFIDTag findByEpc(String epc);
 	
 }

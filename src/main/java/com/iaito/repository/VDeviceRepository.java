@@ -8,6 +8,6 @@ import com.iaito.model.VDevice;
 @Repository
 public interface VDeviceRepository  extends JpaRepository<VDevice, Long> {
 	
-	public VDevice findVDeviceByVDeviceNumber(String vehicleDeviceNumber);
+	public VDevice findByVehicleDeviceNumber(String vehicleDeviceNumber);
 
 }

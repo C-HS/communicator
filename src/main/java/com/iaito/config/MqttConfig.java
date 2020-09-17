@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.iaito.model.VehicleDevice;
 
-@Configuration
+/*@Configuration*/
 public class MqttConfig {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MqttConfig.class);
 	private static final String CHANNEL_NAME_IN = "mqttInboundChannel";

@@ -33,7 +33,7 @@ public class ContainerServiceImpl implements ContainerService {
 	@Override
 	public ContainerDTO getContainerByTID(String tid) {
 
-		return modelMapper.map(containerRepository.findContainerByTID(tid), ContainerDTO.class);
+		return modelMapper.map(containerRepository.findContainerByTid(tid), ContainerDTO.class);
 	}
 
 	@Override
