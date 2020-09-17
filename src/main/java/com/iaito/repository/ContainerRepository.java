@@ -9,5 +9,5 @@ import com.iaito.model.RFIDTag;
 @Repository
 public interface ContainerRepository extends JpaRepository<Container, Long> {
 
-	public RFIDTag findContainerByTID(String tid);
+	public Container findContainerByTid(String tid);
 }

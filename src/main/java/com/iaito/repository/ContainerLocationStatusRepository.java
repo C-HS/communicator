@@ -16,9 +16,9 @@ public interface ContainerLocationStatusRepository extends JpaRepository<Contain
 	
 	public List<ContainerLocationStatus> findByAreaId(long areaId);
 	
-	public List<ContainerLocationStatus> findByReaderId(long readerId);
+	/* public List<ContainerLocationStatus> findByReaderId(long readerId); */
 	
-	public List<ContainerLocationStatus> findByTID(String tid);
+	public List<ContainerLocationStatus> findByTid(String tid);
 	
 	public List<ContainerLocationStatus> findByContainerId(long containerId);
 }

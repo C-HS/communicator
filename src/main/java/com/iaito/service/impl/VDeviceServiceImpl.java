@@ -42,7 +42,7 @@ public class VDeviceServiceImpl implements VDeviceService{
 	@Override
 	public VDeviceDTO getVDeviceByVDeviceNumber(String vehicleDeviceNo) {
 
-		return modelMapper.map(vDeviceRepository.findVDeviceByVDeviceNumber(vehicleDeviceNo), VDeviceDTO.class);
+		return modelMapper.map(vDeviceRepository.findByVehicleDeviceNumber(vehicleDeviceNo), VDeviceDTO.class);
 	}
 
 	@Override

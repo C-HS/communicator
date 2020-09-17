@@ -9,5 +9,5 @@ import com.iaito.model.Vehicle;
 @Repository
 public interface ReaderLocationRepository  extends JpaRepository<ReaderLocation, Long> {
 
-	public Vehicle findReaderLocationByName(String readerLocationName);
+	public Vehicle findReaderLocationByReaderLocationName(String readerLocationName);
 }

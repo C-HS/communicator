@@ -9,5 +9,5 @@ import com.iaito.model.Vehicle;
 @Repository
 public interface ContainerBlockRepository extends JpaRepository<ContainerBlock, Long> {
 
-	public Vehicle findContainerBlockByName(String containerBlockName);
+	public Vehicle findByBlockName(String containerBlockName);
 }

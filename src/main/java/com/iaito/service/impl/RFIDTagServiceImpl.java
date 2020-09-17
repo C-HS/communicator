@@ -56,7 +56,7 @@ public class RFIDTagServiceImpl implements RFIDTagService{
 	@Override
 	public RFIDTagDTO getRFIDTagByEPC(String epc) {
 
-		return modelMapper.map(rfidTagRepository.findRFIDTagByEPC(epc), RFIDTagDTO.class);
+		return modelMapper.map(rfidTagRepository.findByEpc(epc), RFIDTagDTO.class);
 	}
 
 }

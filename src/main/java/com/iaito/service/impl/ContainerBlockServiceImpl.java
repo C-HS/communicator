@@ -40,7 +40,7 @@ public class ContainerBlockServiceImpl implements ContainerBlockService{
 	@Override
 	public ContainerBlockDTO getContainerBlockByName(String blockName) {
 
-		return modelMapper.map(containerBlockRepository.findContainerBlockByName(blockName), ContainerBlockDTO.class);
+		return modelMapper.map(containerBlockRepository.findByBlockName(blockName), ContainerBlockDTO.class);
 	}
 
 	@Override

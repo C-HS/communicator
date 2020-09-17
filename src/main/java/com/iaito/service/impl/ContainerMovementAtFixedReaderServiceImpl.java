@@ -51,7 +51,7 @@ public class ContainerMovementAtFixedReaderServiceImpl implements ContainerMovem
 	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByTID(String tid) {
 
 		return repository
-				.findByTID(tid)
+				.findByTid(tid)
 				.stream()
 				.map(e -> modelMapper.map(e, ContainerMovementAtFixedReaderDTO.class))
 				.collect(Collectors.toList());
