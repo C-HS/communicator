@@ -4,8 +4,7 @@
 	<title>GeoJSON tutorial - Leaflet</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet"
-		  href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
 		  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 		  crossorigin="" />
 	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -13,10 +12,10 @@
 			crossorigin="">
 	</script>
 	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script type="text/javascript"
-			src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
 	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+	<script src="/sample-geojson.js" type="text/javascript"></script>
 	<!-- <script src="/app.js"></script> -->
 	<style>
 		html, body {
@@ -51,7 +50,6 @@
 		<option value="sat">Satellite</option>
 	</select>
 </div>
-<script src="sample-geojson.js" type="text/javascript"></script>
 <script>
 	var stompClient = null;
 	var satUrl = 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}';
