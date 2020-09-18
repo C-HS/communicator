@@ -16,4 +16,10 @@ public class HomeController {
         modelAndView.setViewName("home");
         return modelAndView;
     }
+    @GetMapping("/dashboard")
+    public ModelAndView dashboard() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("dashboard");
+        return modelAndView;
+    }
 }
