@@ -10,10 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-    @GetMapping({"/","/home"})
+    @GetMapping({"/","/mapview"})
     public ModelAndView hello() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("home");
+        modelAndView.setViewName("mapview");
         return modelAndView;
     }
     @GetMapping("/dashboard")
