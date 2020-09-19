@@ -15,37 +15,85 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="dashboard">
         <span class="menu-title">Dashboard</span>
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-        <span class="menu-title">Basic UI Elements</span>
+      <a class="nav-link" data-toggle="collapse" href="#ui-asset" aria-expanded="false" aria-controls="ui-basic">
+        <span class="menu-title">Asset</span>
         <i class="menu-arrow"></i>
         <i class="mdi mdi-crosshairs-gps menu-icon"></i>
       </a>
-      <div class="collapse" id="ui-basic">
+      <div class="collapse" id="ui-asset">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+          <li class="nav-item"> <a class="nav-link" href="rfidTag">RFID Tag</a></li>
+          <li class="nav-item"> <a class="nav-link" href="container">Container</a></li>
+          <li class="nav-item"> <a class="nav-link" href="vehicleDevice">Vehicle Device</a></li>
+          <li class="nav-item"> <a class="nav-link" href="vehicle">Vehicle</a></li>
+          <li class="nav-item"> <a class="nav-link" href="rfidReader">Fixed RFID Reader</a></li>
+          <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
         </ul>
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/icons/mdi.html">
-        <span class="menu-title">Icons</span>
+      <a class="nav-link" data-toggle="collapse" href="#ui-confoguration" aria-expanded="false" aria-controls="ui-basic">
+        <span class="menu-title">Configuration</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-confoguration">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="middlewareConfig">Middleware Config</a></li>
+          <li class="nav-item"> <a class="nav-link" href="baseStationConfig">Base Station Config</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-yard" aria-expanded="false" aria-controls="ui-basic">
+        <span class="menu-title">Yard</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-yard">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="rfidReaderLocation">Fixed Reader Location</a></li>
+          <li class="nav-item"> <a class="nav-link" href="containerBlock">Container Block</a></li>
+          <li class="nav-item"> <a class="nav-link" href="containerArea">Container Area</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-connectionStatus" aria-expanded="false" aria-controls="ui-basic">
+        <span class="menu-title">Connection Status</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-chart-bar menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-connectionStatus">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="liveStatus">Live Status</a></li>
+          <li class="nav-item"> <a class="nav-link" href="middewareStatus">Middleware</a></li>
+          <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
+          <li class="nav-item"> <a class="nav-link" href="baseStation">Fixed RFID Reader</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="userl">
+        <span class="menu-title">User</span>
         <i class="mdi mdi-contacts menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="pages/forms/basic_elements.html">
-        <span class="menu-title">Forms</span>
+      <a class="nav-link" href="movemetAtFixedReader">
+        <span class="menu-title">Movement</span>
         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item">
+
+
+<!--     <li class="nav-item">
       <a class="nav-link" href="pages/charts/chartjs.html">
         <span class="menu-title">Charts</span>
         <i class="mdi mdi-chart-bar menu-icon"></i>
@@ -56,7 +104,7 @@
         <span class="menu-title">Tables</span>
         <i class="mdi mdi-table-large menu-icon"></i>
       </a>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" href="/mapview" >
         <span class="menu-title">Map</span>
