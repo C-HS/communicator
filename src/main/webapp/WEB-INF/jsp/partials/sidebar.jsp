@@ -24,7 +24,7 @@
       <a class="nav-link" data-toggle="collapse" href="#ui-asset" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Asset</span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+        <i class="mdi mdi-dropbox menu-icon"></i>
       </a>
       <div class="collapse" id="ui-asset">
         <ul class="nav flex-column sub-menu">
@@ -41,7 +41,7 @@
       <a class="nav-link" data-toggle="collapse" href="#ui-confoguration" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Configuration</span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+        <i class="mdi mdi-settings menu-icon"></i>
       </a>
       <div class="collapse" id="ui-confoguration">
         <ul class="nav flex-column sub-menu">
@@ -54,7 +54,7 @@
       <a class="nav-link" data-toggle="collapse" href="#ui-yard" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Yard</span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+        <i class="mdi mdi-vector-square menu-icon"></i>
       </a>
       <div class="collapse" id="ui-yard">
         <ul class="nav flex-column sub-menu">
@@ -68,7 +68,7 @@
       <a class="nav-link" data-toggle="collapse" href="#ui-connectionStatus" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Connection Status</span>
         <i class="menu-arrow"></i>
-        <i class="mdi mdi-chart-bar menu-icon"></i>
+        <i class="mdi mdi-wifi menu-icon"></i>
       </a>
       <div class="collapse" id="ui-connectionStatus">
         <ul class="nav flex-column sub-menu">
@@ -82,13 +82,13 @@
     <li class="nav-item">
       <a class="nav-link" href="userl">
         <span class="menu-title">User</span>
-        <i class="mdi mdi-contacts menu-icon"></i>
+        <i class="mdi mdi-account menu-icon"></i>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="movemetAtFixedReader">
         <span class="menu-title">Movement</span>
-        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+        <i class="mdi mdi-cursor-move menu-icon"></i>
       </a>
     </li>
 
