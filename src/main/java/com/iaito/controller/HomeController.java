@@ -20,4 +20,10 @@ public class HomeController {
         modelAndView.setViewName("dashboard");
         return modelAndView;
     }
+    @GetMapping("/login")
+    public ModelAndView login() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login");
+        return modelAndView;
+    }
 }
