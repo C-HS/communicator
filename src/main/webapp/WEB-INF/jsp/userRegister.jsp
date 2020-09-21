@@ -17,7 +17,7 @@
             <div class="row flex-grow">
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-light text-left p-5">
-                        <h6 class="font-weight-light text-center">Sign up here/h6>
+                        <h6 class="font-weight-light text-center">Sign up here</h6>
                         <form class="pt-3">
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
