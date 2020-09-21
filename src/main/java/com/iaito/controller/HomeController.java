@@ -26,4 +26,10 @@ public class HomeController {
         modelAndView.setViewName("login");
         return modelAndView;
     }
+    @GetMapping("/register")
+    public ModelAndView userRegister() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("userRegister");
+        return modelAndView;
+    }
 }
