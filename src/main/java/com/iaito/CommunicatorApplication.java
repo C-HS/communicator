@@ -25,6 +25,8 @@ public class CommunicatorApplication {
 		return args -> {
 			userRepository.save(
 					new User(
+							"Zafar",
+							"Parvez",
 							"nomey",
 							"$2y$10$eyY1JSkj5vIRO9Iy/2RYy.LtBTk63QaTSutHRbuRZugk9fAEJ4ZrS",
 							new HashSet<Authority>(

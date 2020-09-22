@@ -55,7 +55,7 @@ public class UserPrinciple implements UserDetails {
         return true;
     }
 
-    public User getUser(){
+    public User getUserDetails() {
         return user;
     }
 }

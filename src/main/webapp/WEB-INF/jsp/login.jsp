@@ -1,4 +1,6 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +21,12 @@
                     <div class="auth-form-light text-left p-5">
                         <h6 class="font-weight-bold text-center ">Sign in to continue.</h6>
                         <form class="pt-3" action="doLogin" method="post">
+                            <c:if test="${not empty error}">
+                                <div class="badge-danger text-center">
+                                    <p> Invalid Credentials!!</p>
+                                    <br/>
+                                </div>
+                            </c:if>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-lg"
                                        name="username" id="exampleInputEmail1" placeholder="Username">
