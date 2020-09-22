@@ -17,19 +17,18 @@
             <div class="row flex-grow">
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-light text-left p-5">
-<%--                        <div class="brand-logo">--%>
-<%--                            <img src="assets/images/logo.svg">--%>
-<%--                        </div>--%>
                         <h6 class="font-weight-bold text-center ">Sign in to continue.</h6>
-                        <form class="pt-3">
+                        <form class="pt-3" action="doLogin" method="post">
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                                <input type="text" class="form-control form-control-lg"
+                                       name="username" id="exampleInputEmail1" placeholder="Username">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" class="form-control form-control-lg"
+                                       name="password" id="exampleInputPassword1" placeholder="Password">
                             </div>
                             <div class="mt-3">
-                                <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="#">SIGN IN</a>
+                                <input class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit" value="Login">
                             </div>
                             <div class="text-center mt-4 font-weight-light"> Don't have an account? <a href="/register" class="text-primary">Create</a>
                             </div>
