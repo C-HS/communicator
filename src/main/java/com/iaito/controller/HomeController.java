@@ -27,24 +27,19 @@ public class HomeController {
         return modelAndView;
     }
     @GetMapping({"/","/dashboard"})
-    public ModelAndView dashboard() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("dashboard");
-        return modelAndView;
+    public String dashboard() {
+        return "dashboard";
     }
     @GetMapping("/login")
     public String login(HttpSession httpSession) {
         if(httpSession != null && httpSession.getAttribute("userId") != null){
             return "dashboard";
-//            log.info("Session is not null... YET {}", httpSession.getAttribute("userId"));
         }
         return "login";
     }
     @GetMapping("/register")
-    public ModelAndView userRegister() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("userRegister");
-        return modelAndView;
+    public String userRegister() {
+        return "userRegister";
     }
 
     @PostMapping("/postLogin")
@@ -62,7 +57,7 @@ public class HomeController {
     public String loginError(Model model){
         log.info("Login attempt failed!!");
         model.addAttribute("error", "true");
-        return "/login";
+        return "login";
     }
     @GetMapping("/logout")
     public String logout(SessionStatus sessionStatus){
