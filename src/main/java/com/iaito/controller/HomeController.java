@@ -27,8 +27,12 @@ public class HomeController {
         return modelAndView;
     }
     @GetMapping({"/","/dashboard"})
-    public String dashboard() {
-        return "dashboard";
+    public String dashboard(HttpSession httpSession) {
+        if(httpSession != null && httpSession.getAttribute("userId") != null){
+            return "dashboard";
+        }else{
+            return "login";
+        }
     }
     @GetMapping("/login")
     public String login(HttpSession httpSession) {
