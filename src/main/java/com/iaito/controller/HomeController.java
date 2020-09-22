@@ -33,10 +33,12 @@ public class HomeController {
         return modelAndView;
     }
     @GetMapping("/login")
-    public ModelAndView login() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
+    public String login(HttpSession httpSession) {
+        if(httpSession != null && httpSession.getAttribute("userId") != null){
+            return "dashboard";
+//            log.info("Session is not null... YET {}", httpSession.getAttribute("userId"));
+        }
+        return "login";
     }
     @GetMapping("/register")
     public ModelAndView userRegister() {
