@@ -43,6 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests().antMatchers("/mapview").hasAnyRole("ADMIN", "USER")
                 .and()
+                .authorizeRequests().antMatchers("/container_registration").hasAnyRole("ADMIN", "USER")
+                .and()
                 .authorizeRequests().antMatchers("/login", "/resource/**").permitAll()
                 .and()
                 .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
