@@ -6,7 +6,6 @@ import com.iaito.model.UserPrinciple;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +47,6 @@ public class HomeController {
 
     @PostMapping("/postLogin")
     public String postLogin(Model model, HttpSession httpSession){
-       log.info("postLogin()");
         UsernamePasswordAuthenticationToken authentication =
                 (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
         ValidatePrinciple(authentication.getPrincipal());
@@ -59,7 +57,6 @@ public class HomeController {
     }
     @GetMapping("/loginFailed")
     public String loginError(Model model){
-        log.info("Login attempt failed!!");
         model.addAttribute("error", "true");
         return "login";
     }

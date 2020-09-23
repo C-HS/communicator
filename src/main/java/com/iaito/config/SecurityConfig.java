@@ -15,14 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-/*    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("nomey")
-                .password("nomey")
-                .roles("ADMIN");
-    }*/
     @Bean
     public UserDetailsService userDetailsService(){
         return new UserDetailsServiceImpl();
@@ -59,6 +51,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .failureUrl("/loginFailed")
                 .and()
                 .csrf().disable();
-
     }
 }
