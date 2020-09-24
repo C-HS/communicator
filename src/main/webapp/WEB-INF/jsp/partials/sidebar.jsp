@@ -37,7 +37,7 @@
       <div class="collapse" id="ui-asset">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="rfidTag">RFID Tag</a></li>
-          <li class="nav-item"> <a class="nav-link" href="/containerRegistration">Container</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/listContainer">Container</a></li>
           <li class="nav-item"> <a class="nav-link" href="vehicleDevice">Vehicle Device</a></li>
           <li class="nav-item"> <a class="nav-link" href="vehicle">Vehicle</a></li>
           <li class="nav-item"> <a class="nav-link" href="rfidReader">Fixed RFID Reader</a></li>

@@ -18,4 +18,8 @@ public class ConainterController {
     public String registerContainer(){
         return "container_registration";
     }
+    @GetMapping("/listContainer")
+    public String listContainer(){
+        return "container_list";
+    }
 }
