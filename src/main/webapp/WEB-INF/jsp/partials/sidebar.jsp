@@ -28,7 +28,7 @@
         <i class="mdi mdi-home menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" id="asset-Link">
       <a class="nav-link" data-toggle="collapse" href="#ui-asset" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Asset</span>
         <i class="menu-arrow"></i>
@@ -38,9 +38,9 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="rfidTag">RFID Tag</a></li>
           <li class="nav-item"> <a class="nav-link" href="/listContainer">Container</a></li>
-          <li class="nav-item"> <a class="nav-link" href="vehicleDevice">Vehicle Device</a></li>
+          <li class="nav-item"> <a id="vdLink" class="nav-link" href="vehicleDevice">Vehicle Device</a></li>
           <li class="nav-item"> <a class="nav-link" href="vehicle">Vehicle</a></li>
-          <li class="nav-item"> <a class="nav-link" href="rfidReader">Fixed RFID Reader</a></li>
+          <li class="nav-item"> <a id="rfidLink" class="nav-link" href="rfidReader">Fixed RFID Reader</a></li>
           <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
         </ul>
       </div>
@@ -58,7 +58,7 @@
         </ul>
       </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" id="yard-Link">
       <a class="nav-link" data-toggle="collapse" href="#ui-yard" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Yard</span>
         <i class="menu-arrow"></i>
@@ -66,7 +66,7 @@
       </a>
       <div class="collapse" id="ui-yard">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="rfidReaderLocation">Fixed Reader Location</a></li>
+          <li class="nav-item"> <a id="rfidLocationLink" class="nav-link" href="RFIDReaderLocation">Fixed Reader Location</a></li>
           <li class="nav-item"> <a class="nav-link" href="containerBlock">Container Block</a></li>
           <li class="nav-item"> <a class="nav-link" href="containerArea">Container Area</a></li>
         </ul>

@@ -29,13 +29,21 @@
             <div class="content-wrapper">
                
                     <div class="page-header">
-                        <h3 class="page-title"> RFID Tags </h3>
+                        <h3 class="page-title">Vehicle Device</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Asset</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">RFID Tags</li>
+                                <li class="breadcrumb-item active" aria-current="page">Vehicle Device</li>
                             </ol>
                         </nav>
+
+                       <!--  <nav aria-label="breadcrumb" role="navigation">
+                          <ol class="breadcrumb breadcrumb-custom bg-inverse-info">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Library</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>Data</span></li>
+                          </ol>
+                        </nav> -->
                     </div>
 
                     <div class="row">
@@ -43,39 +51,62 @@
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                               <div class="card-body">
-                                <h4 class="card-title">Tags Attached To Container</h4>
-                               <!--  <p class="card-description"> Add class <code>.table</code> -->
-                                </p>
-                                <table id="assigned_tag_table" class="table table-hover table-bordered">
+                                <div class="row">
+                                  <div class="col-lg-11">
+                                      <h4 class="card-title">Devices</h4>
+                                      <!-- <p class="card-description"> List</p> -->
+                                  </div>
+                                  <div class="col-lg-1">
+                                      <a href="/vehicleDeviceAddPage">
+                                        <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
+                                          <i class="mdi mdi-plus-outline"></i>
+                                        </button>
+                                  </a>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                &nbsp;
+                            </div>
+                                <table id="vehicle_device_table" class="table table-hover table-bordered">
                                   <thead>
                                     <tr>
                                       <th>SNo</th>
-                                      <th>TID</th>
-                                      <th>EPC</th>
+                                      <th>Device Id</th>
+                                      <th>Device Number</th>
                                       <th>Register Date</th>
+                                      <th>Attached To Vehicle</th>
                                       <th>Attach Date</th>
+                                      <th>Status</th>
                                       <th>Action</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
                                       <td>1</td>
-                                      <td>53275531</td>
-                                      <td>CCCCCCCCC</td>
+                                      <td><a href="vehicleDeviceViewPage">100</a></td>
+                                      <td>VD001</td>
                                       <td>24-09-2020</td>
+                                      <td><label class="badge badge-success">Attached</label></td>
                                       <td>24-09-2020</td>
+                                      <td><label class="badge badge-info">Ready</label></td>
                                       <td>
-                                            <i class="mdi mdi-delete"></i>
+                                          <i class="mdi mdi-table-edit"></i>
+                                           &nbsp;&nbsp;
+                                          <i class="mdi mdi-delete"></i>
                                      </td>
                                     </tr>
                                     <tr>
                                       <td>2</td>
-                                      <td>53275532</td>
-                                      <td>DDDDDDDDD</td>
+                                      <td><a href="vehicleDeviceViewPage">101</a></td>
+                                      <td>VD002</td>
                                       <td>15-09-2020</td>
-                                      <td>18-09-2020</td>
+                                      <td><label class="badge badge-danger">Not Attached</label></td>
+                                      <td></td>
+                                      <td><label class="badge badge-info">Ready</label></td>
                                       <td >
-                                        <i class="mdi mdi-delete"></i>
+                                        <i class="mdi mdi-table-edit"></i>
+                                           &nbsp;&nbsp;
+                                          <i class="mdi mdi-delete"></i>
                                     </td>
                                     </tr>
                                   </tbody>
@@ -83,51 +114,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="col-lg-12 grid-margin stretch-card">
-                            <div class="card">
-                              <div class="card-body">
-                                <h4 class="card-title">Free Tags</h4>
-                                <!-- <p class="card-description"> Add class <code>.table-hover</code>
-                                </p> -->
-                                <table id="un_assigned_tag_table" class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                          <th>SNo</th>
-                                          <th>TID</th>
-                                          <th>EPC</th>
-                                          <th>Register Date</th>
-                                          <th>Action</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <td>1</td>
-                                          <td>53275530</td>
-                                          <td>AAAAAAAA</td>
-                                          <td>24-09-2020</td>
-                                          <td >
-                                            <i class="mdi mdi-delete"></i>
-                                        </td>
-                                        </tr>
-                                        <tr>
-                                          <td>2</td>
-                                          <td>53275531</td>
-                                          <td>BBBBBBBBB</td>
-                                          <td>15-09-2020</td>
-                                          <td>
-
-                                            <i class="mdi mdi-delete"></i>
-                                           <!--  <i class="btn btn-outline-primary mdi mdi-delete"></i> -->
-
-                                           <!-- <button class="btn btn-outline-primary mdi mdi-delete">View</button> -->
-                                        </td>
-                                        </tr>
-                                      </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-
+                          
                     </div>
 
                 
@@ -163,10 +150,12 @@
     <!-- <script src="assets/js/data-table.js"></script> -->
 
     <script>
+
+
             (function($) {
             'use strict';
             $(function() {
-                $('#assigned_tag_table').DataTable({
+                $('#vehicle_device_table').DataTable({
                 "aLengthMenu": [
                     [5, 10, 15, -1],
                     [5, 10, 15, "All"]
@@ -176,28 +165,7 @@
                     search: ""
                 }
                 });
-                $('#assigned_tag_table').each(function() {
-                var datatable = $(this);
-                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.removeClass('form-control-sm');
-                // LENGTH - Inline-Form control
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.removeClass('form-control-sm');
-                });
-
-                $('#un_assigned_tag_table').DataTable({
-                "aLengthMenu": [
-                    [5, 10, 15, -1],
-                    [5, 10, 15, "All"]
-                ],
-                "iDisplayLength": 10,
-                "language": {
-                    search: ""
-                }
-                });
-                $('#un_assigned_tag_table').each(function() {
+                $('#vehicle_device_table').each(function() {
                 var datatable = $(this);
                 // SEARCH - Add the placeholder for Search and Turn this into in-line form control
                 var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
