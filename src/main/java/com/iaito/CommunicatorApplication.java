@@ -31,8 +31,8 @@ public class CommunicatorApplication {
 							"$2y$10$eyY1JSkj5vIRO9Iy/2RYy.LtBTk63QaTSutHRbuRZugk9fAEJ4ZrS",
 							new HashSet<Authority>(
 									Arrays.asList(
-											new Authority(AuthorityType.ROLE_USER),
-											new Authority(AuthorityType.ROLE_ADMIN)
+											new Authority(AuthorityType.ROLE_USER)
+//											new Authority(AuthorityType.ROLE_ADMIN)
 									)
 							)
 					)

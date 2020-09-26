@@ -3,11 +3,14 @@ package com.iaito.config;
 import com.iaito.service.impl.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -38,22 +41,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http
-                .authorizeRequests().antMatchers("/dashboard").hasAnyRole("ADMIN", "USER")
+                .authorizeRequests()
+                    .antMatchers("/login").permitAll()
+                    .antMatchers(HttpMethod.GET,
+                            "/",
+                            "/*.html",
+                            "/favicon.ico",
+                            "/**/*.html",
+                            "/**/*.css",
+                            "/**/*.js").permitAll()
+                    .antMatchers("/dashboard").hasRole("ADMIN")
+                    .antMatchers("/mapview").hasRole("ADMIN")
+                    .antMatchers("/container_*").hasAnyRole("ADMIN", "USER")
+                    .anyRequest().authenticated()
                 .and()
-                .authorizeRequests().antMatchers("/mapview").hasAnyRole("ADMIN", "USER")
-                .and()
-                .authorizeRequests().antMatchers("/container_registration").hasAnyRole("ADMIN", "USER")
-                .and()
-                .authorizeRequests().antMatchers("/container_list").hasAnyRole("ADMIN", "USER")
-                .and()
-                .authorizeRequests().antMatchers("/login", "/resource/**").permitAll()
-                .and()
-                .formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password").permitAll()
+                .formLogin()
+                    .loginPage("/login")
+                        .usernameParameter("username").passwordParameter("password").permitAll()
                     .loginProcessingUrl("/doLogin")
                     .successForwardUrl("/postLogin")
                     .failureUrl("/loginFailed")
                 .and()
-                .csrf().disable();
+                    .logout()
+                    .logoutUrl("/logout")
+                    .permitAll();
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resource/**","/static/**", "/webjars/**",  "/css/**");
     }
 }
