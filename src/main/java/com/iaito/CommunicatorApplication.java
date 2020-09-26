@@ -23,19 +23,32 @@ public class CommunicatorApplication {
 	@Bean
 	CommandLineRunner initDatabase(UserRepository userRepository){
 		return args -> {
-			userRepository.save(
+			userRepository.saveAll(
+					Arrays.asList(
 					new User(
 							"Zafar",
 							"Parvez",
 							"nomey",
-							"$2y$10$eyY1JSkj5vIRO9Iy/2RYy.LtBTk63QaTSutHRbuRZugk9fAEJ4ZrS",
+							"$2y$10$eyY1JSkj5vIRO9Iy/2RYy.LtBTk63QaTSutHRbuRZugk9fAEJ4ZrS", //nomey
+							new HashSet<Authority>(
+									Arrays.asList(
+											new Authority(AuthorityType.ROLE_USER),
+											new Authority(AuthorityType.ROLE_ADMIN)
+									)
+							)
+					),
+					new User(
+							"Faisal",
+							"Habib",
+							"habib",
+							"$2y$10$hjtDkOjj2AfAtLFnGd7tYu7pq5Ga1yhlXvavdNFIKQxtbf8wYq8KS",  //habib
 							new HashSet<Authority>(
 									Arrays.asList(
 											new Authority(AuthorityType.ROLE_USER)
-//											new Authority(AuthorityType.ROLE_ADMIN)
 									)
 							)
 					)
+				)
 			);
 		};
 	}

@@ -71,5 +71,9 @@ public class HomeController {
             throw new IllegalArgumentException("Principle can't be null");
         }
     }
+    @GetMapping("/accessDenied")
+    public String noAccess(){
+        return "accessDenied";
+    }
 
 }

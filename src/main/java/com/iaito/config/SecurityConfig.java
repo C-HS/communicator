@@ -55,7 +55,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/dashboard").hasRole("ADMIN")
                     .antMatchers("/mapview").hasRole("ADMIN")
                     .antMatchers("/container_*").hasAnyRole("ADMIN", "USER")
+                    .antMatchers("/rfid*").hasRole("ADMIN")
+                    .antMatchers("/vehicleDevice*").hasAnyRole("ADMIN", "USER")
                     .anyRequest().authenticated()
+
                 .and()
                 .formLogin()
                     .loginPage("/login")
@@ -66,7 +69,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .logout()
                     .logoutUrl("/logout")
-                    .permitAll();
+                    .permitAll()
+                .and()
+                    .exceptionHandling()
+                    .accessDeniedPage("/accessDenied");
     }
 
     @Override
