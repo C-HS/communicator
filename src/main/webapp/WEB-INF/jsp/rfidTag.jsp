@@ -46,7 +46,7 @@
                                 <h4 class="card-title">Tags Attached To Container</h4>
                                <!--  <p class="card-description"> Add class <code>.table</code> -->
                                 </p>
-                                <table id="assigned_tag_table" class="table table-hover table-bordered">
+                                <table id="assigned_tag_table" class="table table-hover  table-responsive-lg table-bordered">
                                   <thead>
                                     <tr>
                                       <th>SNo</th>
@@ -89,7 +89,7 @@
                                 <h4 class="card-title">Free Tags</h4>
                                 <!-- <p class="card-description"> Add class <code>.table-hover</code>
                                 </p> -->
-                                <table id="un_assigned_tag_table" class="table table-hover table-bordered">
+                                <table id="un_assigned_tag_table" class="table table-hover  table-responsive-lg table-bordered">
                                     <thead>
                                         <tr>
                                           <th>SNo</th>

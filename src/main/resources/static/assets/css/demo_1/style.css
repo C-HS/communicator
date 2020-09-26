@@ -14606,6 +14606,10 @@ dl {
 /* Pagination */
 .pagination, .jsgrid .jsgrid-pager {
   overflow-x: scroll; }
+
+/*  .jsgrid .jsgrid-pager {
+    overflow-x: scroll; }*/
+
   .pagination .page-item .page-link, .jsgrid .jsgrid-pager .page-item .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-page .page-link, .jsgrid .jsgrid-pager .jsgrid-pager-nav-button a,
   .jsgrid .jsgrid-pager .jsgrid-pager-page a {
     border-color: #ebedf2;

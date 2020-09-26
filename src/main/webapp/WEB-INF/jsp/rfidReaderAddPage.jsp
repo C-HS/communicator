@@ -29,122 +29,55 @@
             <div class="content-wrapper">
                
                     <div class="page-header">
-                        <h3 class="page-title">FIXED RFID Readers</h3>
+                      <h3 class="page-title">FIXED RFID Readers</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Asset</a></li>
-                                <li class="breadcrumb-item"><a href="#">FIXED RFID Readers</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">View</li>
+                              <li class="breadcrumb-item"><a href="#">Asset</a></li>
+                              <li class="breadcrumb-item"><a href="#">FIXED RFID Readers</a></li>
+                              <li class="breadcrumb-item active" aria-current="page">Add Reader</li>
                             </ol>
                         </nav>
                     </div>
 
                     <div class="row">
 
-                      <div class="col-md-6 grid-margin stretch-card">
+                      <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Reader ID : 001</h4>
+                            <h4 class="card-title">New RFID Reader</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
-                            
-                              <div class="row">
-                                <label class="col-sm-4">Reader IP</label>
-                                <div class="col-sm-8">
-                                  192.168.2.253
+                            <form class="forms-sample">
+                              <div class="form-group row">
+                                <label for="readerIP" class="col-sm-2 col-form-label">Reader IP</label>
+                                <div class="col-sm-4">
+                                  <input type="text" class="form-control" id="readerIP" placeholder="Reader IP">
                                 </div>
-                              </div>
-                              <div class="row">
-                                <label class="col-sm-4">Reader Port</label>
-                                <div class="col-sm-8">
-                                  8451
-                                </div>
-                               
-                              </div>
-                               <div class="row">
-                                <label class="col-sm-4">Location Mapped</label>
-                                <div class="col-sm-8">
-                                  Main Gate
-                                </div>
-                              </div>
-                              
-                              <div class="row">
-                                <label class="col-sm-4">Reader Type</label>
-                                <div class="col-sm-8">
-                                  Motorola
+
+                                <label for="readerPort" class="col-sm-2 col-form-label">Reader Port</label>
+                                <div class="col-sm-4">
+                                  <input type="text" class="form-control" id="readerPort" placeholder="Reader Port">
                                 </div>
                                </div>
 
-                               <div class="row">
-                                <label class="col-sm-4">Rigister Date</label>
-                                <div class="col-sm-8">
-                                  24-09-2020
-                                </div>
-                               </div>
-
-                               <div class="row">
-                                <label class="col-sm-4">Description</label>
-                                <div class="col-sm-8">
-                                  Reader
-                                </div>
-                               </div>
-
-                               <div class="row">
-                                <label class="col-sm-4">Status</label>
-                                <div class="col-sm-8">
-                                  Ready
+                               <div class="form-group row">
+                                <label for="desc" class="col-sm-2 col-form-label">Description</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="desc" placeholder="Description">
                                 </div>
                                </div>
                             
-                            
-                              <a href="rfidReaderEditPage">
-                                <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
+                              <button type="submit" class="btn btn-gradient-primary btn-sm mr-2">Submit</button>
+
+                              <a href="#">
+                                <input class="btn btn-light btn-sm" type="button" value="Cancel"/>
                               </a>
                                 
                                
-                         
+                            </form>
                             
                           </div>
                         </div>
                       </div>
-                   
-                      <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Reader Added To Middleware Status</h4>
-
-                              <div class="row">
-                                <label class="col-sm-4">Status</label>
-                                <div class="col-sm-8">
-                                 Added
-                                </div>
-                               </div>
-
-                               <div class="row">
-                                <label class="col-sm-4">Reference ID</label>
-                                <div class="col-sm-8">
-                                  Moto_1
-                                </div>
-                               </div>
-
-                               <div class="row">
-                                <label class="col-sm-4">Date</label>
-                                <div class="col-sm-8">
-                                  24-09-2020
-                                </div>
-                              </div>
-
-                              <a href="#">
-                                <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Update"/> 
-                              </a>
-
-                              <a href="#">
-                                <input class="btn btn-gradient-light btn-icon-text btn-sm" type="button" value="Remove"/> 
-                              </a>
-
-                          </div>
-                        </div>
-                      </div>
-                   
                     </div>
 
                 
@@ -182,7 +115,7 @@
     <script>
 
            
-     $('#asset-Link').addClass("active");
+$('#asset-Link').addClass("active");
      $('#ui-asset').addClass("show");
      $('#rfidLink').addClass("active");
 

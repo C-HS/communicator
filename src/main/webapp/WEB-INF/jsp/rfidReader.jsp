@@ -57,7 +57,7 @@
                                     <!-- <p class="card-description"> List</p> -->
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="/vehicleDeviceAddPage">
+                                    <a href="/rfidReaderAddPage">
                                       <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
                                         <i class="mdi mdi-plus-outline"></i>
                                       </button>
@@ -67,7 +67,7 @@
                             <div class="row">
                               &nbsp;
                           </div>
-                              <table id="rfidReader_table" class="table table-hover table-bordered">
+                              <table id="rfidReader_table" class="table table-hover  table-responsive-lg table-bordered">
                                 <thead>
                                   <tr>
                                     <th>SNo</th>

@@ -20,5 +20,10 @@ public class RFIDReaderController {
     public String rfidReaderViewPage(){
         return "rfidReaderViewPage";
     }
+    
+    @GetMapping("/rfidReaderAddPage")
+    public String rfidReaderAddPage(){
+        return "rfidReaderAddPage";
+    }
 
 }
