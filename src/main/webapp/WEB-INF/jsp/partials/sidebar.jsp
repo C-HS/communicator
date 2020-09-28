@@ -44,9 +44,9 @@
           <li class="nav-item"> <a class="nav-link" href="rfidTag">RFID Tag</a></li>
           <li class="nav-item"> <a class="nav-link" href="/listContainer">Container</a></li>
           <li class="nav-item"> <a id="vdLink" class="nav-link" href="vehicleDevice">Vehicle Device</a></li>
-          <li class="nav-item"> <a class="nav-link" href="vehicle">Vehicle</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/vehicleList">Vehicle</a></li>
           <li class="nav-item"> <a id="rfidLink" class="nav-link" href="rfidReader">Fixed RFID Reader</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
+          <li class="nav-item"> <a class="nav-link" href="/listBaseStation">Base Station</a></li>
         </ul>
       </div>
     </li>
@@ -59,7 +59,7 @@
       <div class="collapse" id="ui-confoguration">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="middlewareConfig">Middleware Config</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStationConfig">Base Station Config</a></li>
+          <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station Config</a></li>
         </ul>
       </div>
     </li>
@@ -93,10 +93,16 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="userl">
+      <a class="nav-link" data-toggle="collapse" href="#ui-users" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">User</span>
+        <i class="menu-arrow"></i>
         <i class="mdi mdi-account menu-icon"></i>
       </a>
+      <div class="collapse" id="ui-users">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="#">Users</a></li>
+        </ul>
+      </div>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="movemetAtFixedReader">
@@ -104,20 +110,6 @@
         <i class="mdi mdi-cursor-move menu-icon"></i>
       </a>
     </li>
-
-
-<!--     <li class="nav-item">
-      <a class="nav-link" href="pages/charts/chartjs.html">
-        <span class="menu-title">Charts</span>
-        <i class="mdi mdi-chart-bar menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="pages/tables/basic-table.html">
-        <span class="menu-title">Tables</span>
-        <i class="mdi mdi-table-large menu-icon"></i>
-      </a>
-    </li> -->
     <li class="nav-item">
       <a class="nav-link" href="/mapview" >
         <span class="menu-title">Map</span>
