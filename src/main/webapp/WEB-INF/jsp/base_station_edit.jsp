@@ -19,11 +19,12 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="page-header">
-                    <h3 class="page-title"> Container Registraion </h3>
+                    <h3 class="page-title"> Base Station Registraion </h3>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Assets</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Container Registration</li>
+                            <li class="breadcrumb-item" aria-current="page">Base Station</li>
+                            <li class="breadcrumb-item active" aria-current="page">Register New</li>
                         </ol>
                     </nav>
                 </div>
@@ -31,13 +32,13 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Container Registration</h4>
+                                <h4 class="card-title">Base Station Registration</h4>
                                 <form class="form-sample">
                                     <p class="card-description"> Information </p>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container No.</label>
+                                                <label class="col-sm-5 col-form-label">MQTT Topic</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control">
                                                 </div>
@@ -45,25 +46,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container Type</label>
-                                                <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container Info</label>
-                                                <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Tag ID</label>
+                                                <label class="col-sm-5 col-form-label">MQTT Client ID</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control">
                                                 </div>
@@ -73,46 +56,40 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Registrations Date</label>
+                                                <label class="col-sm-5 col-form-label">MQTT Host</label>
                                                 <div class="col-sm-7">
-                                                    <input class="form-control" type="date" placeholder="dd/mm/yyyy">
+                                                    <input type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">Tagging Status</label>
+                                                <label class="col-sm-5 col-form-label">Date Created</label>
+                                                <div class="col-sm-7">
+                                                    <input type="date" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group row">
+                                                <label class="col-sm-4 col-form-label">Status</label>
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked=""> Tagged <i class="input-helper"></i></label>
+                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked=""> Started <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> UnTagged <i class="input-helper"></i></label>
+                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Stopped <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Tagging Date</label>
-                                                <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Status</label>
-                                                <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">

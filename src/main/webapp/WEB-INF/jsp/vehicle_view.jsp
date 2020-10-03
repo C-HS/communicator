@@ -19,11 +19,12 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="page-header">
-                    <h3 class="page-title"> Container Registraion </h3>
+                    <h3 class="page-title"> Vehicle Registraion </h3>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Assets</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Container Registration</li>
+                            <li class="breadcrumb-item" aria-current="page">Vehicle</li>
+                            <li class="breadcrumb-item active" aria-current="page">Registration New</li>
                         </ol>
                     </nav>
                 </div>
@@ -31,13 +32,13 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Container Registration</h4>
+                                <h4 class="card-title">Vehicle Registration</h4>
                                 <form class="form-sample">
                                     <p class="card-description"> Information </p>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container No.</label>
+                                                <label class="col-sm-5 col-form-label">Vehicle No.</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control">
                                                 </div>
@@ -45,7 +46,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container Type</label>
+                                                <label class="col-sm-5 col-form-label">Vehicle Type</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control">
                                                 </div>
@@ -55,7 +56,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container Info</label>
+                                                <label class="col-sm-5 col-form-label">Vehicle Info</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control">
                                                 </div>
@@ -63,7 +64,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Tag ID</label>
+                                                <label class="col-sm-5 col-form-label">Vehicle Device ID</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control">
                                                 </div>
@@ -75,23 +76,23 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Registrations Date</label>
                                                 <div class="col-sm-7">
-                                                    <input class="form-control" type="date" placeholder="dd/mm/yyyy">
+                                                    <input class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">Tagging Status</label>
+                                                <label class="col-sm-4 col-form-label">Mounting Status</label>
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked=""> Tagged <i class="input-helper"></i></label>
+                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked=""> Mounted <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> UnTagged <i class="input-helper"></i></label>
+                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Un-Mounted <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,7 +101,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Tagging Date</label>
+                                                <label class="col-sm-5 col-form-label">Mounting Date</label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control">
                                                 </div>

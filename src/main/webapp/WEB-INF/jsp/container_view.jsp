@@ -75,7 +75,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Registrations Date</label>
                                                 <div class="col-sm-7">
-                                                    <input class="form-control" type="date" placeholder="dd/mm/yyyy">
+                                                    <input class="form-control" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </div>
                                         </div>

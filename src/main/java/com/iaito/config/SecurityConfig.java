@@ -57,6 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/container_*").hasAnyRole("ADMIN", "USER")
                     .antMatchers("/rfid*").hasRole("ADMIN")
                     .antMatchers("/vehicleDevice*").hasAnyRole("ADMIN", "USER")
+                    .antMatchers("/vehicle_*").hasAnyRole("ADMIN", "USER")
                     .anyRequest().authenticated()
 
                 .and()
