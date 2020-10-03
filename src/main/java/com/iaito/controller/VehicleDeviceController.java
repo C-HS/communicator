@@ -11,19 +11,19 @@ public class VehicleDeviceController {
 
 	@Autowired VDeviceService vehicleDeviceService;
 	
-    @GetMapping("/vehicleDevice")
+    @GetMapping("/vehicledevice_list")
     public String getAllVehicleDevices(){
-        return "vehicleDevice";
+        return "vehicledevice_list";
     }
 	
     
-    @GetMapping("/vehicleDeviceAddPage")
+    @GetMapping("/vehicledevice_registration")
     public String vehicleDeviceAddPage(){
-        return "vehicleDeviceAddPage";
+        return "vehicledevice_registration";
     }
     
-    @GetMapping("/vehicleDeviceViewPage")
+    @GetMapping("/vehicledevice_view")
     public String vehicleDeviceViewPage(){
-        return "vehicleDeviceViewPage";
+        return "vehicledevice_view";
     }
 }

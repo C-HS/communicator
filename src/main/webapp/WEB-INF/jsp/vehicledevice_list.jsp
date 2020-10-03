@@ -29,11 +29,11 @@
             <div class="content-wrapper">
                
                     <div class="page-header">
-                        <h3 class="page-title">Middleware Configuration</h3>
+                        <h3 class="page-title">Vehicle Device</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Configuration</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Middleware Config</li>
+                                <li class="breadcrumb-item"><a href="#">Asset</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Vehicle Device</li>
                             </ol>
                         </nav>
 
@@ -48,57 +48,74 @@
 
                     <div class="row">
 
-                      <div class="col-lg-12 grid-margin stretch-card">
-                          <div class="card">
-                            <div class="card-body">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-lg-11">
+                                      <h4 class="card-title">Devices</h4>
+                                      <!-- <p class="card-description"> List</p> -->
+                                  </div>
+                                  <div class="col-lg-1">
+                                      <a href="/vehicledevice_registration">
+                                        <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
+                                          <i class="mdi mdi-plus-outline"></i>
+                                        </button>
+                                  </a>
+                                  </div>
+                              </div>
                               <div class="row">
-                                <div class="col-lg-11">
-                                    <h4 class="card-title">Middleware Config</h4>
-                                    <!-- <p class="card-description"> List</p> -->
-                                </div>
-                                <div class="col-lg-1">
-                                    <a href="/middlewareConfigAddPage">
-                                      <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
-                                        <i class="mdi mdi-plus-outline"></i>
-                                      </button>
-                                </a>
-                                </div>
+                                &nbsp;
                             </div>
-                            <div class="row">
-                              &nbsp;
+                                <table id="vehicle_device_table" class="table table-hover  table-responsive-lg table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th>SNo</th>
+                                      <th>Device Id</th>
+                                      <th>Device Number</th>
+                                      <th>Register Date</th>
+                                      <th>Attached To Vehicle</th>
+                                      <th>Attach Date</th>
+                                      <th>Status</th>
+                                      <th>Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>1</td>
+                                      <td><a href="vehicledevice_view">100</a></td>
+                                      <td>VD001</td>
+                                      <td>24-09-2020</td>
+                                      <td><label class="badge badge-success">Attached</label></td>
+                                      <td>24-09-2020</td>
+                                      <td><label class="badge badge-info">Ready</label></td>
+                                      <td>
+                                          <i class="mdi mdi-table-edit"></i>
+                                           &nbsp;&nbsp;
+                                          <i class="mdi mdi-delete"></i>
+                                     </td>
+                                    </tr>
+                                    <tr>
+                                      <td>2</td>
+                                      <td><a href="vehicledevice_view">101</a></td>
+                                      <td>VD002</td>
+                                      <td>15-09-2020</td>
+                                      <td><label class="badge badge-danger">Not Attached</label></td>
+                                      <td></td>
+                                      <td><label class="badge badge-info">Ready</label></td>
+                                      <td >
+                                        <i class="mdi mdi-table-edit"></i>
+                                           &nbsp;&nbsp;
+                                          <i class="mdi mdi-delete"></i>
+                                    </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
                           </div>
-                            
                           
-                              <table id="rfidReader_table" class="table table-hover  table-responsive-lg table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th>SNo</th>
-                                    <th>ID</th>
-                                    <th>Notification Topic</th>
-                                    <th>Service IP Port</th>
-                                    <th>MQTT Client ID</th>
-                                    <th>MQTT Host</th>
-                                    <th>Status</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>1</td>
-                                    <td><a href="rfidReaderViewPage">001</a></td>
-                                    <td>notification</td>
-                                    <td>192.168.0.251:8111</td>
-                                    <td>mqttMWClient1</td>
-                                    <td>192.168.0.251:1883</td>
-                                    <td><label class="badge badge-info">Active</label></td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                               
-                            </div>
-                          </div>
-                        </div>
-                        
-                  </div>
+                    </div>
 
                 
             </div>
@@ -138,7 +155,7 @@
             (function($) {
             'use strict';
             $(function() {
-                $('#rfidReader_table').DataTable({
+                $('#vehicle_device_table').DataTable({
                 "aLengthMenu": [
                     [5, 10, 15, -1],
                     [5, 10, 15, "All"]
@@ -148,18 +165,15 @@
                     search: ""
                 }
                 });
-                $('#rfidReader_table').each(function() {
+                $('#vehicle_device_table').each(function() {
                 var datatable = $(this);
-
-                datatable.scrollLeft('overflow-x','auto')
                 // SEARCH - Add the placeholder for Search and Turn this into in-line form control
                 var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
                 search_input.attr('placeholder', 'Search');
-               // search_input.removeClass('form-control-sm');
+                search_input.removeClass('form-control-sm');
                 // LENGTH - Inline-Form control
                 var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-              //  length_sel.removeClass('form-control-sm');
-             
+                length_sel.removeClass('form-control-sm');
                 });
             });
             })(jQuery);

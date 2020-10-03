@@ -96,7 +96,7 @@
                                </div>
                             
                             
-                              <a href="rfidReaderEditPage">
+                              <a href="rfidreader_edit">
                                 <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
                               </a>
                                 

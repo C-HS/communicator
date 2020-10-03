@@ -11,19 +11,19 @@ public class RFIDReaderController {
 	
 	@Autowired RFIDReaderService rfidReaderService;
 	
-    @GetMapping("/rfidReader")
+    @GetMapping("/rfidreader_list")
     public String getAllrfidReaders(){
-        return "rfidReader";
+        return "rfidreader_list";
     }
     
-    @GetMapping("/rfidReaderViewPage")
+    @GetMapping("/rfidreader_view")
     public String rfidReaderViewPage(){
-        return "rfidReaderViewPage";
+        return "rfidreader_view";
     }
     
-    @GetMapping("/rfidReaderAddPage")
+    @GetMapping("/rfidreader_registration")
     public String rfidReaderAddPage(){
-        return "rfidReaderAddPage";
+        return "rfidreader_registration";
     }
 
 }

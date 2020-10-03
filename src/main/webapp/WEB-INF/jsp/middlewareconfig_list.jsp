@@ -29,11 +29,11 @@
             <div class="content-wrapper">
                
                     <div class="page-header">
-                        <h3 class="page-title">FIXED RFID Readers</h3>
+                        <h3 class="page-title">Middleware Configuration</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Asset</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">RFID Readers</li>
+                                <li class="breadcrumb-item"><a href="#">Configuration</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Middleware Config</li>
                             </ol>
                         </nav>
 
@@ -53,11 +53,11 @@
                             <div class="card-body">
                               <div class="row">
                                 <div class="col-lg-11">
-                                    <h4 class="card-title">RFID Readers</h4>
+                                    <h4 class="card-title">Middleware Config</h4>
                                     <!-- <p class="card-description"> List</p> -->
                                 </div>
                                 <div class="col-lg-1">
-                                    <a href="/rfidReaderAddPage">
+                                    <a href="/middlewareconfig_registration">
                                       <button type="button" class="btn btn-gradient-primary btn-rounded btn-icon">
                                         <i class="mdi mdi-plus-outline"></i>
                                       </button>
@@ -67,48 +67,33 @@
                             <div class="row">
                               &nbsp;
                           </div>
+                            
+                          
                               <table id="rfidReader_table" class="table table-hover  table-responsive-lg table-bordered">
                                 <thead>
                                   <tr>
                                     <th>SNo</th>
-                                    <th>Reader ID</th>
-                                    <th>IP</th>
-                                    <th>Port</th>
-                                    <th>Location Mapped</th>
-                                    <th>Middleware Status</th>
-                                    <th>Reference ID</th>
+                                    <th>ID</th>
+                                    <th>Notification Topic</th>
+                                    <th>Service IP Port</th>
+                                    <th>MQTT Client ID</th>
+                                    <th>MQTT Host</th>
                                     <th>Status</th>
-                                    
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
                                     <td>1</td>
-                                    <td><a href="rfidReaderViewPage">001</a></td>
-                                    <td>192.168.2.253</td>
-                                    <td>8451</td>
-                                    <td>Main Gate</td>
-                                    
-                                    <td><label class="badge badge-dark">Added</label></td>
-                                    <td>Moto_1</td>
-                                    <td><label class="badge badge-info">Ready</label></td>
-                                    
-                                  </tr>
-                                  <tr>
-                                    <td>2</td>
-                                    <td><a href="rfidReaderViewPage">002</a></td>
-                                    <td>192.168.2.250</td>
-                                    <td>8451</td>
-                                   
-                                    <td></td>
-                                    
-                                    <td><label class="badge badge-light" style="color:black">Not Added</label></td>
-                                    <td></td>
-                                    <td><label class="badge badge-info">Ready</label></td>
-                                    
+                                    <td><a href="middlewareconfig_view">001</a></td>
+                                    <td>notification</td>
+                                    <td>192.168.0.251:8111</td>
+                                    <td>mqttMWClient1</td>
+                                    <td>192.168.0.251:1883</td>
+                                    <td><label class="badge badge-info">Active</label></td>
                                   </tr>
                                 </tbody>
                               </table>
+                               
                             </div>
                           </div>
                         </div>
@@ -165,13 +150,16 @@
                 });
                 $('#rfidReader_table').each(function() {
                 var datatable = $(this);
+
+                datatable.scrollLeft('overflow-x','auto')
                 // SEARCH - Add the placeholder for Search and Turn this into in-line form control
                 var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
                 search_input.attr('placeholder', 'Search');
-                search_input.removeClass('form-control-sm');
+               // search_input.removeClass('form-control-sm');
                 // LENGTH - Inline-Form control
                 var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.removeClass('form-control-sm');
+              //  length_sel.removeClass('form-control-sm');
+             
                 });
             });
             })(jQuery);

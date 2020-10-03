@@ -11,9 +11,9 @@ public class RFIDTagController {
 	
 	@Autowired RFIDTagService rfidTagService;
 	
-    @GetMapping("/rfidTag")
+    @GetMapping("/rfidtag_list")
     public String getAllRFIDTags(){
-        return "rfidTag";
+        return "rfidtag_list";
     }
 
 }
