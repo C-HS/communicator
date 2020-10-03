@@ -43,17 +43,10 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="rfidtag_list">RFID Tag</a></li>
           <li class="nav-item"> <a class="nav-link" href="/listContainer">Container</a></li>
-<<<<<<< HEAD
           <li class="nav-item"> <a id="vdLink" class="nav-link" href="vehicledevice_list">Vehicle Device</a></li>
           <li class="nav-item"> <a class="nav-link" href="vehicle">Vehicle</a></li>
           <li class="nav-item"> <a id="rfidLink" class="nav-link" href="rfidreader_list">Fixed RFID Reader</a></li>
           <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
-=======
-          <li class="nav-item"> <a id="vdLink" class="nav-link" href="vehicleDevice">Vehicle Device</a></li>
-          <li class="nav-item"> <a class="nav-link" href="/vehicleList">Vehicle</a></li>
-          <li class="nav-item"> <a id="rfidLink" class="nav-link" href="rfidReader">Fixed RFID Reader</a></li>
-          <li class="nav-item"> <a class="nav-link" href="/listBaseStation">Base Station</a></li>
->>>>>>> dd905824aa2728a0827313cffde4b3023ea22b82
         </ul>
       </div>
     </li>
@@ -65,13 +58,10 @@
       </a>
       <div class="collapse" id="ui-confoguration">
         <ul class="nav flex-column sub-menu">
-<<<<<<< HEAD
           <li class="nav-item"> <a class="nav-link" id="middlewareconfigLink" href="middlewareconfig_list">Middleware Config</a></li>
           <li class="nav-item"> <a class="nav-link" id="basestationconfigLink" href="basestationconfig_list">Base Station Config</a></li>
-=======
           <li class="nav-item"> <a class="nav-link" href="middlewareConfig">Middleware Config</a></li>
           <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station Config</a></li>
->>>>>>> dd905824aa2728a0827313cffde4b3023ea22b82
         </ul>
       </div>
     </li>
