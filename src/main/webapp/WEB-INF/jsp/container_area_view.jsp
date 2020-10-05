@@ -29,11 +29,11 @@
             <div class="content-wrapper">
                
                     <div class="page-header">
-                        <h3 class="page-title">Container Block</h3>
+                        <h3 class="page-title">Container Area</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Asset</a></li>
-                                <li class="breadcrumb-item"><a href="#">Container Block</a></li>
+                                <li class="breadcrumb-item"><a href="#">Container Area</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">View</li>
                             </ol>
                         </nav>
@@ -44,19 +44,19 @@
                       <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Block ID : 25</h4>
+                            <h4 class="card-title">Area ID : 10</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
                             
                               <div class="row">
-                                <label class="col-sm-4">Block Name</label>
+                                <label class="col-sm-4">Area Name</label>
                                 <div class="col-sm-8">
-                                  Left Block
+                                  A1
                                 </div>
                               </div>
                               <div class="row">
-                                <label class="col-sm-4">Description</label>
+                                <label class="col-sm-4">Block</label>
                                 <div class="col-sm-8">
-                                  Left
+                                  Left Block
                                 </div>
                                
                               </div>
@@ -73,9 +73,34 @@
                                   Ready
                                 </div>
                                </div>
+
+                               <div class="row">
+                                <label class="col-sm-4">Lat - Long 1</label>
+                                <div class="col-sm-8">
+                                  12466.20, 1244.054
+                                </div>
+                               </div>
+                               <div class="row">
+                                <label class="col-sm-4">Lat - Long 2</label>
+                                <div class="col-sm-8">
+                                  12472.20, 1244.125
+                                </div>
+                               </div>
+                               <div class="row">
+                                <label class="col-sm-4">Lat - Long 3</label>
+                                <div class="col-sm-8">
+                                  12471.70, 1243.142
+                                </div>
+                               </div>
+                               <div class="row">
+                                <label class="col-sm-4">Lat - Long 4</label>
+                                <div class="col-sm-8">
+                                  12472.50, 1244.152
+                                </div>
+                               </div>
                             
                             
-                              <a href="editContainerBlock">
+                              <a href="editContainerArea">
                                 <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
                               </a>
                                 
@@ -86,124 +111,10 @@
                         </div>
                       </div>
                    
-                     <!--  <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Attach To Vehicle</h4>
-
-                              <div class="row">
-                                <label class="col-sm-4">Status</label>
-                                <div class="col-sm-8">
-                                 Attached
-                                </div>
-                               </div>
-
-                               <div class="row">
-                                <label class="col-sm-4">Vehicle No</label>
-                                <div class="col-sm-8">
-                                 787878
-                                </div>
-                               </div>
-
-                               <div class="row">
-                                <label class="col-sm-4">Attach Date</label>
-                                <div class="col-sm-8">
-                                  24-09-2020
-                                </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    -->
-                    </div>
-
-                    <div class="row">
-
-                      <div class="col-md-12 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Block Coordinates</h4>
-                            <!-- <p class="card-description"> Horizontal form layout </p> -->
-                            <table id="assigned_tag_table" class="table table-hover  table-responsive-lg table-bordered">
-                              <thead>
-                                <tr>
-                                  <th>SNo</th>
-                                  <th>Coordinate ID</th>
-                                  <th>Latitude</th>
-                                  <th>Longitude</th>
-                                  <th>Register Date</th>
-                                  <th>Action</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <td>1</td>
-                                  <td>12</td>
-                                  <td>134562</td>
-                                  <td>454646</td>
-                                  <td>24-09-2020</td>
-                                  <td>
-                                        <i class="mdi mdi-delete"></i>
-                                 </td>
-                                </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>13</td>
-                                  <td>787594</td>
-                                  <td>45795</td>
-                                  <td>18-09-2020</td>
-                                  <td >
-                                    <i class="mdi mdi-delete"></i>
-                                </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            
-                          </div>
-                        </div>
-                      </div>
-                   
 
                     </div>
 
-                    <div class="card">
-                        <div class="row">
-                          <div class="col-lg-8">
-                            <div class="card-body">
-                              <h4 class="card-title">Add Coordinates</h4>
-                              <form class="form-inline repeater" action="formLink" method="get">
-
-                                <button data-repeater-create type="button" class="btn btn-gradient-info btn-sm icon-btn ml-2 mb-2">
-                                  <i class="mdi mdi-plus"></i>
-                                </button>
-
-                                <div data-repeater-list="group-a">
-                                  <div data-repeater-item class="d-flex mb-2">
-                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">Latitude</span>
-                                      </div>
-                                      <input name="0" type="text" class="form-control form-control-sm" id="inlineFormInputGroup1" placeholder="Latitude">
         
-                                          &nbsp; &nbsp;&nbsp;
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">Longitude</span>
-                                      </div>
-                                      <input name="1" type="text" class="form-control form-control-sm" id="inlineFormInputGroup1" placeholder="Longitude">
-                                    </div>
-                                    <button data-repeater-delete type="button" class="btn btn-gradient-danger btn-sm icon-btn ml-2">
-                                      <i class="mdi mdi-delete"></i>
-                                    </button>
-                                  </div>
-                                </div>
-                                <button type="submit" class="btn btn-gradient-success btn-sm">Submit</button>
-                              </form>
-
-                            </div>
-                          </div>
-                        </div>
-                  </div>
-
                 
             </div>
             <jsp:include page="./partials/footer.jsp" />
