@@ -89,8 +89,8 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="liveStatus">Live Status</a></li>
           <li class="nav-item"> <a class="nav-link" href="middewareStatus">Middleware</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStation">Fixed RFID Reader</a></li>
+          <li class="nav-item"> <a class="nav-link" href="baseStationStatus">Base Station</a></li>
+          <li class="nav-item"> <a class="nav-link" href="fixedReaderStatus">Fixed RFID Reader</a></li>
         </ul>
       </div>
     </li>
