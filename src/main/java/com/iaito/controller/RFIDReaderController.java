@@ -25,5 +25,4 @@ public class RFIDReaderController {
     public String rfidReaderAddPage(){
         return "rfidreader_registration";
     }
-
 }

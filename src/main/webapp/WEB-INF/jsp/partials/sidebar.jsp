@@ -73,7 +73,7 @@
       </a>
       <div class="collapse" id="ui-yard">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a id="rfidLocationLink" class="nav-link" href="RFIDReaderLocation">Fixed Reader Location</a></li>
+          <li class="nav-item"> <a id="rfidLocationLink" class="nav-link" href="/listRfidLoction">Fixed Reader Location</a></li>
           <li class="nav-item"> <a class="nav-link" href="containerBlock">Container Block</a></li>
           <li class="nav-item"> <a class="nav-link" href="containerArea">Container Area</a></li>
         </ul>
