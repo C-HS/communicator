@@ -60,6 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/vehicleDevice*").hasAnyRole("ADMIN", "USER")
                     .antMatchers("/vehicle_*").hasAnyRole("ADMIN", "USER")
                     .antMatchers("/reader_*").hasAnyRole("ADMIN", "USER")
+                    .antMatchers("/user_*").hasAnyRole("ADMIN", "USER")
                     .anyRequest().authenticated()
 
                 .and()
