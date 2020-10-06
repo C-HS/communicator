@@ -44,9 +44,9 @@
           <li class="nav-item"> <a class="nav-link" href="rfidtag_list">RFID Tag</a></li>
           <li class="nav-item"> <a class="nav-link" href="/listContainer">Container</a></li>
           <li class="nav-item"> <a id="vdLink" class="nav-link" href="vehicledevice_list">Vehicle Device</a></li>
-          <li class="nav-item"> <a class="nav-link" href="vehicle">Vehicle</a></li>
+          <li class="nav-item"> <a class="nav-link" href="vehicleList">Vehicle</a></li>
           <li class="nav-item"> <a id="rfidLink" class="nav-link" href="rfidreader_list">Fixed RFID Reader</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
+          <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station</a></li>
         </ul>
       </div>
     </li>
@@ -60,8 +60,8 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" id="middlewareconfigLink" href="middlewareconfig_list">Middleware Config</a></li>
           <li class="nav-item"> <a class="nav-link" id="basestationconfigLink" href="basestationconfig_list">Base Station Config</a></li>
-          <li class="nav-item"> <a class="nav-link" href="middlewareConfig">Middleware Config</a></li>
-          <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station Config</a></li>
+    <!--       <li class="nav-item"> <a class="nav-link" href="middlewareConfig">Middleware Config</a></li>
+          <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station Config</a></li> -->
         </ul>
       </div>
     </li>
@@ -89,8 +89,8 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="liveStatus">Live Status</a></li>
           <li class="nav-item"> <a class="nav-link" href="middewareStatus">Middleware</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStation">Base Station</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStation">Fixed RFID Reader</a></li>
+          <li class="nav-item"> <a class="nav-link" href="baseStationStatus">Base Station</a></li>
+          <li class="nav-item"> <a class="nav-link" href="fixedReaderStatus">Fixed RFID Reader</a></li>
         </ul>
       </div>
     </li>
