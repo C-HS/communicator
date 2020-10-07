@@ -52,7 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/**/*.html",
                             "/**/*.css",
                             "/**/*.js",
-                            "/h2-console/**").permitAll()
+                            "/h2-console/**",
+                            "/api/**").permitAll()
                     .antMatchers("/dashboard").hasRole("ADMIN")
                     .antMatchers("/mapview").hasRole("ADMIN")
                     .antMatchers("/container_*").hasAnyRole("ADMIN", "USER")
