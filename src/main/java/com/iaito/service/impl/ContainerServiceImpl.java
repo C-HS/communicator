@@ -1,6 +1,8 @@
 package com.iaito.service.impl;
 
+import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -13,27 +15,28 @@ import com.iaito.service.ContainerService;
 
 @Service
 public class ContainerServiceImpl implements ContainerService {
+	private ContainerRepository containerRepository;
+	private ModelMapper modelMapper;
 
-	@Autowired ContainerRepository containerRepository;
-	@Autowired ModelMapper modelMapper;
-	
-	@Override
-	public void addContainer(Container container) {
-
-		containerRepository.save(container);
-		
+	public ContainerServiceImpl(ContainerRepository containerRepository, ModelMapper modelMapper) {
+		this.containerRepository = containerRepository;
+		this.modelMapper = modelMapper;
 	}
 
 	@Override
-	public ContainerDTO updateContainer(Container container) {
-		// TODO Auto-generated method stub
-		return null;
+	public ContainerDTO addContainer(Container container) {
+		return modelMapper.map(containerRepository.save(container), ContainerDTO.class);
 	}
 
 	@Override
 	public ContainerDTO getContainerByTID(String tid) {
 
 		return modelMapper.map(containerRepository.findContainerByTid(tid), ContainerDTO.class);
+	}
+
+	@Override
+	public Optional<ContainerDTO> getContainerById(long id) {
+		return modelMapper.map(containerRepository.findById(id), (Type) ContainerDTO.class);
 	}
 
 	@Override
@@ -47,10 +50,8 @@ public class ContainerServiceImpl implements ContainerService {
 	}
 
 	@Override
-	public void deleteContainer(Container container) {
-
-		containerRepository.delete(container);
-		
+	public void deleteContainer(Long id) {
+		containerRepository.deleteById(id);
 	}
 
 }
