@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +63,21 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
+
+                                <c:set var="counter" value="1"/>  
+                                <c:forEach var="rfidTag" items="${attachedTagList}" varStatus="fieldRow">
+                                  <tr>
+                                    <td><c:out value="${counter}"/></td>
+                                    <td><c:out value="${rfidTag.getTid()}"/></td>
+                                    <td><c:out value="${rfidTag.getEpc()}"/></td>
+                                    <td><c:out value="${rfidTag.getRegisterDate()}"/></td>
+                                    <td><c:out value=""/></td>
+                                    <td><i class="mdi mdi-delete"></i></td>
+                                  </tr>
+                                  <c:set var="counter" value="${counter + 1}"/>
+                                </c:forEach>
+
+                                    <!-- <tr>
                                       <td>1</td>
                                       <td>53275531</td>
                                       <td>CCCCCCCCC</td>
@@ -77,7 +96,7 @@
                                       <td >
                                         <i class="mdi mdi-delete"></i>
                                     </td>
-                                    </tr>
+                                    </tr> -->
                                   </tbody>
                                 </table>
                               </div>
@@ -100,7 +119,19 @@
                                         </tr>
                                       </thead>
                                       <tbody>
-                                        <tr>
+
+                                        <c:set var="counter" value="1"/>  
+                                        <c:forEach var="rfidTag" items="${attachedTagList}" varStatus="fieldRow">
+                                          <tr>
+                                            <td><c:out value="${counter}"/></td>
+                                            <td><c:out value="${rfidTag.getTid()}"/></td>
+                                            <td><c:out value="${rfidTag.getEpc()}"/></td>
+                                            <td><c:out value="${rfidTag.getRegisterDate()}"/></td>
+                                            <td><i class="mdi mdi-delete"></i></td>
+                                          </tr>
+                                          <c:set var="counter" value="${counter + 1}"/>
+                                        </c:forEach>
+<!--                                         <tr>
                                           <td>1</td>
                                           <td>53275530</td>
                                           <td>AAAAAAAA</td>
@@ -115,13 +146,9 @@
                                           <td>BBBBBBBBB</td>
                                           <td>15-09-2020</td>
                                           <td>
-
                                             <i class="mdi mdi-delete"></i>
-                                           <!--  <i class="btn btn-outline-primary mdi mdi-delete"></i> -->
-
-                                           <!-- <button class="btn btn-outline-primary mdi mdi-delete">View</button> -->
                                         </td>
-                                        </tr>
+                                        </tr> -->
                                       </tbody>
                                 </table>
                               </div>

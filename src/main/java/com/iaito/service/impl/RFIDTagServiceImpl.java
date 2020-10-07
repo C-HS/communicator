@@ -59,4 +59,16 @@ public class RFIDTagServiceImpl implements RFIDTagService{
 		return modelMapper.map(rfidTagRepository.findByEpc(epc), RFIDTagDTO.class);
 	}
 
+	@Override
+	public List<RFIDTagDTO> getRFIDTagByStatus(String status) {
+
+		//return modelMapper.map(rfidTagRepository.findByStatus(status), RFIDTagDTO.class);
+		
+		return rfidTagRepository
+				.findByStatus(status)
+				.stream()
+				.map(e -> modelMapper.map(e, RFIDTagDTO.class))
+				.collect(Collectors.toList());
+	}
+
 }

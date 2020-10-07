@@ -13,6 +13,7 @@ public interface RFIDTagService {
 	public RFIDTagDTO updateRFIDTag(RFIDTag tag);
 	public RFIDTagDTO getRFIDTagByTID(String tid);
 	public RFIDTagDTO getRFIDTagByEPC(String epc);
+	public List<RFIDTagDTO> getRFIDTagByStatus(String status);
 	public List<RFIDTagDTO> getAllRFIDTag();
 	public void deleteRFIDTag(RFIDTag tag);
 
