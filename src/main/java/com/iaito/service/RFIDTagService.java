@@ -9,7 +9,7 @@ import com.iaito.model.RFIDTag;
 
 public interface RFIDTagService {
 	
-	public void addRFIDTag(RFIDTag tag);
+	public RFIDTag addRFIDTag(RFIDTag tag);
 	public RFIDTagDTO updateRFIDTag(RFIDTag tag);
 	public RFIDTagDTO getRFIDTagByTID(String tid);
 	public RFIDTagDTO getRFIDTagByEPC(String epc);

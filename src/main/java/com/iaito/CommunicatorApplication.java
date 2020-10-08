@@ -1,18 +1,19 @@
 package com.iaito;
 
-import com.iaito.model.Authority;
-import com.iaito.model.AuthorityType;
-import com.iaito.model.User;
-import com.iaito.repository.UserRepository;
+import java.util.Arrays;
+import java.util.HashSet;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import com.iaito.model.Authority;
+import com.iaito.model.AuthorityType;
+import com.iaito.model.User;
+import com.iaito.repository.ContainerRepository;
+import com.iaito.repository.UserRepository;
 
 @SpringBootApplication
 public class CommunicatorApplication {
@@ -50,7 +51,8 @@ public class CommunicatorApplication {
 					)
 				)
 			);
-		};
+					
+			};
 	}
 	@Bean
 	public ModelMapper modelMapper() {

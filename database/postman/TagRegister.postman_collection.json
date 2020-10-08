@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "15e8770f-ac05-4638-b611-990925099522",
+		"name": "TagRegister",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterTag",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tid\" : \"AAAAAAAAA\",\r\n  \"epc\" : \"BBBBBBBBB\",\r\n  \"registerDate\" : null,\r\n  \"status\" : \"Created\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rfidtag/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rfidtag",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetContainerById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/containers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"containers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTagById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/rfidtag/e20034120135fa0012e5c6f0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rfidtag",
+						"e20034120135fa0012e5c6f0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

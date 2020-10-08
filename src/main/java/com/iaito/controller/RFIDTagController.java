@@ -30,10 +30,14 @@ public class RFIDTagController {
         
         freeTagList = rfidTagService.getRFIDTagByStatus("FREE");
         
+        System.out.println("freeTagList "+freeTagList.size());
+        
         modelAndView.addObject("attachedTagList", attachedTagList);
         modelAndView.addObject("freeTagList", freeTagList);
         
         return modelAndView;
     }
+    
+    
 
 }

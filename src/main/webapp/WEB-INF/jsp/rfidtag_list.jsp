@@ -121,7 +121,7 @@
                                       <tbody>
 
                                         <c:set var="counter" value="1"/>  
-                                        <c:forEach var="rfidTag" items="${attachedTagList}" varStatus="fieldRow">
+                                        <c:forEach var="rfidTag" items="${freeTagList}" varStatus="fieldRow">
                                           <tr>
                                             <td><c:out value="${counter}"/></td>
                                             <td><c:out value="${rfidTag.getTid()}"/></td>

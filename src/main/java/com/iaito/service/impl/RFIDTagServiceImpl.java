@@ -1,6 +1,7 @@
 package com.iaito.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -19,9 +20,13 @@ public class RFIDTagServiceImpl implements RFIDTagService{
 	@Autowired ModelMapper modelMapper;
 	
 	@Override
-	public void addRFIDTag(RFIDTag tag) {
+	public RFIDTag addRFIDTag(RFIDTag tag) {
+		
+		RFIDTag t = rfidTagRepository.save(tag);
+		
+		//System.out.println("t "+t.toString());
 
-		rfidTagRepository.save(tag);
+		return t;
 		
 	}
 
@@ -31,11 +36,40 @@ public class RFIDTagServiceImpl implements RFIDTagService{
 		return null;
 	}
 
-	@Override
-	public RFIDTagDTO getRFIDTagByTID(String tid) {
+	
+	  @Override public RFIDTagDTO getRFIDTagByTID(String tid) {
+	  
+		  System.out.println("1");
+		  
+		  Optional<RFIDTag> obj = rfidTagRepository.findById(tid);
+		  
+		  RFIDTag tag =null;
+		  
+		  if(obj.isPresent())
+		  {
+			  System.out.println("a");
+			  tag = obj.get();
+			  System.out.println("2 "+tag);
+			  
+			  RFIDTagDTO dto =modelMapper.map(tag, RFIDTagDTO.class); 
+			  
+			  System.out.println("3");
+			  
+			  System.out.println(dto);
+		  
+		      return dto;
+		  }
+		  else
+		  {
+			  System.out.println("4");
+			  return null;
+		  }
+		  
 
-		return modelMapper.map(rfidTagRepository.findById(tid), RFIDTagDTO.class);
-	}
+	  }
+	 
+	
+
 
 	@Override
 	public List<RFIDTagDTO> getAllRFIDTag() {
