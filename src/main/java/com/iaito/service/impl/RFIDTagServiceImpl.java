@@ -39,7 +39,6 @@ public class RFIDTagServiceImpl implements RFIDTagService{
 	
 	  @Override public RFIDTagDTO getRFIDTagByTID(String tid) {
 	  
-		  System.out.println("1");
 		  
 		  Optional<RFIDTag> obj = rfidTagRepository.findById(tid);
 		  
@@ -47,21 +46,14 @@ public class RFIDTagServiceImpl implements RFIDTagService{
 		  
 		  if(obj.isPresent())
 		  {
-			  System.out.println("a");
 			  tag = obj.get();
-			  System.out.println("2 "+tag);
 			  
 			  RFIDTagDTO dto =modelMapper.map(tag, RFIDTagDTO.class); 
-			  
-			  System.out.println("3");
-			  
-			  System.out.println(dto);
 		  
 		      return dto;
 		  }
 		  else
 		  {
-			  System.out.println("4");
 			  return null;
 		  }
 		  
