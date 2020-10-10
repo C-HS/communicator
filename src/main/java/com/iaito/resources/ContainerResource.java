@@ -1,6 +1,7 @@
 package com.iaito.resources;
 
 import com.iaito.dto.ContainerDTO;
+import com.iaito.dto.RFIDTagDTO;
 import com.iaito.model.Container;
 import com.iaito.service.ContainerService;
 import org.modelmapper.ModelMapper;
@@ -59,5 +60,17 @@ public class ContainerResource {
                     return ResponseEntity.ok(modelMapper.map(container, ContainerDTO.class));
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/containerno/{containerNo}")
+    public ResponseEntity<ContainerDTO> getTagById(@PathVariable String containerNo){
+    	
+    	ContainerDTO container = containerService.getContainerByContainerNo(containerNo);
+    	
+    	if(container==null)
+    		container = new ContainerDTO();
+    	
+        return ResponseEntity.ok(container);
+
     }
 }

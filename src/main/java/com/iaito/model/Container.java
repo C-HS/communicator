@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,10 +30,12 @@ public class Container {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "container_id")
+	@Column(name = "container_id",unique=true,nullable = false)
 	private long containerId;
 	
-	@Column(name = "container_number")
+	
+	@Column(name = "container_number", unique=true, nullable = false)
+	@NotNull
 	private String containerNumber;
 	
 	@Column(name = "container_type")

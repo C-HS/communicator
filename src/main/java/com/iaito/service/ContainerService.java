@@ -14,5 +14,7 @@ public interface ContainerService {
 	public Optional<ContainerDTO> getContainerById(long id);
 	public List<ContainerDTO> getAllContainer();
 	public void deleteContainer(Long id);
+	public String createContainer(Container container);
+	public ContainerDTO getContainerByContainerNo(String containerNo);
 
 }
