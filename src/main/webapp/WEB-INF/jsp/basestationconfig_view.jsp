@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +50,7 @@
                         <div class="card">
                           <div class="card-body">
                             <h4 class="card-title">Configuration ID</h4>
-                            <p class="card-description"> 001 </p>
+                            <p class="card-description">${baseStationConfig.getBsConfigId()} </p>
                        
 <!--                               <div class="form-group row">
                                 <label class="col-sm-2">Middleware IP</label>
@@ -62,19 +67,19 @@
                                <div class="form-group row">
                                 <label class="col-sm-2">MQTT Host</label>
                                 <div class="col-sm-4">
-                                  192.168.0.252:1883
+                                  ${baseStationConfig.getMqttHost()}
                                 </div>
 
                                 <label class="col-sm-2">Data Topic</label>
                                 <div class="col-sm-4">
-                                  gpsdata
+                                  ${baseStationConfig.getMqttDataTopic()}
                                 </div>
                                </div>
 
                                <div class="form-group row">
                                 <label class="col-sm-2">MQTT Client ID</label>
                                 <div class="col-sm-4">
-                                  mqttBSClient1
+                                  ${baseStationConfig.getMqttClientId()}
                                 </div>
 
 <!--                                 <label for="dataserviceURL" class="col-sm-2 col-form-label">Data Service URL</label>

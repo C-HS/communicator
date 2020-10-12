@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,15 +87,36 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+
+                                  <c:set var="counter" value="1"/>  
+                                  <c:forEach var="bsConfig" items="${bsConfigList}" varStatus="fieldRow">
+                                  <tr>
+                                      <td><c:out value="${counter}"/></td>
+                                      <td><a href="/basestationconfig_view?bsConfigId=${bsConfig.getBsConfigId()}"><c:out value="${bsConfig.getBsConfigId()}"/></a></td>
+                                      <td><c:out value="${bsConfig.getMqttDataTopic()}"/></td>
+                                      <td><c:out value="${bsConfig.getMqttClientId()}"/></td>
+                                      <td>
+                                               <c:out value="${bsConfig.getMqttHost()}"/>
+                                      </td>
+                                      <td>
+                                        <c:if test="${bsConfig.getStatus().equals('ACTIVE')}">
+
+                                          <label class="badge badge-info">ACTIVE</label>
+                                        </c:if>
+                                      </td>
+                                  </tr>
+                                  <c:set var="counter" value="${counter + 1}"/>
+                                  </c:forEach>
+
+<!-- 
                                   <tr>
                                     <td>1</td>
                                     <td><a href="basestationconfig_view">001</a></td>
                                     <td>gpsdata</td>
-                                   <!--  <td>192.168.0.240</td> -->
                                     <td>mqttBSClient1</td>
                                     <td>192.168.0.252:1883</td>
                                     <td><label class="badge badge-info">Active</label></td>
-                                  </tr>
+                                  </tr> -->
                                 </tbody>
                               </table>
                                

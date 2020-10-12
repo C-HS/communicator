@@ -22,7 +22,7 @@ public class MiddlewareConfigurationServiceImpl implements MiddlewareConfigurati
 	@Override
 	public String addMiddlewareConfiguration(MiddlewareConfiguration middlewareConfiguration) {
 
-		middlewareConfigurationRepository.save(middlewareConfiguration);
+	//	middlewareConfigurationRepository.save(middlewareConfiguration);
 		
 		try
 		{

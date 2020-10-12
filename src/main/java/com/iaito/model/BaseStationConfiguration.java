@@ -35,7 +35,7 @@ public class BaseStationConfiguration {
 	private String mqttDataTopic;
 	
 	@Column(name = "mqtt_client_id")
-	private long mqttClientId;
+	private String mqttClientId;
 	
 	@Column(name = "mqtt_host")
 	private String mqttHost;

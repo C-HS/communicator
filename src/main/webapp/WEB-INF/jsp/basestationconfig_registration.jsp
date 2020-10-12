@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +51,7 @@
                           <div class="card-body">
                             <h4 class="card-title">New Configuration</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
-                            <form class="forms-sample">
+                            <form action="createBaseStationMQTTConfig" method="POST" class="forms-sample">
                               <!-- <div class="form-group row">
                                 <label for="middlewareIP" class="col-sm-2 col-form-label">Middleware IP</label>
                                 <div class="col-sm-4">
@@ -62,19 +67,19 @@
                                <div class="form-group row">
                                 <label for="mqttHost" class="col-sm-2 col-form-label">MQTT Host</label>
                                 <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="mqttHost" placeholder="MQTT Host">
+                                  <input name="mqttHost" type="text" class="form-control" id="mqttHost" placeholder="MQTT Host">
                                 </div>
 
                                 <label for="dataTopic" class="col-sm-2 col-form-label">Data Topic</label>
                                 <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="dataTopic" placeholder="Data Topic">
+                                  <input name="mqttDataTopic" type="text" class="form-control" id="dataTopic" placeholder="Data Topic">
                                 </div>
                                </div>
 
                                <div class="form-group row">
                                 <label for="mqttClientId" class="col-sm-2 col-form-label">MQTT Client ID</label>
                                 <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="mqttClientId" placeholder="MQTT Client ID">
+                                  <input name="mqttClientId" type="text" class="form-control" id="mqttClientId" placeholder="MQTT Client ID">
                                 </div>
 
 <!--                                 <label for="dataserviceURL" class="col-sm-2 col-form-label">Data Service URL</label>
@@ -114,6 +119,9 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+
+    <script src="assets/vendors/sweetalert/sweetalert.min.js"></script>
+    <script src="assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="assets/vendors/datatables.net/jquery.dataTables.js"></script>
@@ -129,6 +137,26 @@
     <!-- Custom js for this page -->
     <!-- <script src="assets/js/data-table.js"></script> -->
 
+    <script src="assets/js/alerts.js"></script>
+    <script src="assets/js/avgrund.js"></script>
+
+    <c:choose>
+         
+      <c:when test = "${resp=='success'}">
+          <script> var r = "success" </script>
+      </c:when>
+      
+      <c:when test = "${resp=='already_exist'}">
+          <script> var r = "already_exist" </script>
+      </c:when>
+      <c:when test = "${resp=='error'}">
+          <script> var r = "error" </script>
+      </c:when>
+      <c:otherwise>
+          
+      </c:otherwise>
+   </c:choose>
+
     <script>
 
            
@@ -136,7 +164,64 @@ $('#configurationLink').addClass("active");
      $('#ui-confoguration').addClass("show");
      $('#basestationconfigLink').addClass("active");
 
-        </script>
+     (function($) {
+        'use strict';
+
+        if(r==='success')
+        {
+            swal({
+                    title: 'BaseStation Configuration Registered',
+                    text: 'Successfully',
+                    icon: 'success',
+                    button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                    }
+                })
+        }
+        else if(r==='already_exist')
+        {
+            swal({
+                title: 'Unable To Register',
+                text: " Already Exist",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
+                }
+                }
+            })
+        }
+        else if(r==='error')
+        {
+            swal({
+                title: 'Unable To Register',
+                text: "Exception Occured",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
+                }
+                }
+            })
+        }
+            
+        })(jQuery);
+    </script>
     <!-- End custom js for this page -->
 </body>
 </html>

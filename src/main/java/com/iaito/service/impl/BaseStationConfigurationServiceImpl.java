@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iaito.dto.BaseStationConfigurationDTO;
+import com.iaito.dto.MiddlewareConfigurationDTO;
 import com.iaito.model.BaseStationConfiguration;
 import com.iaito.repository.BaseStationConfigurationRepository;
 import com.iaito.service.BaseStationConfigurationService;
@@ -19,9 +20,25 @@ public class BaseStationConfigurationServiceImpl implements BaseStationConfigura
 	@Autowired ModelMapper modelMapper;
 	
 	@Override
-	public void addBaseStationConfiguration(BaseStationConfiguration baseStationConfiguration) {
+	public String addBaseStationConfiguration(BaseStationConfiguration baseStationConfiguration) {
 		
-		baseStationConfigurationRepository.save(baseStationConfiguration);
+		//baseStationConfigurationRepository.save(baseStationConfiguration);
+		
+		
+		try
+		{
+			modelMapper.map(baseStationConfigurationRepository.save(baseStationConfiguration), BaseStationConfigurationDTO.class);
+			
+			return "success";
+		}
+		catch(org.springframework.dao.DataIntegrityViolationException e)
+		{
+			return "already_exist";			
+		}
+		catch(Exception e)
+		{
+			return "register_error";	
+		}
 	}
 
 	@Override
@@ -34,7 +51,7 @@ public class BaseStationConfigurationServiceImpl implements BaseStationConfigura
 	@Override
 	public BaseStationConfigurationDTO getBaseStationConfigurationByID(long configId) {
 
-		return modelMapper.map(baseStationConfigurationRepository.findById(configId), BaseStationConfigurationDTO.class);
+		return modelMapper.map(baseStationConfigurationRepository.findById(configId).get(), BaseStationConfigurationDTO.class);
 	}
 
 	@Override

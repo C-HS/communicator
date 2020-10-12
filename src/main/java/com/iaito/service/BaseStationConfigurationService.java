@@ -7,7 +7,7 @@ import com.iaito.model.BaseStationConfiguration;
 
 public interface BaseStationConfigurationService {
 	
-	public void addBaseStationConfiguration(BaseStationConfiguration baseStationConfiguration);
+	public String addBaseStationConfiguration(BaseStationConfiguration baseStationConfiguration);
 	public BaseStationConfigurationDTO updateBaseStationConfiguration(BaseStationConfiguration baseStationConfiguration);
 	public BaseStationConfigurationDTO getBaseStationConfigurationByID(long configId);
 	public List<BaseStationConfigurationDTO> getAllBaseStationConfiguration();

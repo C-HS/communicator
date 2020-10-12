@@ -19,7 +19,7 @@ public class BaseStationConfigurationDTO {
 
 	private String mqttDataTopic;
 
-	private long mqttClientId;
+	private String mqttClientId;
 
 	private String mqttHost;
 	

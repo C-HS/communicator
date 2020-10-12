@@ -171,7 +171,7 @@ $('#configurationLink').addClass("active");
         if(r==='success')
         {
             swal({
-                    title: 'Container Registered',
+                    title: 'Middleware Configuration Registered',
                     text: 'Successfully',
                     icon: 'success',
                     button: {
@@ -186,7 +186,7 @@ $('#configurationLink').addClass("active");
         {
             swal({
                 title: 'Unable To Register',
-                text: "Container ID Already Exist",
+                text: " Already Exist",
                 icon: 'warning',
                 confirmButtonColor: '#3f51b5',
                 confirmButtonText: 'Great ',
