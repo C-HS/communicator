@@ -44,7 +44,7 @@ public class MiddlewareConfiguration {
 	private String webServicePort;
 	
 	@Column(name = "mqtt_client_id")
-	private long mqttClientId;
+	private String mqttClientId;
 	
 	@Column(name = "mqtt_host")
 	private String mqttHost;
@@ -55,4 +55,5 @@ public class MiddlewareConfiguration {
 	
 	@Column(name = "status")
 	private String status;
+	
 }

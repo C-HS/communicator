@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,36 +50,36 @@
                         <div class="card">
                           <div class="card-body">
                             <h4 class="card-title">Configuration ID</h4>
-                            <p class="card-description"> 001 </p>
+                            <p class="card-description">  ${middlewareConfig.getMConfigId()} </p>
                             <form class="forms-sample">
                               <div class="form-group row">
                                 <label class="col-sm-2">Middleware IP</label>
                                 <div class="col-sm-4">
-                                  192.168.0.251
+                                  ${middlewareConfig.getWebServiceIP()}
                                 </div>
 
                                 <label class="col-sm-2">Middleware Port</label>
                                 <div class="col-sm-4">
-                                  8111
+                                  ${middlewareConfig.getWebServicePort()}
                                 </div>
                                </div>
 
                                <div class="form-group row">
                                 <label class="col-sm-2">MQTT Host</label>
                                 <div class="col-sm-4">
-                                  192.168.0.251:1883
+                                  ${middlewareConfig.getMqttHost()}
                                 </div>
 
                                 <label class="col-sm-2">Notification Topic</label>
                                 <div class="col-sm-4">
-                                  notification
+                                  ${middlewareConfig.getMqttNotificationTopic()}
                                 </div>
                                </div>
 
                                <div class="form-group row">
                                 <label class="col-sm-2">MQTT Client ID</label>
                                 <div class="col-sm-4">
-                                  mqttMWClient1
+                                  ${middlewareConfig.getMqttClientId()}
                                 </div>
 
 <!--                                 <label for="dataserviceURL" class="col-sm-2 col-form-label">Data Service URL</label>

@@ -25,7 +25,7 @@ public class MiddlewareConfigurationDTO {
 
 	private String webServicePort;
 
-	private long mqttClientId;
+	private String mqttClientId;
 
 	private String mqttHost;
 
