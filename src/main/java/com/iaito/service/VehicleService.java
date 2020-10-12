@@ -1,14 +1,15 @@
 package com.iaito.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.iaito.dto.VehicleDTO;
 import com.iaito.model.Vehicle;
 
 public interface VehicleService {
 
-	public void addVehicle(Vehicle vehicle);
-	public VehicleDTO updateVehicle(Vehicle vehicle);
+	public VehicleDTO addVehicle(Vehicle vehicle);
+	public Optional<VehicleDTO> updateVehicle(Vehicle vehicle);
 	public VehicleDTO getVehicleByID(long vehicleId);
 	public VehicleDTO getVehicleByVehicleNumber(String vehicleNo);
 	public List<VehicleDTO> getAllVehicle();

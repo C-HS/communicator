@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Getter
 @Setter
@@ -47,11 +48,13 @@ public class Vehicle {
 	private String mountingStatus;
 	
 	@Column(name = "register_date")
-	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date registerDate;
-	
+
 	@Column(name = "mounting_date")
-	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date mountingDate;
 	
 	@Column(name = "status")

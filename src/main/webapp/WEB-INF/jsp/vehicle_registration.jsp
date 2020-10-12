@@ -40,7 +40,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Vehicle No.</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    <input name="vehicleNumber" id="vehicleNumber" type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Vehicle Type</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    <input name = "vehicleType" id="vehicleType" type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Vehicle Info</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    <input name="vehicleInfo" id="vehicleInfo" type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Vehicle Device ID</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    <input name="vehicleDeviceId" id="vehicleDeviceId" type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Registrations Date</label>
                                                 <div class="col-sm-7">
-                                                    <input class="form-control" type="date" placeholder="dd/mm/yyyy">
+                                                    <input name="registerDate" class="form-control" type="date" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </div>
                                         </div>
@@ -86,13 +86,13 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked=""> Mounted <i class="input-helper"></i></label>
+                                                            <input type="radio" class="form-check-input" name="mountingStatus" id="mountingStatus1" value="" checked=""> Mounted <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Un-Mounted <i class="input-helper"></i></label>
+                                                            <input type="radio" class="form-check-input" name="mountingStatus" id="mountingStatus2" value="option2"> Un-Mounted <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -103,7 +103,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Mounting Date</label>
                                                 <div class="col-sm-7">
-                                                    <input type="date" class="form-control">
+                                                    <input name="mountingDate" type="date" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Status</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    <input name="status" type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -119,8 +119,8 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                                                <button class="btn btn-light">Cancel</button>
+                                                <input type="button" id="submit" class="btn btn-gradient-primary mr-2" value="Submit" />
+                                                <input class="btn btn-light" value="Clear" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -138,6 +138,9 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="assets/vendors/sweetalert/sweetalert.min.js"></script>
+<script src="assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
 <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 <script src="assets/vendors/chart.js/Chart.min.js"></script>
 <script src="assets/js/off-canvas.js"></script>
@@ -145,5 +148,34 @@
 <script src="assets/js/misc.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/todolist.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#submit").click(function(){
+            var vehicle = {};
+            vehicle["vehicleNumber"] = $("input[name=vehicleNumber]").val();
+            vehicle["vehicleType"] = $("input[name=vehicleType]").val();
+            vehicle["vehicleInfo"] = $("input[name=vehicleInfo]").val();
+            vehicle["vehicleDeviceId"] = $("input[name=vehicleDeviceId]").val();
+            vehicle["mountingStatus"] = $("input[name=mountingStatus]").val();
+            vehicle["registerDate"] = $("input[name=registerDate]").val();
+            vehicle["mountingDate"] = $("input[name=mountingDate]").val();
+            vehicle["status"] = $("input[name=status]").val();
+            $.ajax({
+                type : "POST",
+                contentType : "application/json",
+                url : "/addVehicle",
+                data : JSON.stringify(vehicle),
+                dataType : 'text',
+                success : function(data) {
+                    //Test for the returned JSON Object of the Vehicle.
+                    swal("Good job!", "You clicked the button!", "success");
+                },
+                error: function(error){
+                    alert(error);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
