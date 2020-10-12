@@ -16,5 +16,6 @@ public interface ContainerService {
 	public void deleteContainer(Long id);
 	public String createContainer(Container container);
 	public ContainerDTO getContainerByContainerNo(String containerNo);
+	public String mapContainerWithRFIDTag(ContainerDTO containerDTO);
 
 }

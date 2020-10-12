@@ -82,13 +82,13 @@
                                         <c:forEach var="container" items="${containerList}" varStatus="fieldRow">
                                         <tr>
                                             <td><c:out value="${counter}"/></td>
-                                            <td><c:out value="${container.getContainerNumber()}"/></td>
+                                            <td><a href="/viewContainer?containerNo=${container.getContainerNumber()}"><c:out value="${container.getContainerNumber()}"/></a></td>
                                             <td><c:out value="${container.getContainerType()}"/></td>
                                             <td><c:out value="${container.getContainerInfo()}"/></td>
                                             <td><c:out value="${container.getRegisterDate()}"/></td>
                                             <td><c:out value="${container.getTaggingStatus()}"/></td>
                                             <td><c:out value="${container.getTaggingDate()}"/></td>
-                                            <td><c:out value="${container.getContainerId()}"/></td>
+                                            <td><c:out value="${container.getStatus()}"/></td>
                                         </tr>
                                         <c:set var="counter" value="${counter + 1}"/>
                                         </c:forEach>

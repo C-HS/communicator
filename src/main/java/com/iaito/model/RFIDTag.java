@@ -36,6 +36,10 @@ public class RFIDTag {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registerDate;
 	
+	@Column(name = "attachedDate")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date attachedDate;
+	
 	@Column(name = "status")
 	private String status;
 

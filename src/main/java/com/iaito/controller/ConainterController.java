@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iaito.dto.ContainerDTO;
@@ -82,6 +83,20 @@ public class ConainterController {
         System.out.println("@@@@@@@@@@@@@@@@@@ "+resp);
         
         modelAndView.addObject("resp", resp);
+    	
+        return modelAndView;
+    }
+    
+    @GetMapping("/viewContainer")
+    public ModelAndView viewContainer(@RequestParam("containerNo") String containerNo){
+    	
+    	ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("container_view");
+        
+        
+        ContainerDTO containerDTO = containerService.getContainerByContainerNo(containerNo);
+        
+        modelAndView.addObject("container", containerDTO);
     	
         return modelAndView;
     }

@@ -175,8 +175,13 @@
     </c:otherwise>
  </c:choose>
 
+           
 
     <script>
+        $('#asset-Link').addClass("active");
+        $('#ui-asset').addClass("show");
+        $('#containerLink').addClass("active");
+
 
         (function($) {
         'use strict';

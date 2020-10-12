@@ -99,6 +99,32 @@ public class ContainerServiceImpl implements ContainerService {
 			  return null;
 		  }
 	}
+	
+	
+	
+	@Override
+	public String mapContainerWithRFIDTag(ContainerDTO containerDTO) {
+
+
+		Container containerToUpdate = containerRepository.findById(containerDTO.getContainerId()).get();
+		
+		
+		containerToUpdate.setTaggingDate(containerDTO.getTaggingDate());
+		containerToUpdate.setTid(containerDTO.getTid());
+		containerToUpdate.setTaggingStatus(containerDTO.getTaggingStatus());
+		 
+		
+		try
+		{
+			modelMapper.map(containerRepository.save(containerToUpdate), ContainerDTO.class);
+			
+			return "success";
+		}
+		catch(Exception e)
+		{
+			return "mapping_error";	
+		}
+	}
 
 
 }

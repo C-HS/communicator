@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,19 +33,23 @@ public class VDevice {
 	@Column(name = "vehicle_device_id")
 	private long vehicleDeviceId;
 	
-	@Column(name = "vehicle_device_number")
+	@Column(name = "vehicle_device_number",unique=true, nullable = false)
+	@NotNull
 	private String vehicleDeviceNumber;
 	
-	@Column(name = "configuration_status")
-	private String configurationStatus;
+	@Column(name = "description")
+	private String description;
+	
+	@Column(name = "attach_status")
+	private String attachStatus;
 	
 	@Column(name = "register_date")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registerDate;
 	
-	@Column(name = "configuration_date")
+	@Column(name = "attach_date")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date configurationDate;
+	private Date attachDate;
 	
 	@Column(name = "status")
 	private String status;
