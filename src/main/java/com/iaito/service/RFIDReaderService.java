@@ -7,7 +7,7 @@ import com.iaito.model.RFIDReader;
 
 public interface RFIDReaderService {
 
-	public void addRFIDReader(RFIDReader rfidReader);
+	public String addRFIDReader(RFIDReader rfidReader);
 	public RFIDReaderDTO updateRFIDReader(RFIDReader rfidReader);
 	public RFIDReaderDTO getRFIDReaderByID(long rfidReaderId);
 	public RFIDReaderDTO getRFIDReaderByMiddlewareReaderId(String middlewareReaderId);

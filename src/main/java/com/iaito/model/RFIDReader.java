@@ -31,7 +31,7 @@ public class RFIDReader {
 	@Column(name = "reader_id")
 	private long readerId;
 	
-	@Column(name = "reader_ip")
+	@Column(name = "reader_ip",unique=true)
 	private String readerIp;
 	
 	@Column(name = "reader_port")
@@ -39,6 +39,12 @@ public class RFIDReader {
 	
 	@Column(name = "reader_location_id")
 	private long readerLocationId;
+	
+	@Column(name = "reader_location_name")
+	private String readerLocationName;
+	
+	@Column(name = "description")
+	private String description;
 	
 	@Column(name = "location_assign_status")
 	private String locationAssignStatus;
@@ -49,7 +55,7 @@ public class RFIDReader {
 	@Column(name = "reader_type")
 	private String readerType;
 	
-	@Column(name = "middleware_reader_id")
+	@Column(name = "middleware_reader_id",unique=true)
 	private String middlewareReaderId;
 	
 	@Column(name = "middleware_mapping_status")

@@ -44,54 +44,54 @@
                       <div class="col-md-6 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Reader ID : 001</h4>
+                            <h4 class="card-title">Reader ID : ${rfidReader.getReaderId()}</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
                             
                               <div class="row">
                                 <label class="col-sm-4">Reader IP</label>
                                 <div class="col-sm-8">
-                                  192.168.2.253
+                                  ${rfidReader.getReaderIp()}
                                 </div>
                               </div>
                               <div class="row">
                                 <label class="col-sm-4">Reader Port</label>
                                 <div class="col-sm-8">
-                                  8451
+                                  ${rfidReader.getReaderPort()}
                                 </div>
                                
                               </div>
                                <div class="row">
                                 <label class="col-sm-4">Location Mapped</label>
                                 <div class="col-sm-8">
-                                  Main Gate
+                                  ${rfidReader.getReaderLocationName()}
                                 </div>
                               </div>
                               
                               <div class="row">
                                 <label class="col-sm-4">Reader Type</label>
                                 <div class="col-sm-8">
-                                  Motorola
+                                  ${rfidReader.getReaderType()}
                                 </div>
                                </div>
 
                                <div class="row">
-                                <label class="col-sm-4">Rigister Date</label>
+                                <label class="col-sm-4">Register Date</label>
                                 <div class="col-sm-8">
-                                  24-09-2020
+                                  ${rfidReader.getRegisterDate()}
                                 </div>
                                </div>
 
                                <div class="row">
                                 <label class="col-sm-4">Description</label>
                                 <div class="col-sm-8">
-                                  Reader
+                                  ${rfidReader.getDescription()}
                                 </div>
                                </div>
 
                                <div class="row">
                                 <label class="col-sm-4">Status</label>
                                 <div class="col-sm-8">
-                                  Ready
+                                  ${rfidReader.getStatus()}
                                 </div>
                                </div>
                             
@@ -115,21 +115,21 @@
                               <div class="row">
                                 <label class="col-sm-4">Status</label>
                                 <div class="col-sm-8">
-                                 Added
+                                  ${rfidReader.getMiddlewareMappingStatus()}
                                 </div>
                                </div>
 
                                <div class="row">
                                 <label class="col-sm-4">Reference ID</label>
                                 <div class="col-sm-8">
-                                  Moto_1
+                                  ${rfidReader.getMiddlewareReaderId()}
                                 </div>
                                </div>
 
                                <div class="row">
                                 <label class="col-sm-4">Date</label>
                                 <div class="col-sm-8">
-                                  24-09-2020
+                                  ${rfidReader.getMiddlewareMappingDate()}
                                 </div>
                               </div>
 
