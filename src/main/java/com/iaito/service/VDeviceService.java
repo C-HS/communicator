@@ -7,7 +7,7 @@ import com.iaito.model.VDevice;
 
 public interface VDeviceService {
 
-	public void addVDevice(VDevice vDevice);
+	public String addVDevice(VDevice vDevice);
 	public VDeviceDTO updateVDevice(VDevice vDevice);
 	public VDeviceDTO getVDeviceByID(long vehicleDeviceId);
 	public VDeviceDTO getVDeviceByVDeviceNumber(String vehicleDeviceNo);

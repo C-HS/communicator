@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,11 +24,12 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="page-header">
-                    <h3 class="page-title"> Container Registraion </h3>
+                    <h3 class="page-title"> Container </h3>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Assets</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Container Registration</li>
+                            <li class="breadcrumb-item"><a href="#">Asset</a></li>
+                            <li class="breadcrumb-item"><a href="#">Container</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">View</li>
                         </ol>
                     </nav>
                 </div>
@@ -31,103 +37,95 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Container Registration</h4>
-                                <form class="form-sample">
-                                    <p class="card-description"> Information </p>
+                                <h4 class="card-title">Container ID  ${container.getContainerId()}</h4>
+
+                                   <!--  <p class="card-description"> Container ID  ${container.getContainerId()} </p> -->
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container No.</label>
+                                            <div class="row">
+                                                <label class="col-sm-5">Container No.</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    ${container.getContainerNumber()}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container Type</label>
+                                            <div class="row">
+                                                <label class="col-sm-5">Container Type</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    ${container.getContainerType()}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Container Info</label>
+                                            <div class="row">
+                                                <label class="col-sm-5">Container Info</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    ${container.getContainerInfo()}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Tag ID</label>
+                                            <div class="row">
+                                                <label class="col-sm-5">Tag ID</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    ${container.getTid()}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Registrations Date</label>
+                                            <div class="row">
+                                                <label class="col-sm-5">Registrations Date</label>
                                                 <div class="col-sm-7">
-                                                    <input class="form-control" placeholder="dd/mm/yyyy">
+                                                    ${container.getRegisterDate()}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-4 col-form-label">Tagging Status</label>
-                                                <div class="col-sm-4">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked=""> Tagged <i class="input-helper"></i></label>
-                                                    </div>
+                                            <div class="row">
+                                                <label class="col-sm-5">Tagging Status</label>
+                                                <div class="col-sm-7">
+                                                    ${container.getTaggingStatus()}
                                                 </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> UnTagged <i class="input-helper"></i></label>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Tagging Date</label>
+                                            <div class="row">
+                                                <label class="col-sm-5">Tagging Date</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    ${container.getTaggingDate()}
                                                 </div>
-                                            </div>
+                                           </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Status</label>
+                                            <div class="row">
+                                                <label class="col-sm-5">Status</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    ${container.getStatus()}
                                                 </div>
-                                            </div>
+                                           </div>
                                         </div>
                                     </div>
+                                    
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                                                <button class="btn btn-light">Cancel</button>
-                                            </div>
+                                            <a href="editContainer">
+                                                <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
+                                              </a>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                              
                             </div>
                         </div>
                     </div>
@@ -144,5 +142,12 @@
 <script src="assets/js/misc.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/todolist.js"></script>
+
+<script>
+    $('#asset-Link').addClass("active");
+    $('#ui-asset').addClass("show");
+    $('#containerLink').addClass("active");
+</script>
+
 </body>
 </html>

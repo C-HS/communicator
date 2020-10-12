@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,23 +51,33 @@
                           <div class="card-body">
                             <h4 class="card-title">New RFID Reader</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
-                            <form class="forms-sample">
+                            <form action="createFixedRFIDReader" method="POST" class="forms-sample">
                               <div class="form-group row">
                                 <label for="readerIP" class="col-sm-2 col-form-label">Reader IP</label>
                                 <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="readerIP" placeholder="Reader IP">
+                                  <input name="readerIp" type="text" class="form-control" id="readerIP" placeholder="Reader IP">
                                 </div>
 
                                 <label for="readerPort" class="col-sm-2 col-form-label">Reader Port</label>
                                 <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="readerPort" placeholder="Reader Port">
+                                  <input name="readerPort" type="text" class="form-control" id="readerPort" placeholder="Reader Port">
                                 </div>
                                </div>
 
                                <div class="form-group row">
+                                <label for="referenceId" class="col-sm-2 col-form-label">Reference ID</label>
+                                <div class="col-sm-4">
+                                  <input name="middlewareReaderId" type="text" class="form-control" id="referenceId" placeholder="Reference ID">
+                                </div>
+                                <label for="readerType" class="col-sm-2 col-form-label">Reader Type</label>
+                                <div class="col-sm-4">
+                                  <input name="readerType" type="text" class="form-control" id="readerType" placeholder="Type">
+                                </div>
+                               </div>
+                               <div class="form-group row">
                                 <label for="desc" class="col-sm-2 col-form-label">Description</label>
-                                <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="desc" placeholder="Description">
+                                <div class="col-sm-4">
+                                  <input name="description" type="text" class="form-control" id="desc" placeholder="Description">
                                 </div>
                                </div>
                             
@@ -101,6 +116,8 @@
     <!-- Plugin js for this page -->
     <script src="assets/vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="assets/vendors/sweetalert/sweetalert.min.js"></script>
+    <script src="assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="assets/js/off-canvas.js"></script>
@@ -112,6 +129,26 @@
     <!-- Custom js for this page -->
     <!-- <script src="assets/js/data-table.js"></script> -->
 
+    <script src="assets/js/alerts.js"></script>
+    <script src="assets/js/avgrund.js"></script>
+
+    <c:choose>
+         
+      <c:when test = "${resp=='success'}">
+          <script> var r = "success" </script>
+      </c:when>
+      
+      <c:when test = "${resp=='already_exist'}">
+          <script> var r = "already_exist" </script>
+      </c:when>
+      <c:when test = "${resp=='error'}">
+          <script> var r = "error" </script>
+      </c:when>
+      <c:otherwise>
+          
+      </c:otherwise>
+   </c:choose>
+
     <script>
 
            
@@ -120,30 +157,62 @@ $('#asset-Link').addClass("active");
      $('#rfidLink').addClass("active");
 
             (function($) {
-            'use strict';
-            $(function() {
-                $('#vehicle_device_table').DataTable({
-                "aLengthMenu": [
-                    [5, 10, 15, -1],
-                    [5, 10, 15, "All"]
-                ],
-                "iDisplayLength": 10,
-                "language": {
-                    search: ""
+        'use strict';
+
+        if(r==='success')
+        {
+            swal({
+                    title: 'Fixed RFID Reader Registered',
+                    text: 'Successfully',
+                    icon: 'success',
+                    button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                    }
+                })
+        }
+        else if(r==='already_exist')
+        {
+            swal({
+                title: 'Unable To Register',
+                text: "Reader With Same IP Exists",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
                 }
-                });
-                $('#vehicle_device_table').each(function() {
-                var datatable = $(this);
-                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.removeClass('form-control-sm');
-                // LENGTH - Inline-Form control
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.removeClass('form-control-sm');
-                });
-            });
-            })(jQuery);
+                }
+            })
+        }
+        else if(r==='error')
+        {
+            swal({
+                title: 'Unable To Register Reader',
+                text: "Exception Occured",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
+                }
+                }
+            })
+        }
+            
+        })(jQuery);
         </script>
     <!-- End custom js for this page -->
 </body>

@@ -16,5 +16,6 @@ public interface RFIDTagService {
 	public List<RFIDTagDTO> getRFIDTagByStatus(String status);
 	public List<RFIDTagDTO> getAllRFIDTag();
 	public void deleteRFIDTag(RFIDTag tag);
+	public String setStatusAsAttached(String tid,String containerNo);
 
 }

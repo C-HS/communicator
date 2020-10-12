@@ -23,6 +23,8 @@ public class RFIDReaderDTO {
 	
 	private long readerLocationId;
 	
+	private String readerLocationName;
+	
 	private String locationAssignStatus;
 
 	private String ipPortConfigurationStatus;
@@ -30,6 +32,8 @@ public class RFIDReaderDTO {
 	private String readerType;
 
 	private String middlewareReaderId;
+	
+	private String description;
 
 	private String middlewareMappingStatus;
 	

@@ -22,5 +22,7 @@ public class RFIDTagDTO {
 
 	private Date registerDate;
 	
+	private Date attachedDate;
+	
 	private String status;
 }

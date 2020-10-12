@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,38 +49,38 @@
                       <div class="col-md-6 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Device ID : 100</h4>
+                            <h4 class="card-title">Device ID : ${vehicleDevice.getVehicleDeviceId()}</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
                             
                               <div class="row">
                                 <label class="col-sm-4">Device Number</label>
                                 <div class="col-sm-8">
-                                  VD001
+                                  ${vehicleDevice.getVehicleDeviceNumber()}
                                 </div>
                               </div>
                               <div class="row">
                                 <label class="col-sm-4">Description</label>
                                 <div class="col-sm-8">
-                                  Device Description
+                                  ${vehicleDevice.getDescription()}
                                 </div>
-                               
+                                
                               </div>
                                <div class="row">
                                 <label class="col-sm-4">Register Date</label>
                                 <div class="col-sm-8">
-                                  24-09-2020
+                                  ${vehicleDevice.getRegisterDate()}
                                 </div>
                               </div>
                               
                               <div class="row">
                                 <label class="col-sm-4">Device Status</label>
                                 <div class="col-sm-8">
-                                  Ready
+                                  ${vehicleDevice.getStatus()}
                                 </div>
                                </div>
                             
                             
-                              <a href="vehicleDeviceAddPage">
+                              <a href="editVehicleDevice">
                                 <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
                               </a>
                                 
@@ -94,21 +99,21 @@
                               <div class="row">
                                 <label class="col-sm-4">Status</label>
                                 <div class="col-sm-8">
-                                 Attached
+                                  ${vehicleDevice.getAttachStatus()}
                                 </div>
                                </div>
 
-                               <div class="row">
+                               <!-- <div class="row">
                                 <label class="col-sm-4">Vehicle No</label>
                                 <div class="col-sm-8">
-                                 787878
+                                  
                                 </div>
-                               </div>
+                               </div> -->
 
                                <div class="row">
                                 <label class="col-sm-4">Attach Date</label>
                                 <div class="col-sm-8">
-                                  24-09-2020
+                                  ${vehicleDevice.getAttachDate()}
                                 </div>
                               </div>
                           </div>

@@ -1,5 +1,6 @@
 package com.iaito.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -8,7 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iaito.dto.ContainerDTO;
 import com.iaito.dto.RFIDTagDTO;
+import com.iaito.model.Container;
 import com.iaito.model.RFIDTag;
 import com.iaito.repository.RFIDTagRepository;
 import com.iaito.service.RFIDTagService;
@@ -95,6 +98,29 @@ public class RFIDTagServiceImpl implements RFIDTagService{
 				.stream()
 				.map(e -> modelMapper.map(e, RFIDTagDTO.class))
 				.collect(Collectors.toList());
+	}
+	
+	
+	@Override
+	public String setStatusAsAttached(String tid,String containerNo) {
+		
+		try
+		{
+			
+			RFIDTag tag = rfidTagRepository.findById(tid).get();
+			
+			tag.setStatus("ATTACHED");
+			tag.setEpc(containerNo);
+			tag.setAttachedDate(new Date());
+			
+			modelMapper.map(rfidTagRepository.save(tag), RFIDTagDTO.class);
+			
+			return "success";
+		}
+		catch(Exception e)
+		{
+			return "mapping_error";	
+		}
 	}
 
 }

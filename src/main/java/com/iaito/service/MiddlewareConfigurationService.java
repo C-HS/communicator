@@ -7,7 +7,7 @@ import com.iaito.model.MiddlewareConfiguration;
 
 public interface MiddlewareConfigurationService {
 
-	public void addMiddlewareConfiguration(MiddlewareConfiguration middlewareConfiguration);
+	public String addMiddlewareConfiguration(MiddlewareConfiguration middlewareConfiguration);
 	public MiddlewareConfigurationDTO updateMiddlewareConfiguration(MiddlewareConfiguration middlewareConfiguration);
 	public MiddlewareConfigurationDTO getMiddlewareConfigurationByID(long configId);
 	public List<MiddlewareConfigurationDTO> getAllMiddlewareConfiguration();

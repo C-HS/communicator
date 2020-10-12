@@ -56,7 +56,7 @@
                                     <tr>
                                       <th>SNo</th>
                                       <th>TID</th>
-                                      <th>EPC</th>
+                                      <th>Container No</th>
                                       <th>Register Date</th>
                                       <th>Attach Date</th>
                                       <th>Action</th>
@@ -71,7 +71,7 @@
                                     <td><c:out value="${rfidTag.getTid()}"/></td>
                                     <td><c:out value="${rfidTag.getEpc()}"/></td>
                                     <td><c:out value="${rfidTag.getRegisterDate()}"/></td>
-                                    <td><c:out value=""/></td>
+                                    <td><c:out value="${rfidTag.getAttachedDate()}"/></td>
                                     <td><i class="mdi mdi-delete"></i></td>
                                   </tr>
                                   <c:set var="counter" value="${counter + 1}"/>
@@ -113,7 +113,7 @@
                                         <tr>
                                           <th>SNo</th>
                                           <th>TID</th>
-                                          <th>EPC</th>
+                                          <th>Container No</th>
                                           <th>Register Date</th>
                                           <th>Action</th>
                                         </tr>

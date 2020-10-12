@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,7 +87,31 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+
+                                  <c:set var="counter" value="1"/>  
+                                  <c:forEach var="mConfig" items="${mConfigList}" varStatus="fieldRow">
                                   <tr>
+                                      <td><c:out value="${counter}"/></td>
+                                      <td><a href="/middlewareconfig_view?mConfigId=${mConfig.getMConfigId()}"><c:out value="${mConfig.getMConfigId()}"/></a></td>
+                                      <td><c:out value="${mConfig.getMqttNotificationTopic()}"/></td>
+                                      <td><c:out value="${mConfig.getWebServiceIP()}"/> <c:out value="${mConfig.getWebServicePort()}"/></td>
+                                      <td>
+                                               <c:out value="${mConfig.getMqttClientId()}"/>
+                                      </td>
+                                      <td>
+                                        <c:out value="${mConfig.getMqttHost()}"/>
+                                      </td>
+                                      <td>
+                                        <c:if test="${mConfig.getStatus().equals('ACTIVE')}">
+
+                                          <label class="badge badge-info">ACTIVE</label>
+                                        </c:if>
+                                      </td>
+                                  </tr>
+                                  <c:set var="counter" value="${counter + 1}"/>
+                                  </c:forEach>
+
+ <!--                                  <tr>
                                     <td>1</td>
                                     <td><a href="middlewareconfig_view">001</a></td>
                                     <td>notification</td>
@@ -90,7 +119,7 @@
                                     <td>mqttMWClient1</td>
                                     <td>192.168.0.251:1883</td>
                                     <td><label class="badge badge-info">Active</label></td>
-                                  </tr>
+                                  </tr> -->
                                 </tbody>
                               </table>
                                

@@ -19,11 +19,13 @@ public class VDeviceDTO {
 
 	private String vehicleDeviceNumber;
 
-	private String configurationStatus;
+	private String attachStatus;
+	
+	private String description;
 
 	private Date registerDate;
 
-	private Date configurationDate;
+	private Date attachDate;
 	
 	private String status;
 }

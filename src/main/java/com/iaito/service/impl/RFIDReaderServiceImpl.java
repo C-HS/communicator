@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iaito.dto.RFIDReaderDTO;
+import com.iaito.dto.VDeviceDTO;
 import com.iaito.model.RFIDReader;
 import com.iaito.repository.RFIDReaderRepository;
 import com.iaito.service.RFIDReaderService;
@@ -19,9 +20,25 @@ public class RFIDReaderServiceImpl implements RFIDReaderService{
 	@Autowired ModelMapper modelMapper;
 
 	@Override
-	public void addRFIDReader(RFIDReader rfidReader) {
+	public String addRFIDReader(RFIDReader rfidReader) {
 
-		rfidReaderRepository.save(rfidReader);
+	//	rfidReaderRepository.save(rfidReader);
+		
+		try
+		{
+			modelMapper.map(rfidReaderRepository.save(rfidReader), RFIDReaderDTO.class);
+			
+			return "success";
+		}
+		catch(org.springframework.dao.DataIntegrityViolationException e)
+		{
+			return "already_exist";			
+		}
+		catch(Exception e)
+		{
+			return "register_error";	
+		}
+		
 		
 	}
 
@@ -34,7 +51,7 @@ public class RFIDReaderServiceImpl implements RFIDReaderService{
 	@Override
 	public RFIDReaderDTO getRFIDReaderByID(long rfidReaderId) {
 
-		return modelMapper.map(rfidReaderRepository.findById(rfidReaderId), RFIDReaderDTO.class);
+		return modelMapper.map(rfidReaderRepository.findById(rfidReaderId).get(), RFIDReaderDTO.class);
 	}
 
 	@Override

@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,11 +83,50 @@
                                     <th>Middleware Status</th>
                                     <th>Reference ID</th>
                                     <th>Status</th>
-                                    
                                   </tr>
                                 </thead>
                                 <tbody>
+
+                                  <c:set var="counter" value="1"/>  
+                                  <c:forEach var="reader" items="${rfidReaderList}" varStatus="fieldRow">
                                   <tr>
+                                      <td><c:out value="${counter}"/></td>
+                                      <td><a href="/rfidreader_view?readerId=${reader.getReaderId()}"><c:out value="${reader.getReaderId()}"/></a></td>
+                                      <td><c:out value="${reader.getReaderIp()}"/></td>
+                                      <td><c:out value="${reader.getReaderPort()}"/></td>
+                                      <td>
+                                        <c:if test="${reader.getLocationAssignStatus().equals('ASSIGNED')}">
+
+                                               <c:out value="${reader.getReaderLocationName()}"/>
+                                        </c:if>
+                                      </td>
+                                      <td>
+                                        <c:if test="${reader.getMiddlewareMappingStatus().equals('MAPPED')}">
+
+                                          <label class="badge badge-dark">Mapped</label>
+                                        </c:if>
+                                        <c:if test="${reader.getMiddlewareMappingStatus().equals('UNMAPPED')}">
+
+                                          <label class="badge badge-light"  style="color:black">UnMapped</label>
+                                        </c:if>
+                                      </td>
+                                      <td>
+                                        <c:out value="${reader.getMiddlewareReaderId()}"/>
+                                      </td>
+                                      <td>
+                                        <c:if test="${reader.getStatus().equals('READY')}">
+
+                                          <label class="badge badge-info">Ready</label>
+
+                                        </c:if>
+                                        
+                                      </td>
+                                  </tr>
+                                  <c:set var="counter" value="${counter + 1}"/>
+                                  </c:forEach>
+
+
+  <!--                                 <tr>
                                     <td>1</td>
                                     <td><a href="rfidreader_view">001</a></td>
                                     <td>192.168.2.253</td>
@@ -106,7 +150,7 @@
                                     <td></td>
                                     <td><label class="badge badge-info">Ready</label></td>
                                     
-                                  </tr>
+                                  </tr> -->
                                 </tbody>
                               </table>
                             </div>

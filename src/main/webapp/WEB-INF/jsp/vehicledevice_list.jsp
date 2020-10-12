@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +86,39 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
+                                    <c:set var="counter" value="1"/>  
+                                        <c:forEach var="vd" items="${vehicleDeviceList}" varStatus="fieldRow">
+                                        <tr>
+                                            <td><c:out value="${counter}"/></td>
+                                            <td><a href="/vehicledevice_view?deviceNo=${vd.getVehicleDeviceId()}"><c:out value="${vd.getVehicleDeviceId()}"/></a></td>
+                                            <td><c:out value="${vd.getVehicleDeviceNumber()}"/></td>
+                                            <td><c:out value="${vd.getRegisterDate()}"/></td>
+                                            <td>
+                                              <c:if test="${vd.getAttachStatus().equals('UNATTACHED')}">
+
+                                                <label class="badge badge-danger">Not Attached</label>
+                                              </c:if>
+                                              <c:if test="${vd.getAttachStatus().equals('ATTACHED')}">
+
+                                                <label class="badge badge-success">Attached</label>
+                                              </c:if>
+                                            </td>
+                                            <td><c:out value="${vd.getAttachDate()}"/></td>
+                                            <td>
+                                              <c:if test="${vd.getStatus().equals('Registered')}">
+
+                                                <label class="badge badge-info">Ready</label>
+                                              </c:if>
+                                            </td>
+                                            <td>
+                                              <i class="mdi mdi-table-edit"></i>
+                                               &nbsp;&nbsp;
+                                              <i class="mdi mdi-delete"></i>
+                                         </td>
+                                        </tr>
+                                        <c:set var="counter" value="${counter + 1}"/>
+                                        </c:forEach>
+<!--                                     <tr>
                                       <td>1</td>
                                       <td><a href="vehicledevice_view">100</a></td>
                                       <td>VD001</td>
@@ -108,7 +145,7 @@
                                            &nbsp;&nbsp;
                                           <i class="mdi mdi-delete"></i>
                                     </td>
-                                    </tr>
+                                    </tr> -->
                                   </tbody>
                                 </table>
                               </div>

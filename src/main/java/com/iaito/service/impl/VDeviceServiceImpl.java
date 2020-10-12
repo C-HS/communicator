@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iaito.dto.ContainerDTO;
 import com.iaito.dto.VDeviceDTO;
 import com.iaito.model.VDevice;
 import com.iaito.repository.VDeviceRepository;
@@ -21,9 +22,25 @@ public class VDeviceServiceImpl implements VDeviceService{
 	@Autowired ModelMapper modelMapper;
 	
 	@Override
-	public void addVDevice(VDevice vDevice) {
+	public String addVDevice(VDevice vDevice) {
 
-		vDeviceRepository.save(vDevice);
+		//vDeviceRepository.save(vDevice);
+		
+		try
+		{
+			modelMapper.map(vDeviceRepository.save(vDevice), VDeviceDTO.class);
+			
+			return "success";
+		}
+		catch(org.springframework.dao.DataIntegrityViolationException e)
+		{
+			return "already_exist";			
+		}
+		catch(Exception e)
+		{
+			return "register_error";	
+		}
+		
 		
 	}
 
@@ -36,7 +53,7 @@ public class VDeviceServiceImpl implements VDeviceService{
 	@Override
 	public VDeviceDTO getVDeviceByID(long vehicleDeviceId) {
 
-		return modelMapper.map(vDeviceRepository.findById(vehicleDeviceId), VDeviceDTO.class);
+		return modelMapper.map(vDeviceRepository.findById(vehicleDeviceId).get(), VDeviceDTO.class);
 	}
 
 	@Override
