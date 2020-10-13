@@ -29,7 +29,7 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public Optional<VehicleDTO> updateVehicle(Vehicle vehicle) {
+	public VehicleDTO updateVehicle(Vehicle vehicle) {
 		return Optional.empty();
 	}
 

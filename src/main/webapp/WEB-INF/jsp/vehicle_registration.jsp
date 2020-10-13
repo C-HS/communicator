@@ -120,7 +120,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group row">
                                                 <input type="button" id="submit" class="btn btn-gradient-primary mr-2" value="Submit" />
-                                                <input class="btn btn-light" value="Clear" />
+                                                <input type="button" class="btn btn-light" value="Clear" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
