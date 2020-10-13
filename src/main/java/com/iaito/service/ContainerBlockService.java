@@ -7,7 +7,7 @@ import com.iaito.model.ContainerBlock;
 
 public interface ContainerBlockService {
 
-	public void addContainerBlock(ContainerBlock containerBlock);
+	public String addContainerBlock(ContainerBlock containerBlock);
 	public ContainerBlockDTO updateContainerBlock(ContainerBlock containerBlock);
 	public ContainerBlockDTO getContainerBlockByID(long blockId);
 	public ContainerBlockDTO getContainerBlockByName(String blockName);

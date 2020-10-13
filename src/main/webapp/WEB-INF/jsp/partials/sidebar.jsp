@@ -74,12 +74,12 @@
       <div class="collapse" id="ui-yard">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a id="rfidLocationLink" class="nav-link" href="/listRfidLoction">Fixed Reader Location</a></li>
-          <li class="nav-item"> <a class="nav-link" href="containerBlock">Container Block</a></li>
-          <li class="nav-item"> <a class="nav-link" href="containerArea">Container Area</a></li>
+          <li class="nav-item"> <a id="containerBlockLink" class="nav-link" href="containerBlock">Container Block</a></li>
+          <li class="nav-item"> <a id="containerAreaLink" class="nav-link" href="containerArea">Container Area</a></li>
         </ul>
       </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" id="connection-Link">
       <a class="nav-link" data-toggle="collapse" href="#ui-connectionStatus" aria-expanded="false" aria-controls="ui-basic">
         <span class="menu-title">Connection Status</span>
         <i class="menu-arrow"></i>
@@ -87,10 +87,10 @@
       </a>
       <div class="collapse" id="ui-connectionStatus">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="liveStatus">Live Status</a></li>
-          <li class="nav-item"> <a class="nav-link" href="middewareStatus">Middleware</a></li>
-          <li class="nav-item"> <a class="nav-link" href="baseStationStatus">Base Station</a></li>
-          <li class="nav-item"> <a class="nav-link" href="fixedReaderStatus">Fixed RFID Reader</a></li>
+          <li class="nav-item"> <a id="liveStatusLink" class="nav-link" href="liveStatus">Live Status</a></li>
+          <li class="nav-item"> <a id="middlewareStatusLink" class="nav-link" href="middewareStatus">Middleware</a></li>
+          <li class="nav-item"> <a id="baseStationStatusLink" class="nav-link" href="baseStationStatus">Base Station</a></li>
+          <li class="nav-item"> <a id="fixedReaderStatusLink" class="nav-link" href="fixedReaderStatus">Fixed RFID Reader</a></li>
         </ul>
       </div>
     </li>

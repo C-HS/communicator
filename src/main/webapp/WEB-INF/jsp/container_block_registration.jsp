@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,16 +51,16 @@
                           <div class="card-body">
                             <h4 class="card-title">New Block</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
-                            <form class="forms-sample">
+                            <form action="createContainerBlock" method="POST" class="forms-sample">
                               <div class="form-group row">
                                 <label for="blockName" class="col-sm-2 col-form-label">Block Name</label>
                                 <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="blockName" placeholder="Name">
+                                  <input name="blockName" type="text" class="form-control" id="blockName" placeholder="Name">
                                 </div>
 
                                 <label for="desc" class="col-sm-2 col-form-label">Description </label>
                                 <div class="col-sm-4">
-                                  <input type="text" class="form-control" id="desc" placeholder="Description">
+                                  <input name="description" type="text" class="form-control" id="desc" placeholder="Description">
                                 </div>
                                </div>
 

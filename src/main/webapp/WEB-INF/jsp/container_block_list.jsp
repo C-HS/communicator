@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,11 +81,33 @@
                                       <th>Description</th>
                                       <th>Register Date</th>
                                       <th>Status</th>
-                                      <th>Action</th>
+                                      <!-- <th>Action</th> -->
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
+
+                                    <c:set var="counter" value="1"/>  
+                                  <c:forEach var="block" items="${blockList}" varStatus="fieldRow">
+                                  <tr>
+                                      <td><c:out value="${counter}"/></td>
+                                      <td><a href="/viewContainerBlock?blockId=${block.getBlockId()}"><c:out value="${block.getBlockId()}"/></a></td>
+                                      <td><c:out value="${block.getBlockName()}"/></td>
+                                      <td><c:out value="${block.getDescription()}"/></td>
+                                      <td>
+                                               <c:out value="${block.getDateCreated()}"/>
+                                      </td>
+                                      <td>
+                                        <c:if test="${block.getStatus().equals('READY')}">
+
+                                          <label class="badge badge-info">READY</label>
+                                        </c:if>
+                                      </td>
+                                  </tr>
+                                  <c:set var="counter" value="${counter + 1}"/>
+                                  </c:forEach>
+
+
+                                    <!-- <tr>
                                       <td>1</td>
                                       <td><a href="viewContainerBlock">25</a></td>
                                       <td>Left Block</td>
@@ -105,7 +132,7 @@
                                            &nbsp;&nbsp;
                                           <i class="mdi mdi-delete"></i>
                                     </td>
-                                    </tr>
+                                    </tr> -->
                                   </tbody>
                                 </table>
                               </div>

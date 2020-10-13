@@ -19,7 +19,7 @@ public class ContainerBlockDTO {
 
 	private String blockName;
 
-	private long description;
+	private String description;
 
 	private Date dateCreated;
 

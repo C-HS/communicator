@@ -35,7 +35,7 @@ public class ContainerBlock {
 	private String blockName;
 	
 	@Column(name = "description")
-	private long description;
+	private String description;
 	
 	@Column(name = "date_created")
 	@Temporal(TemporalType.TIMESTAMP)

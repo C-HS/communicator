@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iaito.dto.BaseStationConfigurationDTO;
 import com.iaito.dto.ContainerBlockDTO;
 import com.iaito.model.ContainerBlock;
 import com.iaito.repository.ContainerBlockRepository;
@@ -19,9 +20,24 @@ public class ContainerBlockServiceImpl implements ContainerBlockService{
 	@Autowired ModelMapper modelMapper;
 	
 	@Override
-	public void addContainerBlock(ContainerBlock containerBlock) {
+	public String addContainerBlock(ContainerBlock containerBlock) {
 
-		containerBlockRepository.save(containerBlock);
+	//	containerBlockRepository.save(containerBlock);
+		
+		try
+		{
+			modelMapper.map(containerBlockRepository.save(containerBlock), ContainerBlockDTO.class);
+			
+			return "success";
+		}
+		catch(org.springframework.dao.DataIntegrityViolationException e)
+		{
+			return "already_exist";			
+		}
+		catch(Exception e)
+		{
+			return "register_error";	
+		}
 		
 	}
 
@@ -34,7 +50,7 @@ public class ContainerBlockServiceImpl implements ContainerBlockService{
 	@Override
 	public ContainerBlockDTO getContainerBlockByID(long blockId) {
 
-		return modelMapper.map(containerBlockRepository.findById(blockId), ContainerBlockDTO.class);
+		return modelMapper.map(containerBlockRepository.findById(blockId).get(), ContainerBlockDTO.class);
 	}
 
 	@Override
