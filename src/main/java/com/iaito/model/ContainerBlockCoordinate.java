@@ -39,7 +39,7 @@ public class ContainerBlockCoordinate {
 	private String latitude;
 	
 	@Column(name = "longitude")
-	private long longitude;
+	private String longitude;
 	
 	@Column(name = "date_created")
 	@Temporal(TemporalType.TIMESTAMP)

@@ -21,7 +21,7 @@ public class ContainerBlockCoordinateDTO {
 
 	private String latitude;
 
-	private long longitude;
+	private String longitude;
 
 	private Date dateCreated;
 

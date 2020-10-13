@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iaito.dto.ContainerBlockCoordinateDTO;
+import com.iaito.dto.ContainerBlockDTO;
 import com.iaito.model.ContainerBlockCoordinate;
 import com.iaito.repository.ContainerBlockCoordinateRepository;
 import com.iaito.service.ContainerBlockCoordinateService;
@@ -19,9 +20,24 @@ public class ContainerBlockCoordinateServiceImpl implements ContainerBlockCoordi
 	@Autowired ModelMapper modelMapper;
 
 	@Override
-	public void addContainerBlockCoordinate(ContainerBlockCoordinate containerBlockCoordinate) {
+	public String addContainerBlockCoordinate(ContainerBlockCoordinate containerBlockCoordinate) {
 
-		containerBlockCoordinateRepository.save(containerBlockCoordinate);
+		//containerBlockCoordinateRepository.save(containerBlockCoordinate);
+		
+		try
+		{
+			modelMapper.map(containerBlockCoordinateRepository.save(containerBlockCoordinate), ContainerBlockCoordinateDTO.class);
+			
+			return "success";
+		}
+		catch(org.springframework.dao.DataIntegrityViolationException e)
+		{
+			return "already_exist";			
+		}
+		catch(Exception e)
+		{
+			return "register_error";	
+		}
 		
 	}
 

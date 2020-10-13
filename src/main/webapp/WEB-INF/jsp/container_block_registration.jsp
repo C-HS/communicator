@@ -96,6 +96,9 @@
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+
+    <script src="assets/vendors/sweetalert/sweetalert.min.js"></script>
+    <script src="assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="assets/vendors/datatables.net/jquery.dataTables.js"></script>
@@ -111,38 +114,91 @@
     <!-- Custom js for this page -->
     <!-- <script src="assets/js/data-table.js"></script> -->
 
+    <script src="assets/js/alerts.js"></script>
+    <script src="assets/js/avgrund.js"></script>
+
+    <c:choose>
+         
+    <c:when test = "${resp=='success'}">
+        <script> var r = "success" </script>
+    </c:when>
+    
+    <c:when test = "${resp=='already_exist'}">
+        <script> var r = "already_exist" </script>
+    </c:when>
+    <c:when test = "${resp=='error'}">
+        <script> var r = "error" </script>
+    </c:when>
+    <c:otherwise>
+        
+    </c:otherwise>
+ </c:choose>
+
+
     <script>
 
            
-$('#asset-Link').addClass("active");
-     $('#ui-asset').addClass("show");
-     $('#rfidLink').addClass("active");
+    $('#yard-Link').addClass("active");
+     $('#ui-yard').addClass("show");
+     $('#containerBlockLink').addClass("active");
 
             (function($) {
-            'use strict';
-            $(function() {
-                $('#vehicle_device_table').DataTable({
-                "aLengthMenu": [
-                    [5, 10, 15, -1],
-                    [5, 10, 15, "All"]
-                ],
-                "iDisplayLength": 10,
-                "language": {
-                    search: ""
+        'use strict';
+
+        if(r==='success')
+        {
+            swal({
+                    title: 'Container Block Registered',
+                    text: 'Successfully',
+                    icon: 'success',
+                    button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                    }
+                })
+        }
+        else if(r==='already_exist')
+        {
+            swal({
+                title: 'Unable To Register',
+                text: " Already Exist",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
                 }
-                });
-                $('#vehicle_device_table').each(function() {
-                var datatable = $(this);
-                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.removeClass('form-control-sm');
-                // LENGTH - Inline-Form control
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.removeClass('form-control-sm');
-                });
-            });
-            })(jQuery);
+                }
+            })
+        }
+        else if(r==='error')
+        {
+            swal({
+                title: 'Unable To Register',
+                text: "Exception Occured",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
+                }
+                }
+            })
+        }
+            
+        })(jQuery);
         </script>
     <!-- End custom js for this page -->
 </body>

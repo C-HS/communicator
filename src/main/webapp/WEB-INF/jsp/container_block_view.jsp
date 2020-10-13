@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,33 +49,33 @@
                       <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Block ID : 25</h4>
+                            <h4 class="card-title">Block ID :  ${containerBlock.getBlockId()}</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
                             
                               <div class="row">
                                 <label class="col-sm-4">Block Name</label>
                                 <div class="col-sm-8">
-                                  Left Block
+                                  ${containerBlock.getBlockName()}
                                 </div>
                               </div>
                               <div class="row">
                                 <label class="col-sm-4">Description</label>
                                 <div class="col-sm-8">
-                                  Left
+                                  ${containerBlock.getDescription()}
                                 </div>
                                
                               </div>
                                <div class="row">
                                 <label class="col-sm-4">Register Date</label>
                                 <div class="col-sm-8">
-                                  24-09-2020
+                                  ${containerBlock.getDateCreated()}
                                 </div>
                               </div>
                               
                               <div class="row">
                                 <label class="col-sm-4">Status</label>
                                 <div class="col-sm-8">
-                                  Ready
+                                  ${containerBlock.getStatus()}
                                 </div>
                                </div>
                             
@@ -136,7 +141,25 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr>
+
+                                <c:set var="counter" value="1"/>  
+                                  <c:forEach var="coordinate" items="${coordinateList}" varStatus="fieldRow">
+                                  <tr>
+                                      <td><c:out value="${counter}"/></td>
+                                      <td><c:out value="${coordinate.getCoordinateId()}"/></td>
+                                      <td><c:out value="${coordinate.getLatitude()}"/></td>
+                                      <td><c:out value="${coordinate.getLongitude()}"/></td>
+                                      <td>
+                                               <c:out value="${coordinate.getDateCreated()}"/>
+                                      </td>
+                                      <td>
+                                        <i class="mdi mdi-delete"></i>
+                                      </td>
+                                  </tr>
+                                  <c:set var="counter" value="${counter + 1}"/>
+                                  </c:forEach>
+
+<!--                                 <tr>
                                   <td>1</td>
                                   <td>12</td>
                                   <td>134562</td>
@@ -155,7 +178,7 @@
                                   <td >
                                     <i class="mdi mdi-delete"></i>
                                 </td>
-                                </tr>
+                                </tr> -->
                               </tbody>
                             </table>
                             
@@ -171,13 +194,13 @@
                           <div class="col-lg-8">
                             <div class="card-body">
                               <h4 class="card-title">Add Coordinates</h4>
-                              <form class="form-inline repeater" action="formLink" method="get">
+                              <form class="form-inline repeater" action="createContainerBlockCoordinate" method="POST">
 
                                 <button data-repeater-create type="button" class="btn btn-gradient-info btn-sm icon-btn ml-2 mb-2">
                                   <i class="mdi mdi-plus"></i>
                                 </button>
 
-                                <div data-repeater-list="group-a">
+                                <div data-repeater-list="coordinate">
                                   <div data-repeater-item class="d-flex mb-2">
                                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                                       <div class="input-group-prepend">
@@ -195,6 +218,7 @@
                                       <i class="mdi mdi-delete"></i>
                                     </button>
                                   </div>
+                                <input name="blockId" type="text" class="form-control form-control-sm" id="inlineFormInputGroup1" value="${containerBlock.getBlockId()}" hidden> 
                                 </div>
                                 <button type="submit" class="btn btn-gradient-success btn-sm">Submit</button>
                               </form>
@@ -226,6 +250,9 @@
     <script src="assets/vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <script src="assets/vendors/jquery.repeater/jquery.repeater.min.js"></script>
+
+    <script src="assets/vendors/sweetalert/sweetalert.min.js"></script>
+    <script src="assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="assets/js/off-canvas.js"></script>
@@ -238,38 +265,89 @@
     <!-- Custom js for this page -->
     <!-- <script src="assets/js/data-table.js"></script> -->
 
+    <script src="assets/js/alerts.js"></script>
+    <script src="assets/js/avgrund.js"></script>
+
+    <c:choose>
+        <c:when test = "${resp=='success'}">
+            <script> var r = "success" </script>
+        </c:when>
+        
+        <c:when test = "${resp=='already_exist'}">
+            <script> var r = "already_exist" </script>
+        </c:when>
+        <c:when test = "${resp=='error'}">
+            <script> var r = "error" </script>
+        </c:when>
+        <c:otherwise>
+            
+        </c:otherwise>
+    </c:choose>
+
     <script>
 
            
-     $('#asset-Link').addClass("active");
-     $('#ui-asset').addClass("show");
-     $('#vdLink').addClass("active");
+     $('#yard-Link').addClass("active");
+     $('#ui-yard').addClass("show");
+     $('#containerBlockLink').addClass("active");
 
             (function($) {
-            'use strict';
-            $(function() {
-                $('#vehicle_device_table').DataTable({
-                "aLengthMenu": [
-                    [5, 10, 15, -1],
-                    [5, 10, 15, "All"]
-                ],
-                "iDisplayLength": 10,
-                "language": {
-                    search: ""
+        'use strict';
+
+        if(r==='success')
+        {
+            swal({
+                    title: 'Coordinate Added',
+                    text: 'Successfully',
+                    icon: 'success',
+                    button: {
+                    text: "Continue",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary"
+                    }
+                })
+        }
+        else if(r==='already_exist')
+        {
+            swal({
+                title: 'Unable To Add',
+                text: " Already Exist",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
                 }
-                });
-                $('#vehicle_device_table').each(function() {
-                var datatable = $(this);
-                // SEARCH - Add the placeholder for Search and Turn this into in-line form control
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.removeClass('form-control-sm');
-                // LENGTH - Inline-Form control
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.removeClass('form-control-sm');
-                });
-            });
-            })(jQuery);
+                }
+            })
+        }
+        else if(r==='error')
+        {
+            swal({
+                title: 'Unable To Add',
+                text: "Exception Occured",
+                icon: 'warning',
+                confirmButtonColor: '#3f51b5',
+                confirmButtonText: 'Great ',
+                buttons: {
+                confirm: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "btn btn-primary",
+                    closeModal: true
+                }
+                }
+            })
+        }
+            
+        })(jQuery);
         </script>
     <!-- End custom js for this page -->
 </body>
