@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,6 +83,31 @@
                                     </tr>
                                   </thead>
                                   <tbody>
+
+                                    <c:set var="counter" value="1"/>  
+                                  <c:forEach var="status" items="${middlewareStatusList}" varStatus="fieldRow">
+                                      <tr>
+                                          <td><c:out value="${counter}"/></td>
+                                          <td><c:out value="${status.getMConfigId()}"/></td>
+                                          <td><c:out value="${status.getStatusType()}"/></td>
+                                          <td><c:out value="${status.getDescription()}"/></td>
+                                          <td>
+                                                  <c:out value="${status.getCreateDate()}"/>
+                                          </td>
+                                          <td>
+                                            <c:if test="${status.getStatus().equals('CONNECTED')}">
+
+                                              <td><label class="badge badge-success">Connected</label></td>
+                                            </c:if>
+
+                                            <td><label class="badge badge-danger">DisConnected</label></td>
+                                          </td>
+  
+                                      </tr>
+                                      <c:set var="counter" value="${counter + 1}"/>
+                                  </c:forEach>
+
+
                                     <tr>
                                       <td>1</td>
                                       <td>001</td>

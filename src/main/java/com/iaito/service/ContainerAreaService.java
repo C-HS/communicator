@@ -7,7 +7,7 @@ import com.iaito.model.ContainerArea;
 
 public interface ContainerAreaService {
 
-	public void addContainerArea(ContainerArea containerArea);
+	public String addContainerArea(ContainerArea containerArea);
 	public ContainerAreaDTO updateContainerArea(ContainerArea containerArea);
 	public ContainerAreaDTO getContainerAreaByID(long areaId);
 	public ContainerAreaDTO getContainerAreaByName(String areaName);

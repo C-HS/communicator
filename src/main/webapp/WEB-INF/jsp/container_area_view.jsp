@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,58 +49,58 @@
                       <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Area ID : 10</h4>
+                            <h4 class="card-title">Area ID : ${containerArea.getAreaId()}</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
                             
                               <div class="row">
                                 <label class="col-sm-4">Area Name</label>
                                 <div class="col-sm-8">
-                                  A1
+                                  ${containerArea.getAreaName()}
                                 </div>
                               </div>
                               <div class="row">
                                 <label class="col-sm-4">Block</label>
                                 <div class="col-sm-8">
-                                  Left Block
+                                  ${containerArea.getBlockId()}
                                 </div>
                                
                               </div>
                                <div class="row">
                                 <label class="col-sm-4">Register Date</label>
                                 <div class="col-sm-8">
-                                  24-09-2020
+                                  ${containerArea.getCreateDate()}
                                 </div>
                               </div>
                               
                               <div class="row">
                                 <label class="col-sm-4">Status</label>
                                 <div class="col-sm-8">
-                                  Ready
+                                  ${containerArea.getStatus()}
                                 </div>
                                </div>
 
                                <div class="row">
                                 <label class="col-sm-4">Lat - Long 1</label>
                                 <div class="col-sm-8">
-                                  12466.20, 1244.054
+                                  ${containerArea.getLatitude1()} , ${containerArea.getLongitude1()}
                                 </div>
                                </div>
                                <div class="row">
                                 <label class="col-sm-4">Lat - Long 2</label>
                                 <div class="col-sm-8">
-                                  12472.20, 1244.125
+                                  ${containerArea.getLatitude2()} , ${containerArea.getLongitude2()}
                                 </div>
                                </div>
                                <div class="row">
                                 <label class="col-sm-4">Lat - Long 3</label>
                                 <div class="col-sm-8">
-                                  12471.70, 1243.142
+                                  ${containerArea.getLatitude3()} , ${containerArea.getLongitude3()}
                                 </div>
                                </div>
                                <div class="row">
                                 <label class="col-sm-4">Lat - Long 4</label>
                                 <div class="col-sm-8">
-                                  12472.50, 1244.152
+                                  ${containerArea.getLatitude4()} , ${containerArea.getLongitude4()}
                                 </div>
                                </div>
                             
@@ -152,10 +157,10 @@
     <script>
 
            
-     $('#asset-Link').addClass("active");
-     $('#ui-asset').addClass("show");
-     $('#vdLink').addClass("active");
-
+           
+    $('#yard-Link').addClass("active");
+     $('#ui-yard').addClass("show");
+     $('#containerAreaLink').addClass("active");
             (function($) {
             'use strict';
             $(function() {

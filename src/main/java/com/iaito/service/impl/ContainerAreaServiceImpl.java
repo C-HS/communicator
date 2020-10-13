@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iaito.dto.ContainerAreaDTO;
+import com.iaito.dto.ContainerBlockDTO;
 import com.iaito.model.ContainerArea;
 import com.iaito.repository.ContainerAreaRepository;
 import com.iaito.service.ContainerAreaService;
@@ -19,9 +20,25 @@ public class ContainerAreaServiceImpl implements ContainerAreaService{
 	@Autowired ModelMapper modelMapper;
 
 	@Override
-	public void addContainerArea(ContainerArea containerArea) {
+	public String addContainerArea(ContainerArea containerArea) {
 		
-		containerAreaRepository.save(containerArea);
+		//containerAreaRepository.save(containerArea);
+		
+		try
+		{
+			modelMapper.map(containerAreaRepository.save(containerArea), ContainerAreaDTO.class);
+			
+			return "success";
+		}
+		catch(org.springframework.dao.DataIntegrityViolationException e)
+		{
+			return "already_exist";			
+		}
+		catch(Exception e)
+		{
+			return "register_error";	
+		}
+		
 		
 	}
 
@@ -34,7 +51,7 @@ public class ContainerAreaServiceImpl implements ContainerAreaService{
 	@Override
 	public ContainerAreaDTO getContainerAreaByID(long areaId) {
 
-		return modelMapper.map(containerAreaRepository.findById(areaId), ContainerAreaDTO.class);
+		return modelMapper.map(containerAreaRepository.findById(areaId).get(), ContainerAreaDTO.class);
 	}
 
 	@Override

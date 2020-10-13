@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +85,32 @@
                                     </tr>
                                   </thead>
                                   <tbody>
+
+                                  <c:set var="counter" value="1"/>  
+                                  <c:forEach var="area" items="${areaList}" varStatus="fieldRow">
+                                      <tr>
+                                          <td><c:out value="${counter}"/></td>
+                                          <td><a href="/viewContainerArea?areaId=${area.getAreaId()}"><c:out value="${area.getAreaId()}"/></a></td>
+                                          <td><c:out value="${area.getAreaName()}"/></td>
+                                          <td><c:out value="${area.getBlockId()}"/></td>
+                                          <td>
+                                                  <c:out value="${area.getCreateDate()}"/>
+                                          </td>
+                                          <td>
+                                            <c:if test="${area.getStatus().equals('READY')}">
+
+                                              <label class="badge badge-info">READY</label>
+                                            </c:if>
+                                          </td>
+                                          <td>
+                                            <i class="mdi mdi-table-edit"></i>
+                                            &nbsp;&nbsp;
+                                            <i class="mdi mdi-delete"></i>
+                                      </td>
+                                      </tr>
+                                      <c:set var="counter" value="${counter + 1}"/>
+                                  </c:forEach>
+<!-- 
                                     <tr>
                                       <td>1</td>
                                       <td><a href="viewContainerArea">10</a></td>
@@ -105,7 +136,7 @@
                                            &nbsp;&nbsp;
                                           <i class="mdi mdi-delete"></i>
                                     </td>
-                                    </tr>
+                                    </tr> -->
                                   </tbody>
                                 </table>
                               </div>

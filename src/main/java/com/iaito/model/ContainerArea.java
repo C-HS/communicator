@@ -41,25 +41,25 @@ public class ContainerArea {
 	private String latitude1;
 	
 	@Column(name = "longitude1")
-	private long longitude1;
+	private String longitude1;
 	
 	@Column(name = "latitude2")
 	private String latitude2;
 	
 	@Column(name = "longitude2")
-	private long longitude2;
+	private String longitude2;
 	
 	@Column(name = "latitude3")
 	private String latitude3;
 	
 	@Column(name = "longitude3")
-	private long longitude3;
+	private String longitude3;
 	
 	@Column(name = "latitude4")
 	private String latitude4;
 	
 	@Column(name = "longitude4")
-	private long longitude4;
+	private String longitude4;
 	
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)

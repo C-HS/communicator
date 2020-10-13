@@ -19,7 +19,7 @@ public class MiddlewareMqttConnectionStatusDTO {
 
 	private long mConfigId;
 
-	private long statusType;
+	private String statusType;
 
 	private String description;
 

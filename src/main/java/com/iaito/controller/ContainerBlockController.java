@@ -26,30 +26,27 @@ public class ContainerBlockController {
 	@Autowired ContainerBlockService containerBlockService;
 	@Autowired ContainerBlockCoordinateService containerBlockCoordinateService;
 	
-    @PostMapping("/createContainerBlock")
-    public ModelAndView createRFIDReader(@ModelAttribute ContainerBlock containerBlock)
-    {
-    	String resp= "";
-    	
-
-    
-    	containerBlock.setDateCreated(new Date());
-    	containerBlock.setStatus("READY");
-        	
-        resp = containerBlockService.addContainerBlock(containerBlock);
-    
-   
-    	ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("container_block_registration");
-        
-     //   System.out.println("@@@@@@@@@@@@@@@@@@ "+resp);
-        
-        modelAndView.addObject("resp", resp);
-    	
-        return modelAndView;
-    	
-    }
 	
+	  @PostMapping("/createContainerBlock") 
+	  public ModelAndView createContainerBlock(@ModelAttribute ContainerBlock containerBlock) 
+	  { 
+		  String resp= "";
+	  
+		  containerBlock.setDateCreated(new Date()); containerBlock.setStatus("READY");
+		  
+		  resp = containerBlockService.addContainerBlock(containerBlock);
+		  
+		  
+		  ModelAndView modelAndView = new ModelAndView();
+		  modelAndView.setViewName("container_block_registration");
+		  
+		  
+		  modelAndView.addObject("resp", resp);
+		  
+		  return modelAndView;
+		  
+	  }
+	 
 	
     @GetMapping("/containerBlock")
     public ModelAndView containerBlocks(){

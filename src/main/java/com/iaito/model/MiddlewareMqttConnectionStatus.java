@@ -35,7 +35,7 @@ public class MiddlewareMqttConnectionStatus {
 	private long mConfigId;
 	
 	@Column(name = "status_type")
-	private long statusType;
+	private String statusType;
 	
 	@Column(name = "description")
 	private String description;
