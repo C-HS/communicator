@@ -30,9 +30,9 @@ public class VehicleServiceImpl implements VehicleService{
 
 	@Override
 	public VehicleDTO updateVehicle(Vehicle vehicle) {
-		//return Optional.empty();
-		
-		return null;
+		Vehicle ve = vehicleRepository.findById(vehicle.getVehicleId()).get();
+		ve = vehicle;
+		return modelMapper.map(vehicleRepository.save(ve), VehicleDTO.class);
 	}
 
 	@Override

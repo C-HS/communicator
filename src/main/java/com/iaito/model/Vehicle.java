@@ -59,5 +59,4 @@ public class Vehicle {
 	
 	@Column(name = "status")
 	private String status;
-
 }

@@ -33,7 +33,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Vehicle Registration</h4>
-                                <form class="form-sample">
+                                <form class="form-sample" id="vehicleForm">
                                     <p class="card-description"> Information </p>
                                     <div class="row">
                                         <div class="col-md-6">

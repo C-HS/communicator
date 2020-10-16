@@ -14,6 +14,7 @@ import com.iaito.model.AuthorityType;
 import com.iaito.model.User;
 import com.iaito.repository.ContainerRepository;
 import com.iaito.repository.UserRepository;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
 public class CommunicatorApplication {
@@ -22,6 +23,7 @@ public class CommunicatorApplication {
 		SpringApplication.run(CommunicatorApplication.class, args);
 	}
 	@Bean
+	@Profile("dev")
 	CommandLineRunner initDatabase(UserRepository userRepository){
 		return args -> {
 			userRepository.saveAll(
