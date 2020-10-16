@@ -33,14 +33,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Reader Location Registration</h4>
-                                <form class="form-sample">
+                                <form id="readerLocationForm" class="form-sample">
                                     <p class="card-description"> Information </p>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Location Name</label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control">
+                                                    <input name="readerLocationName" type="text" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Date Created</label>
                                                 <div class="col-sm-7">
-                                                    <input type="date" class="form-control">
+                                                    <input name="dateCreated" type="date" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -60,13 +60,13 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked=""> UP <i class="input-helper"></i></label>
+                                                            <input type="radio"  class="form-check-input" name="status" id="membershipRadios1" value="" checked=""> UP <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
                                                         <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Not UP <i class="input-helper"></i></label>
+                                                            <input type="radio" class="form-check-input" name="status" id="membershipRadios2" value="option2"> Not UP <i class="input-helper"></i></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,8 +77,8 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                                                <button class="btn btn-light">Cancel</button>
+                                                <input type="button" id="submit" class="btn btn-gradient-primary mr-2" value="Submit" />
+                                                <input class="btn btn-light" value="Cancle">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -96,6 +96,9 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="assets/vendors/sweetalert/sweetalert.min.js"></script>
+<script src="assets/vendors/jquery.avgrund/jquery.avgrund.min.js"></script>
 <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 <script src="assets/vendors/chart.js/Chart.min.js"></script>
 <script src="assets/js/off-canvas.js"></script>
@@ -103,5 +106,35 @@
 <script src="assets/js/misc.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/todolist.js"></script>
+<script>
+    $(document).ready(function(){
+       $("#submit").click(function(){
+          var readerLocation = {};
+          readerLocation["readerLocationName"]=$("input[name=readerLocationName]").val();
+          readerLocation["dateCreated"]=$("input[name=dateCreated]").val();
+          readerLocation["status"]=$("input[name=status]").val();
+           $.ajax({
+               type: "POST",
+               contentType : "application/json",
+               url : "/readerLocationRegistration",
+               data : JSON.stringify(readerLocation),
+               dataType : 'text',
+               success : function(data) {
+                   swal({
+                       title: "Reader Location Saved",
+                       text: "Reader Location Information Saved Successfully.",
+                       type: "success"}).then(okay => {
+                       if (okay) {
+                           window.location.href = "/readerLocationList";
+                       }
+                   });
+               },
+               error: function(error){
+                   swal("Error", "Something went Wrong..!!!", "error");
+               }
+           })
+       });
+    });
+</script>
 </body>
 </html>

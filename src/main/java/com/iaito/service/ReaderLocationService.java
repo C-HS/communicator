@@ -7,7 +7,7 @@ import com.iaito.model.ReaderLocation;
 
 public interface ReaderLocationService {
 	
-	public void addReaderLocation(ReaderLocation readerLocation);
+	public ReaderLocationDTO addReaderLocation(ReaderLocation readerLocation);
 	public ReaderLocationDTO updateReaderLocation(ReaderLocation readerLocation);
 	public ReaderLocationDTO getReaderLocationByID(long readerLocationId);
 	public ReaderLocationDTO getReaderLocationByName(String readerLocationName);

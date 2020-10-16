@@ -22,4 +22,4 @@ public class ReaderLocationDTO {
 	private Date dateCreated;
 
 	private String status;
-}
+		}

@@ -19,11 +19,12 @@ public class ReaderLocationServiceImpl implements ReaderLocationService{
 	@Autowired ModelMapper modelMapper;
 
 	@Override
-	public void addReaderLocation(ReaderLocation readerLocation) {
+	public ReaderLocationDTO addReaderLocation(ReaderLocation readerLocation) {
 
 		readerLocationRepository.save(readerLocation);
-		
-	}
+
+        return null;
+    }
 
 	@Override
 	public ReaderLocationDTO updateReaderLocation(ReaderLocation readerLocation) {
