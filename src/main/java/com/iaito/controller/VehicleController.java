@@ -23,8 +23,11 @@ public class VehicleController {
     }
 
     @GetMapping("/vehicleList")
-    public String listVehicle(){
-        return "vehicle_list";
+    public ModelAndView listVehicle(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("vehicle_list");
+        modelAndView.addObject("vehicleList", vehicleService.getAllVehicle());
+        return modelAndView;
     }
     @GetMapping("/vehicleRegister")
     public String registerVehicle(){

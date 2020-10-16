@@ -167,11 +167,17 @@
                 data : JSON.stringify(vehicle),
                 dataType : 'text',
                 success : function(data) {
-                    //Test for the returned JSON Object of the Vehicle.
-                    swal("Good job!", "You clicked the button!", "success");
+                    swal({
+                        title: "Vehicle Saved",
+                        text: "Vehicle Information Saved Successfully.",
+                        type: "success"}).then(okay => {
+                        if (okay) {
+                            window.location.href = "/vehicleList";
+                        }
+                    });
                 },
                 error: function(error){
-                    alert(error);
+                    swal("Error", "Some Error Happened", "error");
                 }
             });
         });

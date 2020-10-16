@@ -13,22 +13,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class VehicleDTO {
-
 	private long vehicleId;
-	
 	private String vehicleNumber;
-	
 	private String vehicleType;
-
 	private String vehicleInfo;
-
 	private long vehicleDeviceId;
-
 	private String mountingStatus;
-
 	private Date registerDate;
-
 	private Date mountingDate;
-
 	private String status;
 }
