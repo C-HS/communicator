@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iaito.dto.ContainerBlockDTO;
 import com.iaito.dto.ContainerMovementAtFixedReaderDTO;
 import com.iaito.model.ContainerMovementAtFixedReader;
 import com.iaito.repository.ContainerMovementAtFixedReaderRepository;
@@ -19,9 +20,25 @@ public class ContainerMovementAtFixedReaderServiceImpl implements ContainerMovem
 	@Autowired ModelMapper modelMapper;
 	
 	@Override
-	public void addContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader) {
+	public String addContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader) {
 
-		repository.save(containerMovementAtFixedReader);
+		//repository.save(containerMovementAtFixedReader);
+		
+		try
+		{
+			modelMapper.map(repository.save(containerMovementAtFixedReader), ContainerMovementAtFixedReaderDTO.class);
+			
+			return "success";
+		}
+		catch(org.springframework.dao.DataIntegrityViolationException e)
+		{
+			return "already_exist";			
+		}
+		catch(Exception e)
+		{
+			return "register_error";	
+		}
+		
 	}
 
 	@Override

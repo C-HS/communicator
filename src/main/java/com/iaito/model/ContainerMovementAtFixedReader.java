@@ -41,6 +41,12 @@ public class ContainerMovementAtFixedReader {
 	@Column(name = "container_id")
 	private long containerId;
 	
+	@Column(name = "antenna")
+	private String antenna;
+	
+	@Column(name = "ref_reader")
+	private String refReader;
+	
 	@Column(name = "date_time")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateTime;

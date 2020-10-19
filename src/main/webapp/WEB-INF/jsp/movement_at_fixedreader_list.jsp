@@ -1,5 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,6 +83,22 @@
                                     </tr>
                                   </thead>
                                   <tbody>
+
+                                    <c:set var="counter" value="1"/>  
+                                    <c:forEach var="movement" items="${movementList}" varStatus="fieldRow">
+                                        <tr>
+                                            <td><c:out value="${counter}"/></td>
+                                            <td><c:out value="${movement.getReaderId()}"/></td>
+                                            <td><c:out value="${movement.getMovementType()}"/></td>
+                                            <td><c:out value="${movement.getContainerId()}"/></td>
+                                            <td>
+                                                    <c:out value="${status.getDateTime()}"/>
+                                            </td>
+                                        </tr>
+                                        <c:set var="counter" value="${counter + 1}"/>
+                                    </c:forEach>
+
+
                                     <tr>
                                       <td>1</td>
                                       <td>Moto_1</td>

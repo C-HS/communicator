@@ -7,7 +7,7 @@ import com.iaito.model.ContainerMovementAtFixedReader;
 
 public interface ContainerMovementAtFixedReaderService {
 
-	public void addContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
+	public String addContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
 	public ContainerMovementAtFixedReaderDTO updateContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
 	public ContainerMovementAtFixedReaderDTO getContainerMovementAtFixedReaderByID(long movementId);
 	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByReaderID(long readerId);

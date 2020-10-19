@@ -22,6 +22,10 @@ public class ContainerMovementAtFixedReaderDTO {
 	private String movementType;
 
 	private String tid;
+	
+	private String antenna;
+	
+	private String refReader;
 
 	private long containerId;
 
