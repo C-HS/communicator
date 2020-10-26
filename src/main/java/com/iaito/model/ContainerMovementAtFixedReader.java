@@ -27,19 +27,49 @@ public class ContainerMovementAtFixedReader {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "movement_id")
-	private Long movementId;
+	private long movementId;
 	
 	@Column(name = "reader_id")
-	private Long readerId;
+	private long readerId;
 	
 	@Column(name = "movement_type")
 	private String movementType;
 	
-	@Column(name = "tid")
-	private String tid;
+	@Column(name = "epc")
+	private String epc;
 	
 	@Column(name = "container_id")
 	private long containerId;
+	
+	@Column(name = "container_no")
+	private String containerNo;
+	
+	@Column(name = "reader_location_id")
+	private long readerLocationId;
+	
+	@Column(name = "reader_location_name")
+	private String readerLocationName;
+	
+	@Column(name = "vehicle_device_no")
+	private String vehicleDeviceNo;
+	
+	@Column(name = "vehicle_no")
+	private String vehicleNo;
+	
+	@Column(name = "latitude")
+	private String latitude;
+	
+	@Column(name = "longitude")
+	private String longitude;
+	
+	@Column(name = "altitude")
+	private String altitude;
+	
+	@Column(name = "area_id")
+	private long areaId;
+	
+	@Column(name = "area_name")
+	private String areaName;
 	
 	@Column(name = "antenna")
 	private String antenna;

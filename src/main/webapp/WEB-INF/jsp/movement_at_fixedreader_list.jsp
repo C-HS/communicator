@@ -34,7 +34,7 @@
             <div class="content-wrapper">
                
                     <div class="page-header">
-                        <h3 class="page-title">Container Movement At Fixed RFID Reader</h3>
+                        <h3 class="page-title">Container Movement</h3>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#">Movement</a></li>
@@ -75,11 +75,15 @@
                                 <table id="fixed_reader_status_table" class="table table-hover  table-responsive-lg table-bordered">
                                   <thead>
                                     <tr>
-                                      <th>SNo</th>
-                                      <th>Reader ID</th>
-                                      <th>Container ID</th>
-                                      <th>Movement Type</th>
+                                      <th>#</th>
                                       <th>Date Time</th>
+                                      <th>Container No</th>
+                                      <th>Movement Type</th>
+                                      <th>Reader ID</th>
+                                      <th>Location</th>
+                                      <th>Vehicle No</th>
+                                      <th>Area</th>
+                                      <th>Altitude</th>
                                     </tr>
                                   </thead>
                                   <tbody>
@@ -88,18 +92,20 @@
                                     <c:forEach var="movement" items="${movementList}" varStatus="fieldRow">
                                         <tr>
                                             <td><c:out value="${counter}"/></td>
-                                            <td><c:out value="${movement.getReaderId()}"/></td>
+                                            <td><c:out value="${movement.getDateTime()}"/></td>
+                                            <td><c:out value="${movement.getContainerNo()}"/></td>
                                             <td><c:out value="${movement.getMovementType()}"/></td>
-                                            <td><c:out value="${movement.getContainerId()}"/></td>
-                                            <td>
-                                                    <c:out value="${status.getDateTime()}"/>
-                                            </td>
+                                            <td><c:out value="${movement.getReaderId()}"/> [<c:out value="${movement.getRefReader()}"/>]</td>
+                                            <td><c:out value="${movement.getReaderLocationName()}"/></td>
+                                            <td><c:out value="${movement.getVehicleNo()}"/></td>
+                                            <td><c:out value="${movement.getAreaName()}"/></td>
+                                            <td><c:out value="${movement.getAltitude()}"/></td>
                                         </tr>
                                         <c:set var="counter" value="${counter + 1}"/>
                                     </c:forEach>
 
 
-                                    <tr>
+                                  <!--   <tr>
                                       <td>1</td>
                                       <td>Moto_1</td>
                                       <td>0001</td>
@@ -112,7 +118,7 @@
                                       <td>0001</td>
                                       <td>Arrived</td>
                                       <td>05-10-2020 17:10:50</td>
-                                    </tr>
+                                    </tr> -->
                                   </tbody>
                                 </table>
                               </div>

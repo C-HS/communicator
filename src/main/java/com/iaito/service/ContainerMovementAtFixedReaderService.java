@@ -11,7 +11,7 @@ public interface ContainerMovementAtFixedReaderService {
 	public ContainerMovementAtFixedReaderDTO updateContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
 	public ContainerMovementAtFixedReaderDTO getContainerMovementAtFixedReaderByID(long movementId);
 	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByReaderID(long readerId);
-	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByTID(String tid);
+	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByEPC(String epc);
 	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByContainerID(long containerId);
 	public List<ContainerMovementAtFixedReaderDTO> getAllContainerMovementAtFixedReader();
 	public void deleteContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);

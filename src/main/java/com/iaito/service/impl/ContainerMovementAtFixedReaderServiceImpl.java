@@ -7,7 +7,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.iaito.dto.ContainerBlockDTO;
 import com.iaito.dto.ContainerMovementAtFixedReaderDTO;
 import com.iaito.model.ContainerMovementAtFixedReader;
 import com.iaito.repository.ContainerMovementAtFixedReaderRepository;
@@ -65,10 +64,10 @@ public class ContainerMovementAtFixedReaderServiceImpl implements ContainerMovem
 	}
 
 	@Override
-	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByTID(String tid) {
+	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByEPC(String epc) {
 
 		return repository
-				.findByTid(tid)
+				.findByEpc(epc)
 				.stream()
 				.map(e -> modelMapper.map(e, ContainerMovementAtFixedReaderDTO.class))
 				.collect(Collectors.toList());

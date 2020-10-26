@@ -15,19 +15,39 @@ import lombok.ToString;
 @ToString
 public class ContainerMovementAtFixedReaderDTO {
 
-	private Long movementId;
+	private long movementId;
 
-	private Long readerId;
+	private long readerId;
 
 	private String movementType;
 
-	private String tid;
-	
-	private String antenna;
-	
-	private String refReader;
+	private String epc;
 
 	private long containerId;
+
+	private String containerNo;
+
+	private long readerLocationId;
+
+	private String readerLocationName;
+
+	private String vehicleDeviceNo;
+
+	private String vehicleNo;
+
+	private String latitude;
+
+	private String longitude;
+
+	private String altitude;
+
+	private long areaId;
+
+	private String areaName;
+
+	private String antenna;
+
+	private String refReader;
 
 	private Date dateTime;
 
