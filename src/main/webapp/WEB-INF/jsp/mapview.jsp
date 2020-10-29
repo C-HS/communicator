@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
 	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
-	<script src="/sample-geojson.js" type="text/javascript"></script>
+	<script src="sample-geojson.js" type="text/javascript"></script>
 	<!-- <script src="/app.js"></script> -->
 	<style>
 		#map {
@@ -60,7 +60,333 @@
 	</div>
 </div>
 <script>
-	var stompClient = null;
+    var customeBondedArea = {
+        "type":"FeatureCollection",
+        "features":[{
+            "type":"Feature",
+            "geometry":{
+                "type":"Polygon",
+                "coordinates":[[
+                    [80.2457953,26.4585406,0],
+                    [80.2457953,26.4579739,0],
+                    [80.2463103,26.4579355,0],
+                    [80.2462674,26.4574937,0],
+                    [80.2484346,26.45734,0],
+                    [80.2485848,26.4583293,0],
+                    [80.2457953,26.4585406,0]
+                ]]
+            },
+            "properties":{
+                "name":"Customs Bonded Area"
+            }
+        }]
+    };
+    var emptyContainerYard = {"type":"FeatureCollection","features":[
+            {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[80.2428771,26.4588576,0],[80.2428127,26.4583005,0],[80.2456344,26.4580796,0],[80.2456559,26.4586367,0],[80.2428771,26.4588576,0]]]},"properties":{"name":"Empty Container Yard"}}
+        ]};
+    var railwayYard = {"type":"FeatureCollection","features":[
+            {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[80.2422012,26.4591553,0],[80.2421797,26.4589248,0],[80.2485956,26.4583965,0],[80.2486492,26.4586463,0],[80.2422012,26.4591553,0]]]},"properties":{"name":"Railway Yard"}}
+        ]};
+    var areaUnitOne = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit One"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24818137288094,
+                        26.45808706517649
+                    ],
+                    [
+                        80.24854212999344,
+                        26.45808706517649
+                    ],
+                    [
+                        80.24854212999344,
+                        26.458327192510943
+                    ],
+                    [
+                        80.24818137288094,
+                        26.458327192510943
+                    ],
+                    [
+                        80.24818137288094,
+                        26.45808706517649
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitTwo = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Two"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24772405624388,
+                        26.45808826581443
+                    ],
+                    [
+                        80.24816930294037,
+                        26.45808826581443
+                    ],
+                    [
+                        80.24816930294037,
+                        26.458348803946482
+                    ],
+                    [
+                        80.24772405624388,
+                        26.458348803946482
+                    ],
+                    [
+                        80.24772405624388,
+                        26.45808826581443
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitThree = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Three"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24710714817047,
+                        26.45808706517649
+                    ],
+                    [
+                        80.24770930409431,
+                        26.45808706517649
+                    ],
+                    [
+                        80.24770930409431,
+                        26.45837641855265
+                    ],
+                    [
+                        80.24710714817047,
+                        26.45837641855265
+                    ],
+                    [
+                        80.24710714817047,
+                        26.45808706517649
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitFour = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Four"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24656131863594,
+                        26.45808706517649
+                    ],
+                    [
+                        80.2470937371254,
+                        26.45808706517649
+                    ],
+                    [
+                        80.2470937371254,
+                        26.458405233786785
+                    ],
+                    [
+                        80.24656131863594,
+                        26.458405233786785
+                    ],
+                    [
+                        80.24656131863594,
+                        26.45808706517649
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitFive = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Five"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24581298232079,
+                        26.45808946645232
+                    ],
+                    [
+                        80.24654790759087,
+                        26.45808946645232
+                    ],
+                    [
+                        80.24654790759087,
+                        26.458468867403347
+                    ],
+                    [
+                        80.24581298232079,
+                        26.458468867403347
+                    ],
+                    [
+                        80.24581298232079,
+                        26.45808946645232
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitSix = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Six"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24793058633804,
+                        26.457638025717106
+                    ],
+                    [
+                        80.24847239255905,
+                        26.457638025717106
+                    ],
+                    [
+                        80.24847239255905,
+                        26.45799701729695
+                    ],
+                    [
+                        80.24793058633804,
+                        26.45799701729695
+                    ],
+                    [
+                        80.24793058633804,
+                        26.457638025717106
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitSeven = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Seven"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24721041321754,
+                        26.457638025717106
+                    ],
+                    [
+                        80.24791985750198,
+                        26.457638025717106
+                    ],
+                    [
+                        80.24791985750198,
+                        26.457982609629706
+                    ],
+                    [
+                        80.24721041321754,
+                        26.457982609629706
+                    ],
+                    [
+                        80.24721041321754,
+                        26.457638025717106
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitEight = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Eight"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.24651035666466,
+                        26.457640427002303
+                    ],
+                    [
+                        80.24719029664993,
+                        26.457640427002303
+                    ],
+                    [
+                        80.24719029664993,
+                        26.457987412185652
+                    ],
+                    [
+                        80.24651035666466,
+                        26.457987412185652
+                    ],
+                    [
+                        80.24651035666466,
+                        26.457640427002303
+                    ]
+                ]
+            ]
+        }
+    };
+    var areaUnitNine = {
+        "type": "Feature",
+        "properties": {
+            "name": "Unit Nine",
+            "fill": "#ad1010"
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [
+                        80.2476717531681,
+                        26.457412304685693
+                    ],
+                    [
+                        80.24843618273735,
+                        26.457412304685693
+                    ],
+                    [
+                        80.24843618273735,
+                        26.457577993571107
+                    ],
+                    [
+                        80.2476717531681,
+                        26.457577993571107
+                    ],
+                    [
+                        80.2476717531681,
+                        26.457412304685693
+                    ]
+                ]
+            ]
+        }
+    };
+
+    var stompClient = null;
 	var satUrl = 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}';
 	var streetUrl = 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
 	var hybridUrl = 'http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}';
