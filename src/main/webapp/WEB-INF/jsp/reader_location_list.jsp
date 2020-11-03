@@ -42,7 +42,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-11">
-                                        <h4 class="card-title">Readers</h4>
+                                        <h4 class="card-title">Reader Locations</h4>
                                     </div>
                                     <div class="col-lg-1">
                                         <a href="/readerLocationRegistration">

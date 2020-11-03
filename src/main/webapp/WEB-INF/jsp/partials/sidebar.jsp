@@ -44,7 +44,7 @@
           <li class="nav-item"> <a class="nav-link" href="rfidtag_list">RFID Tag</a></li>
           <li class="nav-item"> <a id="containerLink" class="nav-link" href="/listContainer">Container</a></li>
           <li class="nav-item"> <a id="vdLink" class="nav-link" href="vehicledevice_list">Vehicle Device</a></li>
-          <li class="nav-item"> <a class="nav-link" href="vehicleList">Vehicle</a></li>
+          <li class="nav-item"> <a id="vehicleLink" class="nav-link" href="vehicleList">Vehicle</a></li>
           <li class="nav-item"> <a id="rfidLink" class="nav-link" href="rfidreader_list">Fixed RFID Reader</a></li>
           <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station</a></li>
         </ul>
@@ -73,7 +73,7 @@
       </a>
       <div class="collapse" id="ui-yard">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a id="rfidLocationLink" class="nav-link" href="/listRfidLoction">Fixed Reader Location</a></li>
+          <li class="nav-item"> <a id="rfidLocationLink" class="nav-link" href="/readerLocationList">Fixed Reader Location</a></li>
           <li class="nav-item"> <a id="containerBlockLink" class="nav-link" href="containerBlock">Container Block</a></li>
           <li class="nav-item"> <a id="containerAreaLink" class="nav-link" href="containerArea">Container Area</a></li>
         </ul>

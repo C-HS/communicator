@@ -44,16 +44,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <!-- <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Date Created</label>
                                                 <div class="col-sm-7">
                                                     <input name="dateCreated" type="date" class="form-control">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-sm-4 col-form-label">Status</label>
@@ -73,12 +73,12 @@
                                         </div>
                                         <div class="col-md-6">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group row">
                                                 <input type="button" id="submit" class="btn btn-gradient-primary mr-2" value="Submit" />
-                                                <input class="btn btn-light" value="Cancle">
+                                                <input type="button" class="btn btn-light" value="Clear" />
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -108,6 +108,11 @@
 <script src="assets/js/todolist.js"></script>
 <script>
     $(document).ready(function(){
+
+     $('#yard-Link').addClass("active");
+     $('#ui-yard').addClass("show");
+     $('#rfidLocationLink').addClass("active");
+
        $("#submit").click(function(){
           var readerLocation = {};
           readerLocation["readerLocationName"]=$("input[name=readerLocationName]").val();

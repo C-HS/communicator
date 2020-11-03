@@ -13,14 +13,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iaito.dto.RFIDReaderDTO;
+import com.iaito.dto.ReaderLocationDTO;
 import com.iaito.dto.VDeviceDTO;
 import com.iaito.model.RFIDReader;
 import com.iaito.service.RFIDReaderService;
+import com.iaito.service.ReaderLocationService;
 
 @Controller
 public class RFIDReaderController {
 	
 	@Autowired RFIDReaderService rfidReaderService;
+	
+	@Autowired ReaderLocationService readerLocationService;
 	
     @GetMapping("/rfidreader_list")
     public ModelAndView getAllrfidReaders(){
@@ -57,8 +61,13 @@ public class RFIDReaderController {
     }
     
     @GetMapping("/rfidreader_registration")
-    public String rfidReaderAddPage(){
-        return "rfidreader_registration";
+    public ModelAndView rfidReaderAddPage(){
+    	
+    	ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("readerLocationList", readerLocationService.getAllReaderLocation());
+        modelAndView.setViewName("rfidreader_registration");
+    	
+        return modelAndView;
     }
     
     
@@ -80,20 +89,34 @@ public class RFIDReaderController {
     		rfidReader.setRegisterDate(new Date());
         	
     		rfidReader.setIpPortConfigurationStatus("NO");
-    		rfidReader.setLocationAssignStatus("UNASSIGNED");
+    		//rfidReader.setLocationAssignStatus("UNASSIGNED");
     		
     		if(rfidReader.getMiddlewareReaderId()==null || rfidReader.getMiddlewareReaderId().trim().equals(""))
     				{
-    			rfidReader.setMiddlewareMappingStatus("UNMAPPED");
-    			rfidReader.setStatus("REGISTERED");
+		    			rfidReader.setMiddlewareMappingStatus("UNMAPPED");
+		    			rfidReader.setStatus("REGISTERED");
     				}
 		    		else
 		    		{
-
 		    			rfidReader.setMiddlewareMappingDate(new Date());
 		    			rfidReader.setMiddlewareMappingStatus("MAPPED");
 		    			rfidReader.setStatus("READY");
 		    		}
+    		
+    		if(rfidReader.getReaderLocationId()!=0)
+    		{
+    			
+    			 long id =rfidReader.getReaderLocationId();
+    			 ReaderLocationDTO r  = readerLocationService.getReaderLocationByID(id);
+    			 rfidReader.setReaderLocationId(rfidReader.getReaderLocationId());
+    			 rfidReader.setReaderLocationName(r.getReaderLocationName());
+    			 rfidReader.setLocationAssignStatus("ASSIGNED");
+    		}
+    		else
+    		{
+    			rfidReader.setLocationAssignStatus("UNASSIGNED");
+    		}
+    		
         	resp = rfidReaderService.addRFIDReader(rfidReader);
     	}
    

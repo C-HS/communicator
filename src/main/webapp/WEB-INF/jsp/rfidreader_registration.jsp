@@ -79,6 +79,16 @@
                                 <div class="col-sm-4">
                                   <input name="description" type="text" class="form-control" id="desc" placeholder="Description">
                                 </div>
+
+                                <label for="location" class="col-sm-2 col-form-label">Location</label>
+                                <div class="col-sm-4">
+                                      <select name="readerLocationId" class="form-control" id="block">
+                                        <option value="0">Select Location</option>
+                                      <c:forEach var="location" items="${readerLocationList}" varStatus="fieldRow">
+                                        <option value="${location.getReaderLocationId()}">${location.getReaderLocationName()}</option>
+                                      </c:forEach>
+                                      </select>
+                                </div>
                                </div>
                             
                               <button type="submit" class="btn btn-gradient-primary btn-sm mr-2">Submit</button>

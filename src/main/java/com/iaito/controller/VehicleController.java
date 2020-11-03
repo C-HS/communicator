@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +47,20 @@ public class VehicleController {
     @ResponseBody
     public VehicleDTO addVehicle(@RequestBody Vehicle vehicle){
         log.info("Recieved Vehicle Information: {} ", vehicle);
+        
+        vehicle.setStatus("REGISTERED");
+        vehicle.setRegisterDate(new Date());
+        
+        if(vehicle.getVehicleDeviceId()!=0)
+        {
+        	vehicle.setMountingStatus("MOUNTED");
+        	vehicle.setMountingDate(new Date());
+        }
+        else
+        {
+        	vehicle.setMountingStatus("UNMOUNTED");
+        }
+        
         return vehicleService.addVehicle(vehicle);
     }
     @PatchMapping(value = "/updateVehicle", produces = "application/json", consumes = "application/json")

@@ -72,15 +72,15 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                           <!--              <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Registrations Date</label>
                                                 <div class="col-sm-7">
                                                     <input name="registerDate" class="form-control" type="date" placeholder="dd/mm/yyyy">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
+                                        </div> -->
+                                        <!-- <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-sm-4 col-form-label">Mounting Status</label>
                                                 <div class="col-sm-4">
@@ -96,25 +96,25 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <!-- <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Mounting Date</label>
                                                 <div class="col-sm-7">
                                                     <input name="mountingDate" type="date" class="form-control">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
+                                        </div> -->
+                                        <!-- <div class="col-md-6">
                                             <div class="form-group row">
                                                 <label class="col-sm-5 col-form-label">Status</label>
                                                 <div class="col-sm-7">
                                                     <input name="status" type="text" class="form-control">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -150,6 +150,11 @@
 <script src="assets/js/todolist.js"></script>
 <script>
     $(document).ready(function () {
+
+     $('#asset-Link').addClass("active");
+     $('#ui-asset').addClass("show");
+     $('#vehicleLink').addClass("active");
+
         $("#submit").click(function(){
             var vehicle = {};
             vehicle["vehicleNumber"] = $("input[name=vehicleNumber]").val();
