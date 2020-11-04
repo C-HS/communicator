@@ -2,8 +2,11 @@ package com.iaito.controller;
 
 import com.iaito.dto.VehicleDTO;
 import com.iaito.model.Vehicle;
+import com.iaito.service.VDeviceService;
 import com.iaito.service.VehicleService;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,6 +21,8 @@ import java.util.Map;
 public class VehicleController {
 
     private final VehicleService vehicleService;
+    
+    @Autowired VDeviceService vehicleDeviceService;
 
     public VehicleController(VehicleService vehicleService) {
         this.vehicleService = vehicleService;
@@ -31,8 +36,15 @@ public class VehicleController {
         return modelAndView;
     }
     @GetMapping("/vehicleRegister")
-    public String registerVehicle(){
-        return "vehicle_registration";
+    public ModelAndView registerVehicle(){
+    	
+    	ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("vehicleDeviceList", vehicleDeviceService.getAllUnAttachedVehicleDevice("UNATTACHED"));
+        modelAndView.setViewName("vehicle_registration");
+    	
+        return modelAndView;
+    	
+       // return "vehicle_registration";
     }
     @GetMapping("/vehicleEdit")
     public String editVehicle(){
@@ -51,10 +63,13 @@ public class VehicleController {
         vehicle.setStatus("REGISTERED");
         vehicle.setRegisterDate(new Date());
         
+        System.out.println("$$$$$$$$$$$$$$$$ "+vehicle.getVehicleDeviceId());
+        
         if(vehicle.getVehicleDeviceId()!=0)
         {
         	vehicle.setMountingStatus("MOUNTED");
         	vehicle.setMountingDate(new Date());
+        	vehicleDeviceService.markAsAttached(vehicle.getVehicleDeviceId());
         }
         else
         {

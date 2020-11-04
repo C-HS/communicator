@@ -1,5 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,9 +70,16 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-5 col-form-label">Vehicle Device ID</label>
+                                                <label for="vehicleDevice" class="col-sm-5 col-form-label">Vehicle Device</label>
                                                 <div class="col-sm-7">
-                                                    <input name="vehicleDeviceId" id="vehicleDeviceId" type="text" class="form-control">
+                                                    <!-- <input name="vehicleDeviceId" id="vehicleDeviceId" type="text" class="form-control"> -->
+                                                    <select name="vehicleDeviceId" class="form-control" id="vehicleDevice">
+                                                        <option value="0">Select Device</option>
+                                                      <c:forEach var="vehicleDevice" items="${vehicleDeviceList}" varStatus="fieldRow">
+                                                        <option value="${vehicleDevice.getVehicleDeviceId()}">${vehicleDevice.getVehicleDeviceNumber()}</option>
+                                                      </c:forEach>
+                                                      </select>
+                                                
                                                 </div>
                                             </div>
                                         </div>
@@ -160,7 +173,7 @@
             vehicle["vehicleNumber"] = $("input[name=vehicleNumber]").val();
             vehicle["vehicleType"] = $("input[name=vehicleType]").val();
             vehicle["vehicleInfo"] = $("input[name=vehicleInfo]").val();
-            vehicle["vehicleDeviceId"] = $("input[name=vehicleDeviceId]").val();
+            vehicle["vehicleDeviceId"] = $("select[name=vehicleDeviceId]").val();
             vehicle["mountingStatus"] = $("input[name=mountingStatus]").val();
             vehicle["registerDate"] = $("input[name=registerDate]").val();
             vehicle["mountingDate"] = $("input[name=mountingDate]").val();

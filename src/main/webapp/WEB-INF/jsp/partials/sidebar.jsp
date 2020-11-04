@@ -46,7 +46,7 @@
           <li class="nav-item"> <a id="vdLink" class="nav-link" href="vehicledevice_list">Vehicle Device</a></li>
           <li class="nav-item"> <a id="vehicleLink" class="nav-link" href="vehicleList">Vehicle</a></li>
           <li class="nav-item"> <a id="rfidLink" class="nav-link" href="rfidreader_list">Fixed RFID Reader</a></li>
-          <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station</a></li>
+         <!--  <li class="nav-item"> <a class="nav-link" href="listBaseStation">Base Station</a></li> -->
         </ul>
       </div>
     </li>

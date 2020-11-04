@@ -1,5 +1,6 @@
 package com.iaito.service.impl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.iaito.dto.ContainerDTO;
+import com.iaito.dto.RFIDTagDTO;
 import com.iaito.dto.VDeviceDTO;
 import com.iaito.model.VDevice;
 import com.iaito.repository.VDeviceRepository;
@@ -79,5 +81,40 @@ public class VDeviceServiceImpl implements VDeviceService{
 		vDeviceRepository.delete(vDevice);
 		
 	}
+	
+	@Override
+	public String markAsAttached(long vehicleDeviceId) {
+		
+		try
+		{
+		VDevice vd = vDeviceRepository.findById(vehicleDeviceId).get();
+		
+		vd.setAttachDate(new Date());
+		
+		vd .setAttachStatus("ATTACHED");
+		
+		modelMapper.map(vDeviceRepository.save(vd), VDeviceDTO.class);
+		
+		return "success";
+		}
+		catch(Exception e)
+		{
+			return "fail";
+		}
+
+		//return modelMapper.map(vDeviceRepository.findById(vehicleDeviceId).get(), VDeviceDTO.class);
+	}
+	
+	@Override
+	public List<VDeviceDTO> getAllUnAttachedVehicleDevice(String attachStatus) {
+
+		return vDeviceRepository
+				.findByAttachStatus(attachStatus)
+				.stream()
+				.map(e -> modelMapper.map(e, VDeviceDTO.class))
+				.collect(Collectors.toList());
+		
+	}
+
 
 }

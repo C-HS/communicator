@@ -13,4 +13,6 @@ public interface VDeviceService {
 	public VDeviceDTO getVDeviceByVDeviceNumber(String vehicleDeviceNo);
 	public List<VDeviceDTO> getAllVDevice();
 	public void deleteVDevice(VDevice vDevice);
+	public String markAsAttached(long vehicleDeviceId);
+	public List<VDeviceDTO> getAllUnAttachedVehicleDevice(String attachStatus);
 }
