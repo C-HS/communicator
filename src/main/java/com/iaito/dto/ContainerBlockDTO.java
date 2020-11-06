@@ -24,4 +24,6 @@ public class ContainerBlockDTO {
 	private Date dateCreated;
 
 	private String status;
+	
+	private String blockJson;
 }

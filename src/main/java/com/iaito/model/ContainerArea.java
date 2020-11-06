@@ -37,29 +37,27 @@ public class ContainerArea {
 	@Column(name = "block_id")
 	private long blockId;
 	
-	@Column(name = "latitude1")
-	private String latitude1;
+	/*
+	 * @Column(name = "latitude1") private String latitude1;
+	 * 
+	 * @Column(name = "longitude1") private String longitude1;
+	 * 
+	 * @Column(name = "latitude2") private String latitude2;
+	 * 
+	 * @Column(name = "longitude2") private String longitude2;
+	 * 
+	 * @Column(name = "latitude3") private String latitude3;
+	 * 
+	 * @Column(name = "longitude3") private String longitude3;
+	 * 
+	 * @Column(name = "latitude4") private String latitude4;
+	 * 
+	 * @Column(name = "longitude4") private String longitude4;
+	 */
 	
-	@Column(name = "longitude1")
-	private String longitude1;
+	@Column(name = "area_json", length=2000)
+	private String areaJson;
 	
-	@Column(name = "latitude2")
-	private String latitude2;
-	
-	@Column(name = "longitude2")
-	private String longitude2;
-	
-	@Column(name = "latitude3")
-	private String latitude3;
-	
-	@Column(name = "longitude3")
-	private String longitude3;
-	
-	@Column(name = "latitude4")
-	private String latitude4;
-	
-	@Column(name = "longitude4")
-	private String longitude4;
 	
 	@Column(name = "create_date")
 	@Temporal(TemporalType.TIMESTAMP)

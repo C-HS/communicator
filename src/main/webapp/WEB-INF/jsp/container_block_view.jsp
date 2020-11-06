@@ -127,9 +127,9 @@
                       <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Block Coordinates</h4>
+                            <h4 class="card-title">Block JSON</h4>
                             <!-- <p class="card-description"> Horizontal form layout </p> -->
-                            <table id="assigned_tag_table" class="table table-hover  table-responsive-lg table-bordered">
+                            <!-- <table id="assigned_tag_table" class="table table-hover  table-responsive-lg table-bordered">
                               <thead>
                                 <tr>
                                   <th>SNo</th>
@@ -158,30 +158,25 @@
                                   </tr>
                                   <c:set var="counter" value="${counter + 1}"/>
                                   </c:forEach>
-
-<!--                                 <tr>
-                                  <td>1</td>
-                                  <td>12</td>
-                                  <td>134562</td>
-                                  <td>454646</td>
-                                  <td>24-09-2020</td>
-                                  <td>
-                                        <i class="mdi mdi-delete"></i>
-                                 </td>
-                                </tr>
-                                <tr>
-                                  <td>2</td>
-                                  <td>13</td>
-                                  <td>787594</td>
-                                  <td>45795</td>
-                                  <td>18-09-2020</td>
-                                  <td >
-                                    <i class="mdi mdi-delete"></i>
-                                </td>
-                                </tr> -->
                               </tbody>
-                            </table>
+                            </table> -->
                             
+                            
+
+                             <div class="form-group row">
+                             
+                              <div class="col-sm-12">
+                              
+
+                                <textarea readonly rows="30"  name="blockJson" type="text" class="form-control" id="blockCoordinates">${containerBlock.getBlockJson()}</textarea>
+
+                              </div>
+
+                             </div>
+                             <a href="editBlockJson">
+                              <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
+                            </a>
+                           
                           </div>
                         </div>
                       </div>
@@ -189,7 +184,7 @@
 
                     </div>
 
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="row">
                           <div class="col-lg-8">
                             <div class="card-body">
@@ -228,7 +223,7 @@
                         </div>
                   </div>
 
-                
+                 -->
             </div>
             <jsp:include page="./partials/footer.jsp" />
         </div>

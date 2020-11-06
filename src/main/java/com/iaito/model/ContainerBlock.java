@@ -41,6 +41,9 @@ public class ContainerBlock {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateCreated;
 	
+	@Column(name = "block_json", length = 2000)
+	private String blockJson;
+	
 	@Column(name = "status")
 	private String status;
 }

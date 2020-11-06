@@ -50,7 +50,8 @@
                         <div class="card">
                           <div class="card-body">
                             <h4 class="card-title">New Area</h4>
-                            <!-- <p class="card-description"> Horizontal form layout </p> -->
+                          
+
                             <form action="createContainerArea" method="POST" class="forms-sample">
                               <div class="form-group row">
                                 <label for="areaName" class="col-sm-2 col-form-label">Area Name</label>
@@ -60,7 +61,98 @@
 
                                 <label for="block" class="col-sm-2 col-form-label">Container Block </label>
                                 <div class="col-sm-4">
-                                 <!--  <input type="text" class="form-control" id="block" placeholder="Block"> -->
+                                  <select name="blockId" class="form-control" id="block">
+                                    <option>Select Block</option>
+                                  <c:forEach var="block" items="${blockList}" varStatus="fieldRow">
+                                    <option value="${block.getBlockId()}">${block.getBlockName()}</option>
+                                  </c:forEach>
+                                  </select>
+                                </div>
+                               </div>
+
+<!--                                <div class="form-group row">
+                                <label for="lat1" class="col-sm-2 col-form-label">Latitude 1</label>
+                                <div class="col-sm-4">
+                                  <input name="latitude1" type="text" class="form-control" id="lat1" placeholder="Latitude 1">
+                                </div>
+
+                                <label for="long1" class="col-sm-2 col-form-label">Longitude 1</label>
+                                <div class="col-sm-4">
+                                  <input name="longitude1" type="text" class="form-control" id="long1" placeholder="Longitude 1">
+                                </div>
+                               </div>
+
+                               <div class="form-group row">
+                                <label for="lat2" class="col-sm-2 col-form-label">Latitude 2</label>
+                                <div class="col-sm-4">
+                                  <input name="latitude2" type="text" class="form-control" id="lat2" placeholder="Latitude 2">
+                                </div>
+
+                                <label for="long2" class="col-sm-2 col-form-label">Longitude 2</label>
+                                <div class="col-sm-4">
+                                  <input name="longitude2" type="text" class="form-control" id="long2" placeholder="Longitude 2">
+                                </div>
+                               </div>
+
+                               <div class="form-group row">
+                                <label for="lat3" class="col-sm-2 col-form-label">Latitude 3</label>
+                                <div class="col-sm-4">
+                                  <input name="latitude3" type="text" class="form-control" id="lat3" placeholder="Latitude 3">
+                                </div>
+
+                                <label for="long3" class="col-sm-2 col-form-label">Longitude 3</label>
+                                <div class="col-sm-4">
+                                  <input name="longitude3" type="text" class="form-control" id="long3" placeholder="Longitude 3">
+                                </div>
+                               </div>
+
+                               <div class="form-group row">
+                                <label for="lat4" class="col-sm-2 col-form-label">Latitude 4</label>
+                                <div class="col-sm-4">
+                                  <input name="latitude4" type="text" class="form-control" id="lat4" placeholder="Latitude 4">
+                                </div>
+
+                                <label for="long4" class="col-sm-2 col-form-label">Longitude 4</label>
+                                <div class="col-sm-4">
+                                  <input name="latitude4" type="text" class="form-control" id="long4" placeholder="Longitude 4">
+                                </div>
+                               </div> -->
+
+                               <div class="form-group row">
+                                <label for="areaCoordinates" class="col-sm-2 col-form-label">Area JSON</label>
+                                <div class="col-sm-10">
+                                
+
+                                  <textarea rows="30"  name="areaJson" type="text" class="form-control" id="areaCoordinates" placeholder="{}"></textarea>
+
+                                </div>
+
+                               </div>
+                            
+
+
+                              <button type="submit" class="btn btn-gradient-primary btn-sm mr-2">Submit</button>
+
+                              <a href="#">
+                                <input class="btn btn-light btn-sm" type="button" value="Cancel"/>
+                              </a>
+                                
+                               
+                            </form>
+                            
+
+
+
+
+                           <!--  <form action="createContainerArea" method="POST" class="forms-sample">
+                              <div class="form-group row">
+                                <label for="areaName" class="col-sm-2 col-form-label">Area Name</label>
+                                <div class="col-sm-4">
+                                  <input name="areaName" type="text" class="form-control" id="areaName" placeholder="Name">
+                                </div>
+
+                                <label for="block" class="col-sm-2 col-form-label">Container Block </label>
+                                <div class="col-sm-4">
                                   <select name="blockId" class="form-control" id="block">
                                     <option>Select Block</option>
                                   <c:forEach var="block" items="${blockList}" varStatus="fieldRow">
@@ -127,7 +219,7 @@
                                 
                                
                             </form>
-                            
+                             -->
                           </div>
                         </div>
                       </div>

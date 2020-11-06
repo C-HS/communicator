@@ -32,11 +32,12 @@ public class ContainerBlockController {
 	  { 
 		  String resp= "";
 	  
-		  containerBlock.setDateCreated(new Date()); containerBlock.setStatus("READY");
+		  containerBlock.setDateCreated(new Date()); 
+		  containerBlock.setStatus("READY");
 		  
 		  resp = containerBlockService.addContainerBlock(containerBlock);
 		  
-		  
+		 // System.out.println("@@@@@@@@@@@@@@@@@@ "+containerBlock);
 		  ModelAndView modelAndView = new ModelAndView();
 		  modelAndView.setViewName("container_block_registration");
 		  

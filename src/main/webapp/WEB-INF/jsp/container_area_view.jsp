@@ -78,40 +78,29 @@
                                   ${containerArea.getStatus()}
                                 </div>
                                </div>
-
-                               <div class="row">
-                                <label class="col-sm-4">Lat - Long 1</label>
-                                <div class="col-sm-8">
-                                  ${containerArea.getLatitude1()} , ${containerArea.getLongitude1()}
-                                </div>
-                               </div>
-                               <div class="row">
-                                <label class="col-sm-4">Lat - Long 2</label>
-                                <div class="col-sm-8">
-                                  ${containerArea.getLatitude2()} , ${containerArea.getLongitude2()}
-                                </div>
-                               </div>
-                               <div class="row">
-                                <label class="col-sm-4">Lat - Long 3</label>
-                                <div class="col-sm-8">
-                                  ${containerArea.getLatitude3()} , ${containerArea.getLongitude3()}
-                                </div>
-                               </div>
-                               <div class="row">
-                                <label class="col-sm-4">Lat - Long 4</label>
-                                <div class="col-sm-8">
-                                  ${containerArea.getLatitude4()} , ${containerArea.getLongitude4()}
-                                </div>
-                               </div>
-                            
-                            
                               <a href="editContainerArea">
                                 <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
                               </a>
-                                
-                               
-                         
-                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card">
+                          <div class="card-body">
+                            <h4 class="card-title">Area JSON</h4>
+                             <div class="form-group row"> 
+                              <div class="col-sm-12">
+                                <textarea readonly rows="30"  name="areaJson" type="text" class="form-control">${containerArea.getAreaJson()}</textarea>
+                              </div>
+
+                             </div>
+                             <a href="editAreaJson">
+                              <input class="btn btn-gradient-dark btn-icon-text btn-sm" type="button" value="Edit"/> 
+                            </a>
                           </div>
                         </div>
                       </div>

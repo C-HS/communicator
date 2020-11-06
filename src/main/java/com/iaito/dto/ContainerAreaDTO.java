@@ -21,21 +21,25 @@ public class ContainerAreaDTO {
 
 	private long blockId;
 
-	private String latitude1;
-
-	private String longitude1;
-
-	private String latitude2;
-
-	private String longitude2;
-
-	private String latitude3;
-
-	private String longitude3;
-
-	private String latitude4;
-
-	private String longitude4;
+	/*
+	 * private String latitude1;
+	 * 
+	 * private String longitude1;
+	 * 
+	 * private String latitude2;
+	 * 
+	 * private String longitude2;
+	 * 
+	 * private String latitude3;
+	 * 
+	 * private String longitude3;
+	 * 
+	 * private String latitude4;
+	 * 
+	 * private String longitude4;
+	 */
+	
+	private String areaJson;
 
 	private Date createDate;
 

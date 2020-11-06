@@ -50,8 +50,41 @@
                         <div class="card">
                           <div class="card-body">
                             <h4 class="card-title">New Block</h4>
-                            <!-- <p class="card-description"> Horizontal form layout </p> -->
+                          
                             <form action="createContainerBlock" method="POST" class="forms-sample">
+                              <div class="form-group row">
+                                <label for="blockName" class="col-sm-2 col-form-label">Block Name</label>
+                                <div class="col-sm-4">
+                                  <input name="blockName" type="text" class="form-control" id="blockName" placeholder="Name">
+                                </div>
+
+                                <label for="desc" class="col-sm-2 col-form-label">Description </label>
+                                <div class="col-sm-4">
+                                  <input name="description" type="text" class="form-control" id="desc" placeholder="Description">
+                                </div>
+                               </div>
+                               <div class="form-group row">
+                                <label for="blockCoordinates" class="col-sm-2 col-form-label">Block JSON</label>
+                                <div class="col-sm-10">
+                                
+
+                                  <textarea rows="30"  name="blockJson" type="text" class="form-control" id="blockCoordinates" placeholder="{}"></textarea>
+
+                                </div>
+
+                               </div>
+
+                            
+                              <button type="submit" class="btn btn-gradient-primary btn-sm mr-2">Submit</button>
+
+                              <a href="#">
+                                <input class="btn btn-light btn-sm" type="button" value="Cancel"/>
+                              </a>
+                                
+                               
+                            </form>
+
+                            <!-- <form action="createContainerBlock" method="POST" class="forms-sample">
                               <div class="form-group row">
                                 <label for="blockName" class="col-sm-2 col-form-label">Block Name</label>
                                 <div class="col-sm-4">
@@ -72,7 +105,7 @@
                               </a>
                                 
                                
-                            </form>
+                            </form> -->
                             
                           </div>
                         </div>
