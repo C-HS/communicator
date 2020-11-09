@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
 	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
-	<script src="sample-geojson.js" type="text/javascript"></script>
+	<!-- <script src="sample-geojson.js" type="text/javascript"></script> -->
 	<!-- <script src="/app.js"></script> -->
 	<style>
 		#map {
@@ -644,7 +644,7 @@ var area2 = {
 	var streetUrl = 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
 	var hybridUrl = 'http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}';
 	var terrUrl = 'http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}';
-    var mZoom = 18;
+    var mZoom = 20;
 	var sDomain = ['mt0','mt1','mt2','mt3'];
 	var customStreetLayer = new L.TileLayer(streetUrl, {subdomains:sDomain});
 	var customTerrLayer = new L.TileLayer(terrUrl, {subdomains:sDomain});
@@ -711,19 +711,19 @@ var area2 = {
 		// L.geoJSON(areaUnitEight, {onEachFeature: onEachFeature}).addTo(map);
         // L.geoJSON(areaUnitNine, {onEachFeature: onEachFeature}).addTo(map);
         
-        L.geoJSON(kesaGround,{maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area1, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area2, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area3, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area4, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area5, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area6, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area7, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area8, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area9, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-		L.geoJSON(area10, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-        L.geoJSON(area11, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
-        L.geoJSON(area12, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+        L.geoJSON(kesaGround,{onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area1, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area2, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area3, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area4, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area5, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area6, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area7, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area8, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area9, {onEachFeature: onEachFeature}).addTo(map);
+		L.geoJSON(area10, {onEachFeature: onEachFeature}).addTo(map);
+        L.geoJSON(area11, {onEachFeature: onEachFeature}).addTo(map);
+        L.geoJSON(area12, {onEachFeature: onEachFeature}).addTo(map);
 	}
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties["name"]);
