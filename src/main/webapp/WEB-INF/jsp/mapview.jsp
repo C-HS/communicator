@@ -646,10 +646,10 @@ var area2 = {
 	var terrUrl = 'http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}';
     var mZoom = 20;
 	var sDomain = ['mt0','mt1','mt2','mt3'];
-	var customStreetLayer = new L.TileLayer(streetUrl, {subdomains:sDomain});
-	var customTerrLayer = new L.TileLayer(terrUrl, {subdomains:sDomain});
-	var customHybridLayer = new L.TileLayer(hybridUrl, {subdomains:sDomain});
-	var customSatelliteLayer = new L.TileLayer(satUrl, {subdomains:sDomain});
+	var customStreetLayer = new L.TileLayer(streetUrl, {subdomains:sDomain, maxZoom:22, maxNativeZoom:19});
+	var customTerrLayer = new L.TileLayer(terrUrl, {subdomains:sDomain, maxZoom:22, maxNativeZoom:19});
+	var customHybridLayer = new L.TileLayer(hybridUrl, {subdomains:sDomain, maxZoom:22, maxNativeZoom:19});
+	var customSatelliteLayer = new L.TileLayer(satUrl, {subdomains:sDomain, maxZoom:22, maxNativeZoom:19});
 	var map ;
 	changeMapTile = function(sel){
 		map.eachLayer(function (layer) {
