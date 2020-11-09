@@ -60,6 +60,8 @@
 	</div>
 </div>
 <script>
+
+/* 
     var customeBondedArea = {
         "type":"FeatureCollection",
         "features":[{
@@ -385,13 +387,264 @@
             ]
         }
     };
+ */
+
+ var kesaGround = {
+	"type":"FeatureCollection",
+	"features":[{
+		"type":"Feature",
+		"geometry":{
+			"type":"Polygon",
+			"coordinates":[[
+				[80.258848, 26.5108258, 0],
+				[80.2591766, 26.5106818, 0],
+				[80.2593978, 26.5111259, 0],
+				[80.259084, 26.5112639, 0],
+				[80.258848, 26.5108258, 0]
+			]]
+		},
+		"properties":{
+			"name":"Kesa Ground"
+		}
+	}]
+};
+
+var area1 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area1"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [80.2590867, 26.5112507],
+			[80.259068, 26.5112195],
+			[80.2591337, 26.5111895],
+			[80.2591551, 26.5112207],
+			[80.2590867, 26.5112507]
+          ]
+        ]
+      }
+    };
+
+
+var area2 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area2"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2591551, 26.5112207],
+			[80.2591337, 26.5111895],
+			[80.2592048, 26.5111583],
+			[80.2592276, 26.5111871],
+			[80.2591551, 26.5112207]
+          ]
+        ]
+      }
+    };
+
+    var area3 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area3"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2592276, 26.5111871],
+			[80.2592048, 26.5111583],
+			[80.2592866, 26.5111223],
+			[80.2593053, 26.5111523],
+			[80.2592276, 26.5111871]
+          ]
+        ]
+      }
+    };
+
+    var area4 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area4"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2593053, 26.5111523],
+			[80.2592866, 26.5111223],
+			[80.259371, 26.5110923],
+			[80.2593871, 26.5111151],
+			[80.2593053, 26.5111523]
+          ]
+        ]
+      }
+    };
+
+
+    var area5 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area5"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2590572, 26.5111871],
+			[80.2590371, 26.5111559],
+			[80.2591001, 26.5111283],
+			[80.2591203, 26.5111595],
+			[80.2590572, 26.5111871]
+          ]
+        ]
+      }
+    };
+
+   var area6 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area6"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2591203, 26.5111595],
+			[80.2591001, 26.5111283],
+			[80.2591712, 26.5110959],
+			[80.2591967, 26.5111283],
+			[80.2591203, 26.5111595]
+          ]
+        ]
+      }
+    };
+
+   var area7 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area7"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2591967, 26.5111283],
+			[80.2591712, 26.5110959],
+			[80.259249, 26.5110671],
+			[80.2592718, 26.5110971],
+			[80.2591967, 26.5111283]
+          ]
+        ]
+      }
+    };
+
+   var area8 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area8"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2592718, 26.5110971],
+			[80.259249, 26.5110671],
+			[80.2593348, 26.5110275],
+			[80.2593576, 26.5110623],
+			[80.2592718, 26.5110971]
+          ]
+        ]
+      }
+    };
+
+   var area9 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area9"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2590371, 26.5111559],
+			[80.2590143, 26.5111247],
+			[80.2590787, 26.5110959],
+			[80.2591001, 26.5111283],
+			[80.2590371, 26.5111559]
+          ]
+        ]
+      }
+    };
+
+   var area10 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area10"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2591001, 26.5111283],
+			[80.2590787, 26.5110959],
+			[80.2591471, 26.5110563],
+			[80.2591712, 26.5110959],
+			[80.2591001, 26.5111283]
+          ]
+        ]
+      }
+    };
+
+   var area11 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area11"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2591712, 26.5110959],
+			[80.2591565, 26.5110623],
+			[80.2592249, 26.5110335],
+			[80.259249, 26.5110671],
+			[80.2591712, 26.5110959]
+          ]
+        ]
+      }
+    };
+
+   var area12 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "Area12"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.2592514, 26.5110592],
+			[80.2592249, 26.5110335],
+			[80.259309, 26.5109968],
+			[80.2593251, 26.5110244],
+			[80.2592514, 26.5110592]
+          ]
+        ]
+      }
+    };
 
     var stompClient = null;
 	var satUrl = 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}';
 	var streetUrl = 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
 	var hybridUrl = 'http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}';
 	var terrUrl = 'http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}';
-	var mZoom = 18;
+    var mZoom = 18;
 	var sDomain = ['mt0','mt1','mt2','mt3'];
 	var customStreetLayer = new L.TileLayer(streetUrl, {subdomains:sDomain});
 	var customTerrLayer = new L.TileLayer(terrUrl, {subdomains:sDomain});
@@ -419,8 +672,9 @@
 		drawAreas();
 	}
 	initiateMap = function(){
-		map = new L.Map('map', {layers: [customStreetLayer], center: new L.LatLng(26.45854, 80.2457), zoom:mZoom, attributionControl:false });
-		drawAreas();
+		//map = new L.Map('map', {layers: [customStreetLayer], center: new L.LatLng(26.45854, 80.2457), zoom:mZoom, attributionControl:false });
+        map = new L.Map('map', {layers: [customStreetLayer], center: new L.LatLng(26.511041, 80.259164), zoom:mZoom, attributionControl:false });
+        drawAreas();
 	}
 	function connect() {
 		var socket = new SockJS('/iaito-iot');
@@ -444,18 +698,32 @@
 		connect();
 	});
 	function drawAreas(){
-		L.geoJSON(customeBondedArea, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(emptyContainerYard, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(railwayYard, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitOne, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitTwo, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitThree, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitFour, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitFive, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitSix, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitSeven, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitEight, {onEachFeature: onEachFeature}).addTo(map);
-		L.geoJSON(areaUnitNine, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(customeBondedArea, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(emptyContainerYard, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(railwayYard, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitOne, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitTwo, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitThree, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitFour, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitFive, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitSix, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitSeven, {onEachFeature: onEachFeature}).addTo(map);
+		// L.geoJSON(areaUnitEight, {onEachFeature: onEachFeature}).addTo(map);
+        // L.geoJSON(areaUnitNine, {onEachFeature: onEachFeature}).addTo(map);
+        
+        L.geoJSON(kesaGround,{maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area1, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area2, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area3, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area4, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area5, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area6, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area7, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area8, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area9, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+		L.geoJSON(area10, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+        L.geoJSON(area11, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
+        L.geoJSON(area12, {maxZoom: 22,maxNativeZoom: 19}).addTo(map);
 	}
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties["name"]);
