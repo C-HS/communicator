@@ -1,9 +1,12 @@
 package com.iaito.controller;
 
 
-import com.iaito.model.User;
-import com.iaito.model.UserPrinciple;
-import lombok.extern.log4j.Log4j2;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -13,15 +16,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
+import com.iaito.dto.ContainerAreaDTO;
+import com.iaito.dto.ContainerBlockDTO;
+import com.iaito.model.User;
+import com.iaito.model.UserPrinciple;
+import com.iaito.service.ContainerAreaService;
+import com.iaito.service.ContainerBlockService;
+
+import lombok.extern.log4j.Log4j2;
 
 @Controller
 @Log4j2
 public class HomeController {
+	
+	@Autowired ContainerBlockService containerBlockService;
+	@Autowired ContainerAreaService containerAreaService;
 
     @GetMapping("/mapview")
     public ModelAndView hello() {
         ModelAndView modelAndView = new ModelAndView();
+        
+        
+        List<ContainerBlockDTO> blockList = new ArrayList<>();
+        blockList = containerBlockService.getAllContainerBlock();
+        modelAndView.addObject("blockList", blockList);
+        
+        List<ContainerAreaDTO> areaList = new ArrayList<>();
+        areaList = containerAreaService.getAllContainerArea();
+        modelAndView.addObject("areaList", areaList);
+        
+        
+        
         modelAndView.setViewName("mapview");
         return modelAndView;
     }

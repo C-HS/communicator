@@ -24,7 +24,7 @@ import com.iaito.service.ContainerBlockService;
 public class ContainerBlockController {
 	
 	@Autowired ContainerBlockService containerBlockService;
-	@Autowired ContainerBlockCoordinateService containerBlockCoordinateService;
+//	@Autowired ContainerBlockCoordinateService containerBlockCoordinateService;
 	
 	
 	  @PostMapping("/createContainerBlock") 
@@ -83,95 +83,95 @@ public class ContainerBlockController {
         modelAndView.setViewName("container_block_view");
         ContainerBlockDTO containerBlockDTO = containerBlockService.getContainerBlockByID(blockId);
         
-        List<ContainerBlockCoordinateDTO> containerBlockCoordinateDTOList = containerBlockCoordinateService.getContainerBlockCoordinateByBlockId(blockId);
+       // List<ContainerBlockCoordinateDTO> containerBlockCoordinateDTOList = containerBlockCoordinateService.getContainerBlockCoordinateByBlockId(blockId);
         
         modelAndView.addObject("containerBlock", containerBlockDTO);
-        modelAndView.addObject("coordinateList", containerBlockCoordinateDTOList);
+      //  modelAndView.addObject("coordinateList", containerBlockCoordinateDTOList);
     	
         return modelAndView;
     }
     
     
-    @PostMapping("/createContainerBlockCoordinate")
-    public ModelAndView createCoordinate(@RequestParam Map<String, String> coordinate)
-    {
-    	String resp= "";
-    	//System.out.println("@@@@@@@@@@@@@@@@@@ "+coordinate);
-    	
-    	//System.out.println("@@@@@@@@@@@@@@@@@@ "+blockId);
-    	
-    	
-    //	System.out.println("@@@@@@@@@@@@@@@@@@ "+coordinate.keySet());
-    	
-       int noOfCoordinate = 0;
-       
-       if(coordinate.keySet().size()>1)
-       {
-    	   noOfCoordinate = coordinate.keySet().size()-1;
-    	   
-    	   noOfCoordinate=noOfCoordinate/2;
-			
-			  for(int i=0; i< noOfCoordinate; i++) { 
-				  
-				  
-				  ContainerBlockCoordinate cbc = new ContainerBlockCoordinate();
-				  
-				  cbc.setBlockId(Long.parseLong(coordinate.get("blockId")));
-				  
-				  cbc.setLatitude((String)coordinate.get("coordinate["+i+"][0]"));
-				  cbc.setLongitude((String)coordinate.get("coordinate["+i+"][1]"));
-				  
-				  cbc.setDateCreated(new Date());
-				  
-				  cbc.setStatus("REGISTERED");
-				  
-				  
-				  
-				  
-				  resp = containerBlockCoordinateService.addContainerBlockCoordinate(cbc);
-				  
-				  if(!"success".equals(resp))
-				  {
-					  break;
-					  
-				  }
-				  
-				 // String latitude = (String)coordinate.get("coordinate["+i+"][0]");
-				 // String longitude = (String)coordinate.get("coordinate["+i+"][1]");
-				 // System.out.println("latitude@@@@@@@@@@@@@@@@@@ "+latitude);
-				 // System.out.println("longitude@@@@@@@@@@@@@@@@@@ "+longitude);
-			  }
-			 
-    	   
-    	   
-    	 //  System.out.println("blockId@@@@@@@@@@@@@@@@@@ "+coordinate.get("blockId"));
-    	   
-       }
-    
-    
-		/*
-		 * containerBlock.setDateCreated(new Date()); containerBlock.setStatus("READY");
-		 * 
-		 * resp = containerBlockService.addContainerBlock(containerBlock);
-		 */
-    
-   
-   	    ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("container_block_view");
-        ContainerBlockDTO containerBlockDTO = containerBlockService.getContainerBlockByID(Long.parseLong(coordinate.get("blockId")) );
-    
-    
-        List<ContainerBlockCoordinateDTO> containerBlockCoordinateDTOList = containerBlockCoordinateService.getContainerBlockCoordinateByBlockId(Long.parseLong(coordinate.get("blockId")));
-        
-        modelAndView.addObject("containerBlock", containerBlockDTO);
-        modelAndView.addObject("coordinateList", containerBlockCoordinateDTOList);
-	
-        
-        modelAndView.addObject("resp", resp);
-    	
-        return modelAndView;
-    	
-    }
+//    @PostMapping("/createContainerBlockCoordinate")
+//    public ModelAndView createCoordinate(@RequestParam Map<String, String> coordinate)
+//    {
+//    	String resp= "";
+//    	//System.out.println("@@@@@@@@@@@@@@@@@@ "+coordinate);
+//    	
+//    	//System.out.println("@@@@@@@@@@@@@@@@@@ "+blockId);
+//    	
+//    	
+//    //	System.out.println("@@@@@@@@@@@@@@@@@@ "+coordinate.keySet());
+//    	
+//       int noOfCoordinate = 0;
+//       
+//       if(coordinate.keySet().size()>1)
+//       {
+//    	   noOfCoordinate = coordinate.keySet().size()-1;
+//    	   
+//    	   noOfCoordinate=noOfCoordinate/2;
+//			
+//			  for(int i=0; i< noOfCoordinate; i++) { 
+//				  
+//				  
+//				  ContainerBlockCoordinate cbc = new ContainerBlockCoordinate();
+//				  
+//				  cbc.setBlockId(Long.parseLong(coordinate.get("blockId")));
+//				  
+//				  cbc.setLatitude((String)coordinate.get("coordinate["+i+"][0]"));
+//				  cbc.setLongitude((String)coordinate.get("coordinate["+i+"][1]"));
+//				  
+//				  cbc.setDateCreated(new Date());
+//				  
+//				  cbc.setStatus("REGISTERED");
+//				  
+//				  
+//				  
+//				  
+//				  resp = containerBlockCoordinateService.addContainerBlockCoordinate(cbc);
+//				  
+//				  if(!"success".equals(resp))
+//				  {
+//					  break;
+//					  
+//				  }
+//				  
+//				 // String latitude = (String)coordinate.get("coordinate["+i+"][0]");
+//				 // String longitude = (String)coordinate.get("coordinate["+i+"][1]");
+//				 // System.out.println("latitude@@@@@@@@@@@@@@@@@@ "+latitude);
+//				 // System.out.println("longitude@@@@@@@@@@@@@@@@@@ "+longitude);
+//			  }
+//			 
+//    	   
+//    	   
+//    	 //  System.out.println("blockId@@@@@@@@@@@@@@@@@@ "+coordinate.get("blockId"));
+//    	   
+//       }
+//    
+//    
+//		/*
+//		 * containerBlock.setDateCreated(new Date()); containerBlock.setStatus("READY");
+//		 * 
+//		 * resp = containerBlockService.addContainerBlock(containerBlock);
+//		 */
+//    
+//   
+//   	    ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("container_block_view");
+//        ContainerBlockDTO containerBlockDTO = containerBlockService.getContainerBlockByID(Long.parseLong(coordinate.get("blockId")) );
+//    
+//    
+//        List<ContainerBlockCoordinateDTO> containerBlockCoordinateDTOList = containerBlockCoordinateService.getContainerBlockCoordinateByBlockId(Long.parseLong(coordinate.get("blockId")));
+//        
+//        modelAndView.addObject("containerBlock", containerBlockDTO);
+//        modelAndView.addObject("coordinateList", containerBlockCoordinateDTOList);
+//	
+//        
+//        modelAndView.addObject("resp", resp);
+//    	
+//        return modelAndView;
+//    	
+//    }
 	
 
 }
