@@ -1,0 +1,9 @@
+
+    var values = new Array();     
+
+    <c:if test="${!empty details.users}">
+        <c:forEach var="user" items="${details.users}" varStatus="stat">
+            values.push("${user.name}");   
+        </c:forEach>
+    </:c:if>
+    alert("values[0] "+values[0]);
