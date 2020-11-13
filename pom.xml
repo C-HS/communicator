@@ -17,8 +17,27 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	
+<!--  <repositories>
+    <repository>
+      <id>osgeo</id>
+      <name>OSGeo Release Repository</name>
+      <url>https://repo.osgeo.org/repository/release/</url>
+      <snapshots><enabled>false</enabled></snapshots>
+      <releases><enabled>true</enabled></releases>
+    </repository>
+    <repository>
+      <id>osgeo-snapshot</id>
+      <name>OSGeo Snapshot Repository</name>
+      <url>https://repo.osgeo.org/repository/snapshot/</url>
+      <snapshots><enabled>true</enabled></snapshots>
+      <releases><enabled>false</enabled></releases>
+    </repository>
+    </repositories> -->
+   
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -154,6 +173,58 @@
 		     
 		</dependency>
 		
+ 		<dependency>
+		    <groupId>org.geotools</groupId>
+            <artifactId>gt-geojson</artifactId>
+		    <version>24.0</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/src/main/resources/libs/gt-geojson-24.0.jar</systemPath>
+		</dependency> 
+		
+<!-- <dependency>
+    <groupId>org.geotools</groupId>
+    <artifactId>gt-geojson</artifactId>
+    <version>24.0</version>
+</dependency> -->
+		
+		<!-- <dependency>
+		    <groupId>org.locationtech.jts</groupId>
+		    <artifactId>jts-core</artifactId>
+		    <version>1.15.0</version>
+		</dependency> -->
+		
+ 		<!-- <dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1</version>
+		</dependency> -->
+		 		
+		 <dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/src/main/resources/libs/json-simple-1.1.1.jar</systemPath>
+		</dependency> 
+		
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-text</artifactId>
+		    <version>1.6</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/src/main/resources/libs/commons-text-1.6.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.locationtech.jts</groupId>
+		    <artifactId>jts-core</artifactId>
+		    <version>1.17.1</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}/src/main/resources/libs/jts-core-1.17.1.jar</systemPath>
+		</dependency>
+		 
+		
+
 		
 	</dependencies>
 
