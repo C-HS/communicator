@@ -639,6 +639,84 @@ var area2 = {
       }
     };
 
+    var p1 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "p1"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.25941500, 26.51068700],
+			[80.25939200, 26.51069300],
+			[80.25940700, 26.51074200],
+			[80.25943800, 26.51073600],
+			[80.25941500, 26.51068700]
+          ]
+        ]
+      }
+    };
+
+    var p2 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "p2"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.25946000, 26.51079000],
+			[80.25943800, 26.51079800],
+			[80.25941500, 26.51074600],
+			[80.25943800, 26.51073800],
+			[80.25946000, 26.51079000]
+          ]
+        ]
+      }
+    };
+
+
+    var p3 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "p3"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.25943800, 26.51073500],
+			[80.25946000, 26.51072500],
+			[80.25943800, 26.51067700],
+			[80.25941500, 26.51068500],
+			[80.25943800, 26.51073500]
+          ]
+        ]
+      }
+    };
+
+    var p4 = {
+      "type": "Feature",
+      "properties": {
+      	"name": "p4"
+       },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+			[80.25943800, 26.51073600],
+			[80.25946000, 26.51073100],
+			[80.25948300, 26.51078000],
+			[80.25946000, 26.51078800],
+			[80.25943800, 26.51073600]
+          ]
+        ]
+      }
+    };
+
+
     var stompClient = null;
 	var satUrl = 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}';
 	var streetUrl = 'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}';
@@ -724,6 +802,10 @@ var area2 = {
 		L.geoJSON(area10, {onEachFeature: onEachFeature}).addTo(map);
         L.geoJSON(area11, {onEachFeature: onEachFeature}).addTo(map);
         L.geoJSON(area12, {onEachFeature: onEachFeature}).addTo(map);
+        L.geoJSON(p1, {onEachFeature: onEachFeature}).addTo(map);
+        L.geoJSON(p2, {onEachFeature: onEachFeature}).addTo(map);
+        L.geoJSON(p3, {onEachFeature: onEachFeature}).addTo(map);
+        L.geoJSON(p4, {onEachFeature: onEachFeature}).addTo(map);
 	}
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties["name"]);

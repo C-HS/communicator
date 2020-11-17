@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.geotools.geojson.geom.GeometryJSON;
-import org.locationtech.jts.geom.Coordinate;
-import org.locationtech.jts.geom.GeometryFactory;
+//import org.geotools.geojson.geom.GeometryJSON;
+//import org.locationtech.jts.geom.Coordinate;
+//import org.locationtech.jts.geom.GeometryFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +33,8 @@ import com.google.gson.Gson;
 import com.iaito.dto.ContainerAreaDTO;
 import com.iaito.model.VehicleDevice;
 import com.iaito.service.ContainerAreaService;
+
+import pointinploygon.PointInPloygon;
 
 @Configuration
 public class MqttConfig {
@@ -103,40 +105,48 @@ public class MqttConfig {
 				try {
 					LOGGER.info(message.toString());
 					
-					String msg = message.toString();
+					String msg = message.getPayload().toString();
 					
-					/*if(msg!=null && msg.charAt(0)=='#' && msg.charAt(msg.length()-1)=='&')
+					System.out.println("############ "+msg);
+					
+					if(msg!=null && msg.charAt(0)=='#' && msg.charAt(msg.length()-1)=='&')
 			         {
+						System.out.println("@@@@@@@@@@@@@@@@@@@@@@");
+						
 			           msg=msg.substring(1, msg.length()-1);
 			           String[] data = msg.split("[|]");
 			           
 			          
 			           VehicleDevice vehicleDevice = new VehicleDevice();
-			           vehicleDevice.setTagId(data[0]);
-			           vehicleDevice.setLatitude(data[1]);
-			           vehicleDevice.setLongitude(data[2]);
+			           vehicleDevice.setTagId(data[3]+" "+data[0]);
+			           vehicleDevice.setLatitude(data[2]);
+			           vehicleDevice.setLongitude(data[1]);
 			           vehicleDevice.setAltitude(data[3]);
 			           template.convertAndSend("/topic/vehicleDeviceInformation", gson.toJson(vehicleDevice));
+			           PointInPloygon pip = new PointInPloygon();
+			           String json = "{\"type\":\"Feature\",\"properties\":{\"name\":\"Unit One\"},\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[[26.511229, 80.259097],[26.511196, 80.259201],[26.511148, 80.259167],[26.511180, 80.259047],[26.511229, 80.259097]]]}}";
+			           boolean b = pip.checkPointInOut(26.511165, 80.259098, json);
 			           
-			           GeometryJSON g = new GeometryJSON();
-			           GeometryFactory gf = new GeometryFactory();
-			           for(ContainerAreaDTO ca : areaList)
-			           {
-			        	   org.locationtech.jts.geom.Polygon polygon = g.readPolygon(ca.getAreaJson());
-			        	   boolean pointIsInPolygon = polygon.contains(
-			        			   gf.createPoint(
-			        					   new Coordinate(
-			        							   Double.parseDouble(vehicleDevice.getLatitude()),Double.parseDouble(vehicleDevice.getLongitude()))));
-			        	   
-			        	   if(pointIsInPolygon)
-			        	   {
-			        		   LOGGER.info("#################### "+ca.getAreaName());
-			        	   }
-			        	   
-			           }
+			           boolean b1 = pip.checkPointInOut(26.511191, 80.259106, json);
+			           
+			           System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&result "+b);
+			           System.out.println("*****************************result "+b1);
+						/*
+						 * GeometryJSON g = new GeometryJSON(); GeometryFactory gf = new
+						 * GeometryFactory(); for(ContainerAreaDTO ca : areaList) {
+						 * org.locationtech.jts.geom.Polygon polygon = g.readPolygon(ca.getAreaJson());
+						 * boolean pointIsInPolygon = polygon.contains( gf.createPoint( new Coordinate(
+						 * Double.parseDouble(vehicleDevice.getLatitude()),Double.parseDouble(
+						 * vehicleDevice.getLongitude()))));
+						 * 
+						 * if(pointIsInPolygon) { LOGGER.info("#################### "+ca.getAreaName());
+						 * }
+						 * 
+						 * }
+						 */
 			           
 			           
-			         }*/
+			         }
 					
 					//VehicleDevice vehicleDevice = mapper.readValue((String)message.getPayload(), VehicleDevice.class);
 					//LOGGER.error("{}", vehicleDevice.toString());
