@@ -1,3 +1,10 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%--<c:set var="contextPath" value="${pageContext.request.contextPath}"/>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page import ="org.springframework.security.core.*,org.springframework.security.core.context.*" %>
+<%@ page import="org.apache.commons.lang3.StringUtils" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +42,13 @@
 			margin-bottom: 5px;
 		}
 	</style>
+	<script>
+		var jsonValues = [];
+		function addData(json)
+		{
+			jsonValues.push(json);
+		}
+	 </script>
 </head>
 <body>
 <div class="container-scroller">
@@ -58,664 +72,27 @@
 			<jsp:include page="./partials/footer.jsp" />
 		</div>
 	</div>
+	
+	<c:forEach var="block" items="${blockList}" varStatus="fieldRow">
+		<p id="parag">"${block.getBlockJson()}"</p>
+		<script>
+            addData($("#parag").text());
+			$("#parag").remove();
+		</script>
+
+	</c:forEach>
+
+	<c:forEach var="area" items="${areaList}" varStatus="fieldRow">
+		<p id="parag">"${area.getAreaJson()}"</p>
+		<script>
+            addData($("#parag").text());
+			$("#parag").remove();
+		</script>
+	</c:forEach>
+
 </div>
+
 <script>
-
-/* 
-    var customeBondedArea = {
-        "type":"FeatureCollection",
-        "features":[{
-            "type":"Feature",
-            "geometry":{
-                "type":"Polygon",
-                "coordinates":[[
-                    [80.2457953,26.4585406,0],
-                    [80.2457953,26.4579739,0],
-                    [80.2463103,26.4579355,0],
-                    [80.2462674,26.4574937,0],
-                    [80.2484346,26.45734,0],
-                    [80.2485848,26.4583293,0],
-                    [80.2457953,26.4585406,0]
-                ]]
-            },
-            "properties":{
-                "name":"Customs Bonded Area"
-            }
-        }]
-    };
-    var emptyContainerYard = {"type":"FeatureCollection","features":[
-            {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[80.2428771,26.4588576,0],[80.2428127,26.4583005,0],[80.2456344,26.4580796,0],[80.2456559,26.4586367,0],[80.2428771,26.4588576,0]]]},"properties":{"name":"Empty Container Yard"}}
-        ]};
-    var railwayYard = {"type":"FeatureCollection","features":[
-            {"type":"Feature","geometry":{"type":"Polygon","coordinates":[[[80.2422012,26.4591553,0],[80.2421797,26.4589248,0],[80.2485956,26.4583965,0],[80.2486492,26.4586463,0],[80.2422012,26.4591553,0]]]},"properties":{"name":"Railway Yard"}}
-        ]};
-    var areaUnitOne = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit One"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24818137288094,
-                        26.45808706517649
-                    ],
-                    [
-                        80.24854212999344,
-                        26.45808706517649
-                    ],
-                    [
-                        80.24854212999344,
-                        26.458327192510943
-                    ],
-                    [
-                        80.24818137288094,
-                        26.458327192510943
-                    ],
-                    [
-                        80.24818137288094,
-                        26.45808706517649
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitTwo = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Two"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24772405624388,
-                        26.45808826581443
-                    ],
-                    [
-                        80.24816930294037,
-                        26.45808826581443
-                    ],
-                    [
-                        80.24816930294037,
-                        26.458348803946482
-                    ],
-                    [
-                        80.24772405624388,
-                        26.458348803946482
-                    ],
-                    [
-                        80.24772405624388,
-                        26.45808826581443
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitThree = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Three"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24710714817047,
-                        26.45808706517649
-                    ],
-                    [
-                        80.24770930409431,
-                        26.45808706517649
-                    ],
-                    [
-                        80.24770930409431,
-                        26.45837641855265
-                    ],
-                    [
-                        80.24710714817047,
-                        26.45837641855265
-                    ],
-                    [
-                        80.24710714817047,
-                        26.45808706517649
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitFour = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Four"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24656131863594,
-                        26.45808706517649
-                    ],
-                    [
-                        80.2470937371254,
-                        26.45808706517649
-                    ],
-                    [
-                        80.2470937371254,
-                        26.458405233786785
-                    ],
-                    [
-                        80.24656131863594,
-                        26.458405233786785
-                    ],
-                    [
-                        80.24656131863594,
-                        26.45808706517649
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitFive = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Five"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24581298232079,
-                        26.45808946645232
-                    ],
-                    [
-                        80.24654790759087,
-                        26.45808946645232
-                    ],
-                    [
-                        80.24654790759087,
-                        26.458468867403347
-                    ],
-                    [
-                        80.24581298232079,
-                        26.458468867403347
-                    ],
-                    [
-                        80.24581298232079,
-                        26.45808946645232
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitSix = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Six"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24793058633804,
-                        26.457638025717106
-                    ],
-                    [
-                        80.24847239255905,
-                        26.457638025717106
-                    ],
-                    [
-                        80.24847239255905,
-                        26.45799701729695
-                    ],
-                    [
-                        80.24793058633804,
-                        26.45799701729695
-                    ],
-                    [
-                        80.24793058633804,
-                        26.457638025717106
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitSeven = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Seven"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24721041321754,
-                        26.457638025717106
-                    ],
-                    [
-                        80.24791985750198,
-                        26.457638025717106
-                    ],
-                    [
-                        80.24791985750198,
-                        26.457982609629706
-                    ],
-                    [
-                        80.24721041321754,
-                        26.457982609629706
-                    ],
-                    [
-                        80.24721041321754,
-                        26.457638025717106
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitEight = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Eight"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.24651035666466,
-                        26.457640427002303
-                    ],
-                    [
-                        80.24719029664993,
-                        26.457640427002303
-                    ],
-                    [
-                        80.24719029664993,
-                        26.457987412185652
-                    ],
-                    [
-                        80.24651035666466,
-                        26.457987412185652
-                    ],
-                    [
-                        80.24651035666466,
-                        26.457640427002303
-                    ]
-                ]
-            ]
-        }
-    };
-    var areaUnitNine = {
-        "type": "Feature",
-        "properties": {
-            "name": "Unit Nine",
-            "fill": "#ad1010"
-        },
-        "geometry": {
-            "type": "Polygon",
-            "coordinates": [
-                [
-                    [
-                        80.2476717531681,
-                        26.457412304685693
-                    ],
-                    [
-                        80.24843618273735,
-                        26.457412304685693
-                    ],
-                    [
-                        80.24843618273735,
-                        26.457577993571107
-                    ],
-                    [
-                        80.2476717531681,
-                        26.457577993571107
-                    ],
-                    [
-                        80.2476717531681,
-                        26.457412304685693
-                    ]
-                ]
-            ]
-        }
-    };
- */
-
- var kesaGround = {
-	"type":"FeatureCollection",
-	"features":[{
-		"type":"Feature",
-		"geometry":{
-			"type":"Polygon",
-			"coordinates":[[
-				[80.258848, 26.5108258, 0],
-				[80.2591766, 26.5106818, 0],
-				[80.2593978, 26.5111259, 0],
-				[80.259084, 26.5112639, 0],
-				[80.258848, 26.5108258, 0]
-			]]
-		},
-		"properties":{
-			"name":"Kesa Ground"
-		}
-	}]
-};
-
-var area1 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area1"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [80.2590867, 26.5112507],
-			[80.259068, 26.5112195],
-			[80.2591337, 26.5111895],
-			[80.2591551, 26.5112207],
-			[80.2590867, 26.5112507]
-          ]
-        ]
-      }
-    };
-
-
-var area2 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area2"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2591551, 26.5112207],
-			[80.2591337, 26.5111895],
-			[80.2592048, 26.5111583],
-			[80.2592276, 26.5111871],
-			[80.2591551, 26.5112207]
-          ]
-        ]
-      }
-    };
-
-    var area3 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area3"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2592276, 26.5111871],
-			[80.2592048, 26.5111583],
-			[80.2592866, 26.5111223],
-			[80.2593053, 26.5111523],
-			[80.2592276, 26.5111871]
-          ]
-        ]
-      }
-    };
-
-    var area4 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area4"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2593053, 26.5111523],
-			[80.2592866, 26.5111223],
-			[80.259371, 26.5110923],
-			[80.2593871, 26.5111151],
-			[80.2593053, 26.5111523]
-          ]
-        ]
-      }
-    };
-
-
-    var area5 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area5"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2590572, 26.5111871],
-			[80.2590371, 26.5111559],
-			[80.2591001, 26.5111283],
-			[80.2591203, 26.5111595],
-			[80.2590572, 26.5111871]
-          ]
-        ]
-      }
-    };
-
-   var area6 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area6"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2591203, 26.5111595],
-			[80.2591001, 26.5111283],
-			[80.2591712, 26.5110959],
-			[80.2591967, 26.5111283],
-			[80.2591203, 26.5111595]
-          ]
-        ]
-      }
-    };
-
-   var area7 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area7"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2591967, 26.5111283],
-			[80.2591712, 26.5110959],
-			[80.259249, 26.5110671],
-			[80.2592718, 26.5110971],
-			[80.2591967, 26.5111283]
-          ]
-        ]
-      }
-    };
-
-   var area8 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area8"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2592718, 26.5110971],
-			[80.259249, 26.5110671],
-			[80.2593348, 26.5110275],
-			[80.2593576, 26.5110623],
-			[80.2592718, 26.5110971]
-          ]
-        ]
-      }
-    };
-
-   var area9 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area9"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2590371, 26.5111559],
-			[80.2590143, 26.5111247],
-			[80.2590787, 26.5110959],
-			[80.2591001, 26.5111283],
-			[80.2590371, 26.5111559]
-          ]
-        ]
-      }
-    };
-
-   var area10 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area10"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2591001, 26.5111283],
-			[80.2590787, 26.5110959],
-			[80.2591471, 26.5110563],
-			[80.2591712, 26.5110959],
-			[80.2591001, 26.5111283]
-          ]
-        ]
-      }
-    };
-
-   var area11 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area11"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2591712, 26.5110959],
-			[80.2591565, 26.5110623],
-			[80.2592249, 26.5110335],
-			[80.259249, 26.5110671],
-			[80.2591712, 26.5110959]
-          ]
-        ]
-      }
-    };
-
-   var area12 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "Area12"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.2592514, 26.5110592],
-			[80.2592249, 26.5110335],
-			[80.259309, 26.5109968],
-			[80.2593251, 26.5110244],
-			[80.2592514, 26.5110592]
-          ]
-        ]
-      }
-    };
-
-    var p1 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "p1"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.25941500, 26.51068700],
-			[80.25939200, 26.51069300],
-			[80.25940700, 26.51074200],
-			[80.25943800, 26.51073600],
-			[80.25941500, 26.51068700]
-          ]
-        ]
-      }
-    };
-
-    var p2 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "p2"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.25946000, 26.51079000],
-			[80.25943800, 26.51079800],
-			[80.25941500, 26.51074600],
-			[80.25943800, 26.51073800],
-			[80.25946000, 26.51079000]
-          ]
-        ]
-      }
-    };
-
-
-    var p3 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "p3"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.25943800, 26.51073500],
-			[80.25946000, 26.51072500],
-			[80.25943800, 26.51067700],
-			[80.25941500, 26.51068500],
-			[80.25943800, 26.51073500]
-          ]
-        ]
-      }
-    };
-
-    var p4 = {
-      "type": "Feature",
-      "properties": {
-      	"name": "p4"
-       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-			[80.25943800, 26.51073600],
-			[80.25946000, 26.51073100],
-			[80.25948300, 26.51078000],
-			[80.25946000, 26.51078800],
-			[80.25943800, 26.51073600]
-          ]
-        ]
-      }
-    };
-
 
     var stompClient = null;
 	var satUrl = 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}';
@@ -729,6 +106,8 @@ var area2 = {
 	var customHybridLayer = new L.TileLayer(hybridUrl, {subdomains:sDomain, maxZoom:22, maxNativeZoom:19});
 	var customSatelliteLayer = new L.TileLayer(satUrl, {subdomains:sDomain, maxZoom:22, maxNativeZoom:19});
 	var map ;
+
+
 	changeMapTile = function(sel){
 		map.eachLayer(function (layer) {
 			map.removeLayer(layer);
@@ -789,7 +168,7 @@ var area2 = {
 		// L.geoJSON(areaUnitEight, {onEachFeature: onEachFeature}).addTo(map);
         // L.geoJSON(areaUnitNine, {onEachFeature: onEachFeature}).addTo(map);
         
-        L.geoJSON(kesaGround,{onEachFeature: onEachFeature}).addTo(map);
+       /* L.geoJSON(kesaGround,{onEachFeature: onEachFeature}).addTo(map);
 		L.geoJSON(area1, {onEachFeature: onEachFeature}).addTo(map);
 		L.geoJSON(area2, {onEachFeature: onEachFeature}).addTo(map);
 		L.geoJSON(area3, {onEachFeature: onEachFeature}).addTo(map);
@@ -805,13 +184,22 @@ var area2 = {
         L.geoJSON(p1, {onEachFeature: onEachFeature}).addTo(map);
         L.geoJSON(p2, {onEachFeature: onEachFeature}).addTo(map);
         L.geoJSON(p3, {onEachFeature: onEachFeature}).addTo(map);
-        L.geoJSON(p4, {onEachFeature: onEachFeature}).addTo(map);
+        L.geoJSON(p4, {onEachFeature: onEachFeature}).addTo(map);*/
+
+		//alert(jsonValues.length)
+
+		var i;
+				for (i = 0; i < jsonValues.length; i++) {
+					//alert(jsonValues[i].substring(1,jsonValues[i].length-1));
+					var v = jsonValues[i].substring(1,jsonValues[i].length-1);
+					L.geoJSON(jQuery.parseJSON(v), {onEachFeature: onEachFeature}).addTo(map);
+				}
 	}
 	function onEachFeature(feature, layer) {
 		layer.bindPopup(feature.properties["name"]);
 	}
 	function placeContainer(liveContainerData){
-		L.marker([liveContainerData.longitude,  liveContainerData.latitude]).addTo(map)
+		L.marker([liveContainerData.latitude,  liveContainerData.longitude]).addTo(map)
 				.bindPopup(liveContainerData.tagId)
 				.openPopup();
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.iaito.dto.ContainerMovementAtFixedReaderDTO;
 import com.iaito.model.ContainerMovementAtFixedReader;
+import com.iaito.model.VehicleDevice;
 
 public interface ContainerMovementAtFixedReaderService {
 
@@ -15,4 +16,5 @@ public interface ContainerMovementAtFixedReaderService {
 	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementAtFixedReaderByContainerID(long containerId);
 	public List<ContainerMovementAtFixedReaderDTO> getAllContainerMovementAtFixedReader();
 	public void deleteContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
+	public String addContainerMovementAtRover(VehicleDevice vehicleDevice);
 }
