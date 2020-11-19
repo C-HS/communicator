@@ -50,6 +50,24 @@ public class HomeController {
         modelAndView.setViewName("mapview");
         return modelAndView;
     }
+    
+    @GetMapping("/containerlocation")
+    public ModelAndView containerlocation() {
+        ModelAndView modelAndView = new ModelAndView();
+        
+        
+        List<ContainerBlockDTO> blockList = new ArrayList<>();
+        blockList = containerBlockService.getAllContainerBlock();
+        modelAndView.addObject("blockList", blockList);
+        
+        List<ContainerAreaDTO> areaList = new ArrayList<>();
+        areaList = containerAreaService.getAllContainerArea();
+        modelAndView.addObject("areaList", areaList);
+        
+        
+        modelAndView.setViewName("containerlocation");
+        return modelAndView;
+    }
     @GetMapping({"/","/dashboard"})
     public String dashboard(HttpSession httpSession) {
         if(httpSession != null && httpSession.getAttribute("userId") != null){

@@ -15,4 +15,8 @@ public interface ContainerMovementAtFixedReaderRepository extends JpaRepository<
 	public List<ContainerMovementAtFixedReader> findByEpc(String epc);
 	
 	public List<ContainerMovementAtFixedReader> findByContainerId(long containerId);
+	
+	public List<ContainerMovementAtFixedReader> findByContainerNo(String containerNo);
+	
+	public ContainerMovementAtFixedReader findFirstByContainerNoOrderByDateTimeDesc(String containerNo);
 }

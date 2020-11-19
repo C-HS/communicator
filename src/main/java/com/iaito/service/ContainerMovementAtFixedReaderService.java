@@ -17,4 +17,6 @@ public interface ContainerMovementAtFixedReaderService {
 	public List<ContainerMovementAtFixedReaderDTO> getAllContainerMovementAtFixedReader();
 	public void deleteContainerMovementAtFixedReader(ContainerMovementAtFixedReader containerMovementAtFixedReader);
 	public String addContainerMovementAtRover(VehicleDevice vehicleDevice);
+	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementByContainerNumber(String containerNo);
+	public ContainerMovementAtFixedReaderDTO getLastLocationByContainerNumber(String containerNo);
 }

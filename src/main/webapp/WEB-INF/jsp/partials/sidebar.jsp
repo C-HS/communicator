@@ -118,5 +118,11 @@
         <i class="mdi mdi-google-maps menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/containerlocation" >
+        <span class="menu-title">Locate Container</span>
+        <i class="mdi mdi-google-maps menu-icon"></i>
+      </a>
+    </li>
   </ul>
 </nav>

@@ -155,6 +155,37 @@ public class ContainerMovementAtFixedReaderServiceImpl implements ContainerMovem
 				.map(e -> modelMapper.map(e, ContainerMovementAtFixedReaderDTO.class))
 				.collect(Collectors.toList());
 	}
+	
+	@Override
+	public List<ContainerMovementAtFixedReaderDTO> getContainerMovementByContainerNumber(String containerNo) {
+
+		return repository
+				.findByContainerNo(containerNo)
+				.stream()
+				.map(e -> modelMapper.map(e, ContainerMovementAtFixedReaderDTO.class))
+				.collect(Collectors.toList());
+	}
+	
+	
+	@Override
+	public ContainerMovementAtFixedReaderDTO getLastLocationByContainerNumber(String containerNo) {
+		
+		try
+		{
+			ContainerMovementAtFixedReaderDTO dto =	modelMapper.map(repository.findFirstByContainerNoOrderByDateTimeDesc(containerNo), ContainerMovementAtFixedReaderDTO.class);
+			
+			if(dto==null || dto.getContainerId()==0)
+			{
+				return null;
+			}
+			return dto;
+		}
+		catch(Exception e)
+		{
+			return null;	
+		}
+
+	}
 
 	@Override
 	public List<ContainerMovementAtFixedReaderDTO> getAllContainerMovementAtFixedReader() {
