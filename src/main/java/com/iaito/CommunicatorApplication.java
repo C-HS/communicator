@@ -6,7 +6,10 @@ import java.util.HashSet;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 import com.iaito.model.Authority;
@@ -16,11 +19,20 @@ import com.iaito.repository.ContainerRepository;
 import com.iaito.repository.UserRepository;
 import org.springframework.context.annotation.Profile;
 
+/*@SpringBootApplication
+public class CommunicatorApplication extends SpringBootServletInitializer{*/
 @SpringBootApplication
-public class CommunicatorApplication {
+public class CommunicatorApplication{
+	
+	/*
+	 * @Override protected SpringApplicationBuilder
+	 * configure(SpringApplicationBuilder application) { return
+	 * application.sources(CommunicatorApplication.class); }
+	 */
 
 	public static void main(String[] args) {
 		SpringApplication.run(CommunicatorApplication.class, args);
+		
 	}
 	@Bean
 	@Profile("dev")

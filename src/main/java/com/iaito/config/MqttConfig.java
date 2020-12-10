@@ -105,6 +105,9 @@ public class MqttConfig {
 			           vehicleDevice.setLongitude(data[2]);
 			           vehicleDevice.setAltitude(data[3]);
 			           
+			    		String tagdata = vehicleDevice.getTagId();
+			    		tagdata = HextoAscii(tagdata.substring(6));
+			    		 vehicleDevice.setTagId(tagdata);
 			           System.out.println("############ "+vehicleDevice);
 			           
 			           template.convertAndSend("/topic/vehicleDeviceInformation", gson.toJson(vehicleDevice));
@@ -115,7 +118,7 @@ public class MqttConfig {
 					
 					//VehicleDevice vehicleDevice = mapper.readValue((String)message.getPayload(), VehicleDevice.class);
 					//LOGGER.error("{}", vehicleDevice.toString());
-				//	LOGGER.info(vehicleDevice.toString());
+				    //LOGGER.info(vehicleDevice.toString());
 					//template.convertAndSend("/topic/vehicleDeviceInformation", gson.toJson(vehicleDevice));
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -125,6 +128,26 @@ public class MqttConfig {
 			
 		};
 	}
+	
+	
+    public String HextoAscii(String hex){
+        byte b[]=new byte[150];
+        String ascii="";
+        int counter=0,i=0;
+        try{
+
+            for(i=0;i<(hex.length());i=i+2,counter++){
+                {
+
+                    b[counter]=(byte)Integer.parseInt(hex.substring(i,i+2),16);
+                }
+
+            }// end of the for loop
+        }catch(Exception ex){ascii="Error";}
+        ascii=new String(b).substring(0,counter);
+        return ascii;
+
+    }
 	
 	/*
 	 * @Bean public ApplicationListener<?> eventListener() { return new
