@@ -93,9 +93,9 @@ public class MqttConfig {
 					
 					String msg = message.getPayload().toString();
 					
-					//System.out.println("############ "+msg);
+					System.out.println("############ "+msg);
 					
-					if(msg!=null && msg.charAt(0)=='#' && msg.charAt(msg.length()-1)=='&')
+					/*if(msg!=null && msg.charAt(0)=='#' && msg.charAt(msg.length()-1)=='&')
 			         {		
 			           msg=msg.substring(1, msg.length()-1);
 			           String[] data = msg.split("[|]");
@@ -114,7 +114,7 @@ public class MqttConfig {
 
 			           movementService.addContainerMovementAtRover(vehicleDevice);
 
-			         }
+			         }*/
 					
 					//VehicleDevice vehicleDevice = mapper.readValue((String)message.getPayload(), VehicleDevice.class);
 					//LOGGER.error("{}", vehicleDevice.toString());

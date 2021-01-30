@@ -161,11 +161,16 @@ public class ContainerMovementAtFixedReaderController {
                 		  {
                 			  transdtoNew.setSource(dto.getLatitude()+","+dto.getLongitude());
                 			  transdtoNew.setDestination(dto.getLatitude()+","+dto.getLongitude());
+                			  
+                			  dmdto.setDestination(dto.getLatitude()+","+dto.getLongitude()); ///// 26-12-2020
                 		  }
                 		  else
                 		  {
                 			  transdtoNew.setSource(dto.getAreaName());
                 			  transdtoNew.setDestination(dto.getAreaName());
+                			  
+                			  
+                			  dmdto.setDestination(dto.getAreaName()); ////// 26-12-2020
                 		  }
                 		  
                 		  dmdto.setDistanceTravelled(dmdto.getDistanceTravelled()+distTravelled);
