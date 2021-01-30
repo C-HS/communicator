@@ -1,0 +1,6 @@
+root@raspberrypi:/home/pi/Desktop/test1/helloworld/src#
+
+usename : pi
+password : raspberry
+
+command to restart ssh : sudo service ssh restart

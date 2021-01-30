@@ -1,0 +1,24 @@
+Lora Trasnmit 
+Serail Port  /dev/ttyUSB0
+
+M0 GPIO13
+
+M1 GPIO19
+
+AX GPIO26
+
+Lora Receive
+
+Serail Port  /dev/ttyUSB1
+
+M0 GPIO16
+
+M1 GPIO20
+
+AX GPIO21
+
+
+
+Serail Port  /dev/ttyUSB0
+
+int serial_port = open("/dev/ttyUSB1", O_RDONLY | O_NOCTTY | O_SYNC);

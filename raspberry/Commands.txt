@@ -1,0 +1,127 @@
+sharing a folder
+
+sudo mount -t vboxsf sharedWubuntu windowsShare
+
+where
+sharedWubuntu is foldername in Windows
+windowsShare is foldername in Ubuntu
+
+-----------------------------------------------------------------------------------------
+
+makefile
+
+hellomake: helloworld.c test1.c
+     gcc -o hello helloworld.c test1.c -I .
+-------------------------------------------------------------------------------------------
+
+Building object using above makefile
+
+       make -f makefile
+-------------------------------------------------------------------------------------------
+
+Execute object created in above command
+
+       ./hello
+-------------------------------------------------------------------------------------------
+
+Compile single or multiple c file to object "a.out"
+
+       gcc helloworld.c test1.c
+       gcc *.c
+-------------------------------------------------------------------------------------------
+Access Permission for a file or multiple files
+
+       chmod +x helloworld.o
+       chmod +x src/*.o 
+-------------------------------------------------------------------------------------------
+Executing object file
+
+	./helloworld.o
+        ./a.out
+-------------------------------------------------------------------------------------------
+Serial Port Communication
+
+https://blog.mbedded.ninja/programming/operating-systems/linux/linux-serial-ports-using-c-cpp/
+
+
+-------------------------------------------------------------------------------------------
+Listing ports
+        
+        ls /dev/tty*
+
+-------------------------------------------------------------------------------------------
+
+Listing All active device and their port
+        
+        df -h
+
+-------------------------------------------------------------------------------------------
+
+Listing GPIOs
+
+        ls /sys/class/gpio/
+
+-------------------------------------------------------------------------------------------
+ GPIO Access Using LGPIO Library
+
+https://elinux.org/RPi_GPIO_Code_Samples
+http://abyz.me.uk/lg/download.html
+
+ Setup LGPIO Library
+ 
+Prerequisites
+These packages may be installed with the following command. 
+
+sudo apt install swig python-dev python3-dev
+sudo apt install python-setuptools python3-setuptools
+
+Download&Install
+The lg archive may be downloaded and installed with the following commands. 
+
+wget http://abyz.me.uk/lg/lg.zip
+unzip lg.zip
+cd lg
+make
+sudo make install
+
+-------------------------------------------------------------------------------------------
+Compile GPIO Program
+
+gcc -o pulse pulse.c -llgpio
+
+Run GPIO Program
+
+./pulse
+
+
+
+
+-------------------------------------------------------------------------------------------
+MQTT Dev Envirinment Setup
+https://www.eclipse.org/paho/index.php?page=clients/c/index.php
+
+
+git clone https://github.com/eclipse/paho.mqtt.c.git
+
+cd paho.mqtt.c
+
+(for open ssl development library ) sudo apt-get install libssl-dev
+
+make
+
+sudo make install
+
+--------------------------------------------------------------
+Compile C program with mqtt
+
+compile with mqtt library
+
+gcc -o prog1 prog1.c -lpaho-mqtt3c
+
+
+
+
+
+
+
+
