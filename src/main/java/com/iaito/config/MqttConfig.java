@@ -23,13 +23,17 @@ import com.google.gson.Gson;
 import com.iaito.model.VehicleDevice;
 import com.iaito.service.ContainerMovementAtFixedReaderService;
 
-@Configuration
+//@Configuration
 public class MqttConfig {
 	private static final Logger LOGGER = LoggerFactory.getLogger(MqttConfig.class);
 	private static final String CHANNEL_NAME_IN = "mqttInboundChannel";
 	private String url = "tcp://localhost:1883";
 	private String consumerClientId = "mqttConsumer";
 	private String consumerDefaultopic = "test";
+	
+	private String roverMSG;
+	
+	
 	@Autowired SimpMessagingTemplate template;
 	
 	@Autowired ContainerMovementAtFixedReaderService movementService;
@@ -89,11 +93,59 @@ public class MqttConfig {
 			public void handleMessage(Message<?> message) throws MessagingException {
 				ObjectMapper mapper = new ObjectMapper();
 				try {
-					LOGGER.info(message.toString());
+					//LOGGER.info(message.toString());
 					
 					String msg = message.getPayload().toString();
 					
 					System.out.println("############ "+msg);
+					
+					if(msg!=null)
+					{
+						if(msg.contains("RTK-FLOAT") || msg.contains("RTK-NORMAL"))
+						{
+							roverMSG ="";
+						}
+						else
+						{
+							for(int i=0; i<msg.length();i++)
+							{
+								
+								char ch= msg.charAt(i);
+								
+								if(ch=='#')
+								{
+									//System.out.println("AAAAA "+ch);
+									roverMSG ="";
+									roverMSG=roverMSG+ch;
+								}
+								else if(roverMSG.length()>=1 && roverMSG.charAt(0)=='#')
+								{
+									if(ch=='&')
+									{
+										//System.out.println("BBBBB "+ch);
+										roverMSG=roverMSG+ch;
+										
+										//System.out.println("data length "+roverMSG.length());
+										//System.out.println("data charAt(0) "+roverMSG.charAt(0));
+										//System.out.println("data charAt(roverMSG.length()-1) "+roverMSG.charAt(roverMSG.length()-1));
+										
+										if(roverMSG.length()==66 && roverMSG.charAt(0)=='#' && roverMSG.charAt(roverMSG.length()-1)=='&')
+		   								{
+		   									System.out.println("roverMSG "+roverMSG);
+		   								}
+										roverMSG="";
+									}
+									else if(roverMSG.length()<66)
+									{
+										//System.out.println("CCCCCC "+ch);
+										roverMSG=roverMSG+ch;
+									}
+								}
+							}
+						}
+					}
+					
+					
 					
 					/*if(msg!=null && msg.charAt(0)=='#' && msg.charAt(msg.length()-1)=='&')
 			         {		
