@@ -1,0 +1,2 @@
+The default username for your BeagleBoard.org BeagleBone Black (Rev C) is debian.
+The default password is temppwd.

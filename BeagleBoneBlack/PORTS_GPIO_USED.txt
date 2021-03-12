@@ -1,0 +1,29 @@
+t3.c 
+
+RTK Serial Port /dev/ttyO4
+Lora Transmit Serail Port  /dev/ttyO5
+
+#define E61_M0 23   //GPIO23  gpio0[23]
+#define E61_M1 26   //GPIO26  gpio0[26]
+#define E61_AUX 27  //GPIO27  gpio0[27]
+#define LORA_INIT_LED 22  //GPIO22  gpio0[22]
+
+#define RTK_LED 13    //GPIO45  gpio1[13]
+#define LORA_LED 12   //GPIO44  gpio1[12]
+
+
+r3.c
+
+Lora Receive Serail Port  /dev/ttyO2
+
+#define E70_M0 4   //GPIO4  gpio0[4]
+#define E70_M1 5   //GPIO5  gpio0[5]
+#define E70_AUX 1  //GPIO65  GPIO2[1]
+
+#define LORA_INIT_LED 29  //GPIO61  gpio1[29]
+
+#define LORA_LED 2  //GPIO66  GPIO2[2]
+#define MQTT_LED 3  //GPIO67  GPIO2[3]
+
+
+
